@@ -187,7 +187,6 @@ public class Usuario {
       fileRuta.mkdir();
     }
     File fl = new File(ruta + usuarios);
-
     try {
       Scanner read = new Scanner(fl);
       while (read.hasNextLine()) {
@@ -206,8 +205,6 @@ public class Usuario {
           this.telefono = linea[8];
           read.close();
           return true;
-        } else {
-          JOptionPane.showMessageDialog(null, "No se encontró su Usuario.\nLo debe Crear o Digitar el Correcto");
         }
       }
       read.close();
@@ -277,7 +274,6 @@ public class Usuario {
     } catch (Exception e) {
       System.err.println(e);
     }
-    System.err.println(result);
     return result;
   }
 

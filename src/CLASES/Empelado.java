@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 public class Empelado extends Usuario {
 
   private String empleados = "empleados.txt";
-  private String ruta = "C:\\Users\\mike\\Desktop\\PROYECTO1";
+  private String ruta = "C:\\proyecto\\";
   private String usuarios = "usuario.txt";
   private final String separador = "|";
   private String fecha = super.getDia() + "/" + super.getMes() + "/" + super.getAño();
@@ -58,14 +58,13 @@ public class Empelado extends Usuario {
     try {
       FileWriter fw = new FileWriter(this.ruta + this.empleados, true);
       PrintWriter pw = new PrintWriter(fw);
-
       pw.println(
-              super.getCedula()      + this.separador
-              + super.getNombre1()   + this.separador
-              + super.getNombre2()   + this.separador
+              super.getCedula() + this.separador
+              + super.getNombre1() + this.separador
+              + super.getNombre2() + this.separador
               + super.getApellido1() + this.separador
               + super.getApellido2() + this.separador
-              + this.salarioHoras    + this.separador
+              + this.salarioHoras + this.separador
               + this.horasTrabajadas + this.separador
               + "");
       pw.close();
@@ -79,6 +78,7 @@ public class Empelado extends Usuario {
   //***************************
   //METODO BUSCAR//// 
   public boolean Buscar() {
+    boolean result = false;
     File fileRuta = new File(ruta);
     if (!fileRuta.exists()) {
       fileRuta.mkdir();
@@ -89,26 +89,20 @@ public class Empelado extends Usuario {
       while (read.hasNextLine()) {
         String[] linea = read.nextLine().split("\\|");
         if (linea[0].equals(super.getCedula())) {
-          //super.getCedula() = linea[0];
           linea[0] = super.getCedula();
           linea[1] = super.getNombre1();
           linea[2] = super.getNombre2();
           linea[3] = super.getApellido1();
           linea[4] = super.getApellido2();
-          linea[5] = this.fecha;
-          /*linea[6] = super.getDireccion(); NO TOQUES ESTO VECES, GONZALES, KALURY.  PEDRITO TE QUIERO, 
-          linea[7] = super.getTelefono();*/
           read.close();
-          return true;
-        } else {
-          JOptionPane.showMessageDialog(null, "No se encontró su Usuario.\nLo debe Crear o Digitar el Correcto");
+          result = true;
         }
       }
       read.close();
-      return false;
     } catch (FileNotFoundException e) {
-      return false;
+      System.err.println(e);
     }
+    return result;
   }
 
   //METODO DE MODIFICAR EL USUARIO
