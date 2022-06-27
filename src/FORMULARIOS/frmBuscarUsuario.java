@@ -58,6 +58,7 @@ public class frmBuscarUsuario extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         btnCrear = new javax.swing.JButton();
         btnAtras = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -156,7 +157,7 @@ public class frmBuscarUsuario extends javax.swing.JFrame {
                 btnCrearActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 560, 90, 40));
+        jPanel1.add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 560, 90, 40));
 
         btnAtras.setBackground(new java.awt.Color(153, 255, 204));
         btnAtras.setText("ATRAS");
@@ -165,7 +166,11 @@ public class frmBuscarUsuario extends javax.swing.JFrame {
                 btnAtrasActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 560, 80, 40));
+        jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 560, 80, 40));
+
+        jButton1.setBackground(new java.awt.Color(102, 255, 204));
+        jButton1.setText("Modificar");
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 560, -1, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -266,6 +271,7 @@ public class frmBuscarUsuario extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbAño;
     private javax.swing.JComboBox<String> cmbDia;
     private javax.swing.JComboBox<String> cmbMes;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
