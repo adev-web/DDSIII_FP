@@ -54,6 +54,7 @@ public class frmCrearUsuario extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
         jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -162,6 +163,17 @@ public class frmCrearUsuario extends javax.swing.JFrame {
         jLabel11.setText("Crear Usuario");
         jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
 
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_eye_40px.png"))); // NOI18N
+        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel12MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel12MouseExited(evt);
+            }
+        });
+        jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, -1, 40));
+
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/WhatsApp Image 2022-06-25 at 6.39.58 PM.jpeg"))); // NOI18N
         jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 0, 480, 530));
@@ -171,6 +183,7 @@ public class frmCrearUsuario extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-8, 0, 450, 530));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jcMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcMesActionPerformed
@@ -210,6 +223,22 @@ public class frmCrearUsuario extends javax.swing.JFrame {
       this.dispose();
     }//GEN-LAST:event_btn_atrasActionPerformed
 
+    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+    
+       txtPassword.setEchoChar((char) 0);
+        
+        
+        
+    }//GEN-LAST:event_jLabel12MouseClicked
+
+    private void jLabel12MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseExited
+  
+        txtPassword.setEchoChar('*');
+        
+        
+        
+    }//GEN-LAST:event_jLabel12MouseExited
+
   public static void main(String args[]) {
 
     java.awt.EventQueue.invokeLater(new Runnable() {
@@ -225,6 +254,7 @@ public class frmCrearUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
