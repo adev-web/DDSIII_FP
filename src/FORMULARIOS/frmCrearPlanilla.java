@@ -53,7 +53,7 @@ public class frmCrearPlanilla extends javax.swing.JFrame {
         jLabel1.setText("CALCULO DE PLANILLA");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 29, -1, -1));
 
-        jbEliminar1.setBackground(new java.awt.Color(102, 255, 204));
+        jbEliminar1.setBackground(new java.awt.Color(51, 255, 204));
         jbEliminar1.setText("Mostrar");
         jbEliminar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,7 +71,7 @@ public class frmCrearPlanilla extends javax.swing.JFrame {
         });
         jPanel2.add(jbRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 29, -1, -1));
 
-        jbAdicionar.setBackground(new java.awt.Color(255, 153, 255));
+        jbAdicionar.setBackground(new java.awt.Color(51, 255, 204));
         jbAdicionar.setText("+Adicionar Empleado");
         jbAdicionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,7 +80,7 @@ public class frmCrearPlanilla extends javax.swing.JFrame {
         });
         jPanel2.add(jbAdicionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 153, 51));
 
-        jbEliminar.setBackground(new java.awt.Color(153, 255, 204));
+        jbEliminar.setBackground(new java.awt.Color(51, 255, 204));
         jbEliminar.setText("-Eliminar Empleado");
         jbEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
