@@ -231,6 +231,10 @@ public class frmPRINCIPAL extends javax.swing.JFrame {
         
     }//GEN-LAST:event_JLBexitMouseMoved
 
+    public void setLblName(String userValue){
+    this.lblNombre.setText(userValue);
+    }
+    
     private void JLBexitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLBexitMouseExited
 
         

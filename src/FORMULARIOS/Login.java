@@ -162,72 +162,72 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_TXTusuarioActionPerformed
 
     private void TXTusuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TXTusuarioMouseClicked
-
+      
       TXTusuario.setBorder(javax.swing.BorderFactory.createBevelBorder(NORMAL));
       TXTpassword.setBorder(null);
     }//GEN-LAST:event_TXTusuarioMouseClicked
 
     private void TXTusuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TXTusuarioMousePressed
-
+      
       if (TXTusuario.getText().equals("Ingrese su nombre de usuario")) {
         TXTusuario.setText("");
         TXTusuario.setForeground(Color.black);
       }
-
+      
       if (String.valueOf(TXTpassword.getPassword()).isEmpty()) {
         TXTpassword.setText("******************");
         TXTpassword.setForeground(Color.gray);
-
+        
       }
-
+      
 
     }//GEN-LAST:event_TXTusuarioMousePressed
 
     private void TXTpasswordMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TXTpasswordMousePressed
-
+      
       if (String.valueOf(TXTpassword.getPassword()).equals("******************")) {
         TXTpassword.setText("");
         TXTpassword.setForeground(Color.black);
       }
-
+      
       if (TXTusuario.getText().isEmpty()) {
         TXTusuario.setText("Ingrese su nombre de usuario");
         TXTusuario.setForeground(Color.gray);
-
+        
       }
 
     }//GEN-LAST:event_TXTpasswordMousePressed
 
     private void TXTpasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TXTpasswordMouseClicked
-
+      
       TXTpassword.setBorder(javax.swing.BorderFactory.createBevelBorder(NORMAL));
-
+      
       TXTusuario.setBorder(null);
-
+      
 
     }//GEN-LAST:event_TXTpasswordMouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-
+      
       TXTpassword.setEchoChar((char) 0);
-
+      
 
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jLabel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseExited
-
+      
       TXTpassword.setEchoChar('*');
-
+      
 
     }//GEN-LAST:event_jLabel4MouseExited
 
     private void jLabel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseEntered
-
+      
 
     }//GEN-LAST:event_jLabel4MouseEntered
 
     private void BTNregistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNregistrarActionPerformed
-
+      
       frmCrearUsuario FRM = new frmCrearUsuario();
       FRM.setVisible(true);
       dispose();
@@ -241,12 +241,12 @@ public class Login extends javax.swing.JFrame {
       util obj_encript = new util();
       String valorPass = new String(TXTpassword.getPassword());
       String pssCifred = obj_encript.cifrar(String.valueOf(valorPass));
-
+      
       boolean userCheck = obj_Usuario.LoginCheck(TXTusuario.getText(), pssCifred);
       if (userCheck == true) {
         frmPRINCIPAL obj_Principal = new frmPRINCIPAL();
         System.out.println("Logged");
-        //obj_Principal.changeNamelbl();
+        obj_Principal.setLblName(obj_Usuario.changeNamelbl(TXTusuario.getText()));
         obj_Principal.setVisible(true);
         this.dispose();
       } else {

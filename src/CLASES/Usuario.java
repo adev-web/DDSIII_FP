@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  * @author termi
  */
 public class Usuario {
-  
+
   private String Cedula;
   private String password;
   private String nombre1;
@@ -27,12 +27,12 @@ public class Usuario {
   private String telefono;
   private String ruta = "C:\\proyecto\\";
   private String usuarios = "usuario.txt";
-  
+
   private final String separador = "|";
-  
+
   public Usuario() {
   }
-  
+
   public Usuario(String Cedula, String password, String nombre1, String nombre2, String apellido1, String apellido2, String dia, String mes, String año, String direccion, String telefono) {
     this.Cedula = Cedula;
     this.password = password;
@@ -46,91 +46,91 @@ public class Usuario {
     this.direccion = direccion;
     this.telefono = telefono;
   }
-  
+
   public String getCedula() {
     return Cedula;
   }
-  
+
   public void setCedula(String Cedula) {
     this.Cedula = Cedula;
   }
-  
+
   public String getNombre1() {
     return nombre1;
   }
-  
+
   public String getPassword() {
     return password;
   }
-  
+
   public void setPassword(String password) {
     this.password = password;
   }
-  
+
   public void setNombre1(String nombre1) {
     this.nombre1 = nombre1;
   }
-  
+
   public String getNombre2() {
     return nombre2;
   }
-  
+
   public void setNombre2(String nombre2) {
     this.nombre2 = nombre2;
   }
-  
+
   public String getApellido1() {
     return apellido1;
   }
-  
+
   public void setApellido1(String apellido1) {
     this.apellido1 = apellido1;
   }
-  
+
   public String getApellido2() {
     return apellido2;
   }
-  
+
   public void setApellido2(String apellido2) {
     this.apellido2 = apellido2;
   }
-  
+
   public String getDia() {
     return dia;
   }
-  
+
   public void setDia(String dia) {
     this.dia = dia;
   }
-  
+
   public String getMes() {
     return mes;
   }
-  
+
   public void setMes(String mes) {
     this.mes = mes;
   }
-  
+
   public String getAño() {
     return año;
   }
-  
+
   public void setAño(String año) {
     this.año = año;
   }
-  
+
   public String getDireccion() {
     return direccion;
   }
-  
+
   public void setDireccion(String direccion) {
     this.direccion = direccion;
   }
-  
+
   public String getTelefono() {
     return telefono;
   }
-  
+
   public void setTelefono(String telefono) {
     this.telefono = telefono;
   }
@@ -167,7 +167,7 @@ public class Usuario {
     try {
       File path = new File(ruta + usuarios);
       Scanner read = new Scanner(path);
-      
+
       while (read.hasNextLine()) {
         String[] linea = read.nextLine().split("\\|");
         if (linea[0].equals(userValue) && linea[1].equals(Pass)) {
@@ -187,7 +187,7 @@ public class Usuario {
       fileRuta.mkdir();
     }
     File fl = new File(ruta + usuarios);
-    
+
     try {
       Scanner read = new Scanner(fl);
       while (read.hasNextLine()) {
@@ -225,7 +225,7 @@ public class Usuario {
       fileRuta.mkdir();
     }
     File fl = new File(ruta + usuarios);
-    
+
     try {
       FileWriter fw = new FileWriter(ruta + usuarios + ".tmp");
       PrintWriter pw = new PrintWriter(fw);
@@ -262,5 +262,23 @@ public class Usuario {
       return false;
     }
   }
-  
+
+  public String changeNamelbl(String userValue) {
+    String result = "";
+    try {
+      File path = new File(ruta + usuarios);
+      Scanner read = new Scanner(path);
+      while (read.hasNextLine()) {
+        String[] linea = read.nextLine().split("\\|");
+        if (linea[0].equals(userValue)) {
+          result = linea[2] + " " + linea[4];
+        }
+      }
+    } catch (Exception e) {
+      System.err.println(e);
+    }
+    System.err.println(result);
+    return result;
+  }
+
 }
