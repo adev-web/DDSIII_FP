@@ -176,7 +176,7 @@ public class frmAÑADIRempleado extends javax.swing.JFrame {
         Empelado objEmpelado = new Empelado();
         Usuario obj_Usuario = new Usuario();
         
-        if(obj_Usuario.Buscar()){
+        if(!obj_Usuario.Buscar()){
         JOptionPane.showMessageDialog(rootPane, "Este usuario ya existe");
         objEmpelado.setCedula(txtCedula.getText());
         objEmpelado.setNombre1(txtNombre.getText());
