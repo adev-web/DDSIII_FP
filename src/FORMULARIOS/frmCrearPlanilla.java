@@ -31,10 +31,10 @@ public class frmCrearPlanilla extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jbEliminar1 = new javax.swing.JButton();
-        jbRegresar = new javax.swing.JButton();
-        jbAdicionar = new javax.swing.JButton();
-        jbEliminar = new javax.swing.JButton();
+        btnMostrar = new javax.swing.JButton();
+        btnRegresar = new javax.swing.JButton();
+        btnAgregarEmpleado = new javax.swing.JButton();
+        btnEliminarEmpleado = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtPlanilla = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
@@ -53,41 +53,41 @@ public class frmCrearPlanilla extends javax.swing.JFrame {
         jLabel1.setText("CALCULO DE PLANILLA");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 29, -1, -1));
 
-        jbEliminar1.setBackground(new java.awt.Color(51, 255, 204));
-        jbEliminar1.setText("Mostrar");
-        jbEliminar1.addActionListener(new java.awt.event.ActionListener() {
+        btnMostrar.setBackground(new java.awt.Color(51, 255, 204));
+        btnMostrar.setText("Mostrar");
+        btnMostrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbEliminar1ActionPerformed(evt);
+                btnMostrarActionPerformed(evt);
             }
         });
-        jPanel2.add(jbEliminar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 100, 142, 51));
+        jPanel2.add(btnMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 100, 142, 51));
 
-        jbRegresar.setBackground(new java.awt.Color(255, 153, 255));
-        jbRegresar.setText("Regresar");
-        jbRegresar.addActionListener(new java.awt.event.ActionListener() {
+        btnRegresar.setBackground(new java.awt.Color(255, 153, 255));
+        btnRegresar.setText("Regresar");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbRegresarActionPerformed(evt);
+                btnRegresarActionPerformed(evt);
             }
         });
-        jPanel2.add(jbRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 29, -1, -1));
+        jPanel2.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 29, -1, -1));
 
-        jbAdicionar.setBackground(new java.awt.Color(51, 255, 204));
-        jbAdicionar.setText("+Adicionar Empleado");
-        jbAdicionar.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregarEmpleado.setBackground(new java.awt.Color(51, 255, 204));
+        btnAgregarEmpleado.setText("+Adicionar Empleado");
+        btnAgregarEmpleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbAdicionarActionPerformed(evt);
+                btnAgregarEmpleadoActionPerformed(evt);
             }
         });
-        jPanel2.add(jbAdicionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 153, 51));
+        jPanel2.add(btnAgregarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 153, 51));
 
-        jbEliminar.setBackground(new java.awt.Color(51, 255, 204));
-        jbEliminar.setText("-Eliminar Empleado");
-        jbEliminar.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminarEmpleado.setBackground(new java.awt.Color(51, 255, 204));
+        btnEliminarEmpleado.setText("-Eliminar Empleado");
+        btnEliminarEmpleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbEliminarActionPerformed(evt);
+                btnEliminarEmpleadoActionPerformed(evt);
             }
         });
-        jPanel2.add(jbEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, 142, 51));
+        jPanel2.add(btnEliminarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, 142, 51));
 
         jtPlanilla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -122,22 +122,13 @@ public class frmCrearPlanilla extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jbAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAdicionarActionPerformed
-
+    private void btnAgregarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarEmpleadoActionPerformed
         frmAÑADIRempleado FRM=new frmAÑADIRempleado();
         FRM.setVisible(true);
-         dispose();
-        
-        
-        
-        
-        
-        
-        
-        
-    }//GEN-LAST:event_jbAdicionarActionPerformed
+        this.dispose();    
+    }//GEN-LAST:event_btnAgregarEmpleadoActionPerformed
 
-    private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
+    private void btnEliminarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEmpleadoActionPerformed
 
         Empelado OBJ = new Empelado();
         
@@ -148,32 +139,18 @@ public class frmCrearPlanilla extends javax.swing.JFrame {
         
         
         
-    }//GEN-LAST:event_jbEliminarActionPerformed
+    }//GEN-LAST:event_btnEliminarEmpleadoActionPerformed
 
-    private void jbEliminar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminar1ActionPerformed
-   
-        Empelado OBJ = new Empelado();
-        
-        OBJ.Buscar(); 
-        
-        
-        
-        
-        
-    }//GEN-LAST:event_jbEliminar1ActionPerformed
+    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
+        Empelado objEmpelado = new Empelado();
+           
+    }//GEN-LAST:event_btnMostrarActionPerformed
 
-    private void jbRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRegresarActionPerformed
- 
-         frmPRINCIPAL BACK = new frmPRINCIPAL();
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+        frmPRINCIPAL BACK = new frmPRINCIPAL();
         BACK.setVisible(true);
-        dispose();
-        
-        
-        
-        
-        
-        
-    }//GEN-LAST:event_jbRegresarActionPerformed
+        this.dispose();    
+    }//GEN-LAST:event_btnRegresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -212,15 +189,15 @@ public class frmCrearPlanilla extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregarEmpleado;
+    private javax.swing.JButton btnEliminarEmpleado;
+    private javax.swing.JButton btnMostrar;
+    private javax.swing.JButton btnRegresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JButton jbAdicionar;
-    private javax.swing.JButton jbEliminar;
-    private javax.swing.JButton jbEliminar1;
-    private javax.swing.JButton jbRegresar;
     private javax.swing.JTable jtPlanilla;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,10 +1,12 @@
 package CLASES;
 
+import com.sun.org.apache.bcel.internal.generic.AALOAD;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
@@ -186,19 +188,69 @@ public class Empelado extends Usuario {
   }
 
   //MICROMETODOS
-  public double SalarioBruto() {
-    return horasTrabajadas * salarioHoras;
+    public  double SalarioBruto() {
+    double bruto = horasTrabajadas * salarioHoras;
+    return bruto;
+    
   }
 
-  public double SeguroSocial() {
-    return SalarioBruto() * 0.0975;
+    public double SeguroSocial() {
+     double Seguros = SalarioBruto() * 0.0975;
+     return Seguros;
   }
 
-  public double SeguroEducativo() {
+    public double SeguroEducativo() {
     return SalarioBruto() * 0.0125;
   }
 
-  public double SalarioNeto() {
+    public double SalarioNeto() {
     return SalarioBruto() - SeguroEducativo() - SeguroSocial();
   }
+  
+  //METODO DE MOSTRAR USUARIO EN TABLA
+    public ArrayList<Empelado> mostrarTodo() {
+    ArrayList<Empelado> empleadoLista = new ArrayList<>();
+    File fileRuta = new File(ruta);
+    if(!fileRuta.exists())
+        fileRuta.mkdir();
+    
+    File fl = new File(ruta + empleados);
+    try{
+    Scanner read = new Scanner(fl);
+    while(read.hasNextLine()){
+    String linea = read.nextLine();
+    String[] arr = linea.split("\\|");
+    Empelado objEmpelado = new Empelado();
+    objEmpelado.setCedula(arr[0]);
+    objEmpelado.setNombre1(arr[1]);
+    objEmpelado.setNombre2(arr[2]);
+    objEmpelado.setApellido1(arr[3]);
+    objEmpelado.setApellido2(arr[4]);
+    objEmpelado.setHorasTrabajadas(Double.parseDouble(arr[5]));
+    objEmpelado.setSalarioHoras(Double.parseDouble(arr[6]));
+    SBruto(String.valueOf(arr[7]));
+    
+    empleadoLista.add(objEmpelado);
+    }
+    read.close();
+    return empleadoLista;
+    }
+    
+    catch(FileNotFoundException e){
+        return null;
+    }
+    }
+
+    private void SBruto(String valueOf) {
+        double SBruto = horasTrabajadas * salarioHoras;
+    }
+
+    
+
+    
+  
+  
+  
+  
+  
 }//FIN DE LA CLASE

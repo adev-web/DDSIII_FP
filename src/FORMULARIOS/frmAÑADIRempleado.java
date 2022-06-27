@@ -185,38 +185,7 @@ public class frmAÑADIRempleado extends javax.swing.JFrame {
         else{
         JOptionPane.showMessageDialog(rootPane,"NO EXISTE EL USUARIO DIGITADO");
         }
-        /*Empelado objEmpelado = new Empelado();
-      Usuario obj_Usuario = new Usuario();
-      File fileRuta = new File("C:\\proyecto\\");
-      if (!fileRuta.exists()) {
-        fileRuta.mkdir();
-      }
-
-      if (obj_Usuario.Buscar()) {
-        JOptionPane.showMessageDialog(null, "El Usuario que Digitó ya existe");
-      }
-      File fl = new File("C:\\proyecto\\empleados.txt");
-      try {
-        Scanner read = new Scanner(fl);
-        String[] linea = read.nextLine().split("\\|");
-        if (linea[0].equals(txtCedula.getText())) {
-
-          objEmpelado.setCedula(txtCedula.getText());
-          objEmpelado.setNombre1(txtNombre.getText());
-          objEmpelado.setNombre2(txtNombre2.getText());
-          objEmpelado.setApellido1(txtApellido.getText());
-          objEmpelado.setApellido2(txtApellido2.getText());
-          objEmpelado.setHorasTrabajadas(Double.parseDouble(txtHorasTrabajadas.getText()));
-          objEmpelado.setSalarioHoras(Double.parseDouble(txtSalario.getText()));
-          if (objEmpelado.CrearEmpleado()) {
-            JOptionPane.showMessageDialog(null, "Empleado Ingresado con Exito");
-          }
-        } else {
-          JOptionPane.showMessageDialog(null, "El Empleado que Digitó ya existe");
-        }
-      } catch (Exception e) {
-        System.err.println(e);
-      }*/
+        
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
@@ -231,7 +200,7 @@ public class frmAÑADIRempleado extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
-      frmPRINCIPAL frm = new frmPRINCIPAL();
+      frmCrearPlanilla frm = new frmCrearPlanilla();
       frm.setVisible(true);
       this.dispose();
     }//GEN-LAST:event_btnAtrasActionPerformed
