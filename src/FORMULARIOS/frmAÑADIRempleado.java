@@ -173,7 +173,27 @@ public class frmAÑADIRempleado extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-      Empelado objEmpelado = new Empelado();
+        Empelado objEmpelado = new Empelado();
+        Usuario obj_Usuario = new Usuario();
+        
+        if(obj_Usuario.Buscar()){
+        JOptionPane.showMessageDialog(rootPane, "Este usuario ya existe");
+        objEmpelado.setCedula(txtCedula.getText());
+        objEmpelado.setNombre1(txtNombre.getText());
+        objEmpelado.setNombre2(txtNombre2.getText());
+        objEmpelado.setApellido1(txtApellido.getText());
+        objEmpelado.setApellido2(txtApellido2.getText());
+        objEmpelado.setHorasTrabajadas(Double.parseDouble(txtHorasTrabajadas.getText()));
+        objEmpelado.setSalarioHoras(Double.parseDouble(txtSalario.getText()));
+        if(objEmpelado.CrearEmpleado()){
+            JOptionPane.showMessageDialog(rootPane,"El Empleado se Ha Ingresado con Exito!!");
+        }else{JOptionPane.showMessageDialog(rootPane, "El Empleado no se ha ingresado ERROR");
+        }
+        }
+        else{
+        JOptionPane.showMessageDialog(rootPane,"NO EXISTE EL USUARIO DIGITADO");
+        }
+        /*Empelado objEmpelado = new Empelado();
       Usuario obj_Usuario = new Usuario();
       File fileRuta = new File("C:\\proyecto\\");
       if (!fileRuta.exists()) {
@@ -204,7 +224,7 @@ public class frmAÑADIRempleado extends javax.swing.JFrame {
         }
       } catch (Exception e) {
         System.err.println(e);
-      }
+      }*/
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed

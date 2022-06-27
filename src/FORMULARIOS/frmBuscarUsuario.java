@@ -58,7 +58,7 @@ public class frmBuscarUsuario extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         btnCrear = new javax.swing.JButton();
         btnAtras = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -168,9 +168,14 @@ public class frmBuscarUsuario extends javax.swing.JFrame {
         });
         jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 560, 80, 40));
 
-        jButton1.setBackground(new java.awt.Color(102, 255, 204));
-        jButton1.setText("Modificar");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 560, -1, 40));
+        btnModificar.setBackground(new java.awt.Color(102, 255, 204));
+        btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 560, -1, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -226,6 +231,10 @@ public class frmBuscarUsuario extends javax.swing.JFrame {
        this.dispose();
     }//GEN-LAST:event_btnAtrasActionPerformed
 
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnModificarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -268,10 +277,10 @@ public class frmBuscarUsuario extends javax.swing.JFrame {
     private javax.swing.JButton btnAtras;
     private javax.swing.JButton btnBuscarUsu;
     private javax.swing.JButton btnCrear;
+    private javax.swing.JButton btnModificar;
     private javax.swing.JComboBox<String> cmbAño;
     private javax.swing.JComboBox<String> cmbDia;
     private javax.swing.JComboBox<String> cmbMes;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
