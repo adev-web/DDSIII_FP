@@ -5,6 +5,8 @@
 package FORMULARIOS;
 
 import CLASES.Empelado;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -36,7 +38,7 @@ public class frmCrearPlanilla extends javax.swing.JFrame {
         btnAgregarEmpleado = new javax.swing.JButton();
         btnEliminarEmpleado = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jtPlanilla = new javax.swing.JTable();
+        tblPlanilla = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -89,7 +91,7 @@ public class frmCrearPlanilla extends javax.swing.JFrame {
         });
         jPanel2.add(btnEliminarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, 142, 51));
 
-        jtPlanilla.setModel(new javax.swing.table.DefaultTableModel(
+        tblPlanilla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null, null},
@@ -107,7 +109,7 @@ public class frmCrearPlanilla extends javax.swing.JFrame {
                 "Cedula", "Nombre1", "Nombre2", "Apellido1", "Apellido2", "HT", "S xH", "Salario Bruto", "SS", "SE", "Salario Neto"
             }
         ));
-        jScrollPane2.setViewportView(jtPlanilla);
+        jScrollPane2.setViewportView(tblPlanilla);
 
         jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 1083, 271));
 
@@ -142,7 +144,19 @@ public class frmCrearPlanilla extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEliminarEmpleadoActionPerformed
 
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
+        ArrayList<Empelado> lista = new ArrayList<>();
         Empelado objEmpelado = new Empelado();
+        lista = objEmpelado.mostrarTodo();
+        DefaultTableModel modelo = (DefaultTableModel)tblPlanilla.getModel();
+        int cantidad = modelo.getRowCount();
+        for(int i=0 ; i<cantidad ; i++){
+        modelo.removeRow(0);
+        }
+        
+        for(int i=0 ; i<lista.size(); i++){ 
+        String [] arr = {lista.get(i).getCedula(), lista.get(i).getNombre1(), lista.get(i).getNombre2(),lista.get(i).getApellido1(), lista.get(i).getApellido2()};                                                                 
+        modelo.addRow(arr);
+        }
            
     }//GEN-LAST:event_btnMostrarActionPerformed
 
@@ -198,6 +212,6 @@ public class frmCrearPlanilla extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jtPlanilla;
+    private javax.swing.JTable tblPlanilla;
     // End of variables declaration//GEN-END:variables
 }
