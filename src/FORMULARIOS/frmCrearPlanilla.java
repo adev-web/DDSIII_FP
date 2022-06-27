@@ -155,6 +155,7 @@ public class frmCrearPlanilla extends javax.swing.JFrame {
         
         for(int i=0 ; i<lista.size(); i++){ 
         String [] arr = {lista.get(i).getCedula(), lista.get(i).getNombre1(), lista.get(i).getNombre2(),lista.get(i).getApellido1(), lista.get(i).getApellido2()};                                                                 
+        double [] arr2= {lista.get(i).getHorasTrabajadas(),lista.get(i).getSalarioHoras(),lista.get(i).SalarioBruto(),lista.get(i).getHorasTrabajadas(),lista.get(i).SeguroSocial(),lista.get(i).SeguroEducativo(),lista.get(i).SalarioNeto()};
         modelo.addRow(arr);
         }
            
