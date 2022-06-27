@@ -218,7 +218,7 @@ public class frmCrearUsuario extends javax.swing.JFrame {
     private void btn_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atrasActionPerformed
       Login j = new Login();
       j.setVisible(true);
-      dispose();
+      this.dispose();
     }//GEN-LAST:event_btn_atrasActionPerformed
 
     private void btn_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificarActionPerformed
