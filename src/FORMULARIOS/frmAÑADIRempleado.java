@@ -91,12 +91,10 @@ public class frmAÑADIRempleado extends javax.swing.JFrame {
 
         txtHorasTrabajadas.setBackground(new java.awt.Color(255, 204, 204));
         txtHorasTrabajadas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtHorasTrabajadas.setForeground(new java.awt.Color(0, 255, 204));
         jPanel1.add(txtHorasTrabajadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, 314, -1));
 
         txtSalario.setBackground(new java.awt.Color(255, 204, 204));
         txtSalario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtSalario.setForeground(new java.awt.Color(0, 255, 204));
         jPanel1.add(txtSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 410, 314, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -120,20 +118,16 @@ public class frmAÑADIRempleado extends javax.swing.JFrame {
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, -1, -1));
 
         txtNombre.setBackground(new java.awt.Color(255, 204, 204));
-        txtNombre.setForeground(new java.awt.Color(0, 255, 204));
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 234, -1));
 
         txtNombre2.setBackground(new java.awt.Color(255, 204, 204));
-        txtNombre2.setForeground(new java.awt.Color(0, 255, 204));
         jPanel1.add(txtNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 234, -1));
 
         txtApellido.setBackground(new java.awt.Color(255, 204, 204));
-        txtApellido.setForeground(new java.awt.Color(0, 255, 204));
         jPanel1.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 234, -1));
 
         txtApellido2.setBackground(new java.awt.Color(255, 204, 204));
         txtApellido2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtApellido2.setForeground(new java.awt.Color(0, 255, 204));
         jPanel1.add(txtApellido2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 234, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -143,7 +137,6 @@ public class frmAÑADIRempleado extends javax.swing.JFrame {
 
         txtCedula.setBackground(new java.awt.Color(255, 204, 255));
         txtCedula.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        txtCedula.setForeground(new java.awt.Color(0, 255, 204));
         jPanel1.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 260, 40));
 
         btnBuscar.setBackground(new java.awt.Color(153, 255, 204));
@@ -162,7 +155,6 @@ public class frmAÑADIRempleado extends javax.swing.JFrame {
 
         jLabel8.setBackground(new java.awt.Color(255, 204, 204));
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 255, 204));
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/descargar6.jpg"))); // NOI18N
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, -1));
 
@@ -185,7 +177,7 @@ public class frmAÑADIRempleado extends javax.swing.JFrame {
         objEmpelado.setApellido2(txtApellido2.getText());
         objEmpelado.setHorasTrabajadas(Double.parseDouble(txtHorasTrabajadas.getText()));
         objEmpelado.setSalarioHoras(Double.parseDouble(txtSalario.getText()));
-        if(objEmpelado.CrearEmpleado()){
+        if(!objEmpelado.CrearEmpleado()){
             JOptionPane.showMessageDialog(rootPane,"El Empleado se Ha Ingresado con Exito!!");
         }else{JOptionPane.showMessageDialog(rootPane, "El Empleado no se ha ingresado ERROR");
         }
