@@ -5,6 +5,8 @@
 package FORMULARIOS;
 
 import CLASES.Empelado;
+import CLASES.Usuario;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -32,7 +34,7 @@ public class frmAÑADIRempleado extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         txtCedula = new javax.swing.JTextField();
-        jbBuscar1 = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -47,8 +49,8 @@ public class frmAÑADIRempleado extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         txtHorasTrabajadas = new javax.swing.JTextField();
         txtSalario = new javax.swing.JTextField();
-        jbAtras = new javax.swing.JButton();
-        jbAgregar = new javax.swing.JButton();
+        btnAtras = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,10 +58,10 @@ public class frmAÑADIRempleado extends javax.swing.JFrame {
 
         jLabel5.setText("Cedula");
 
-        jbBuscar1.setText("Buscar");
-        jbBuscar1.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbBuscar1ActionPerformed(evt);
+                btnBuscarActionPerformed(evt);
             }
         });
 
@@ -73,7 +75,7 @@ public class frmAÑADIRempleado extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                .addComponent(jbBuscar1)
+                .addComponent(btnBuscar)
                 .addGap(34, 34, 34))
         );
         jPanel2Layout.setVerticalGroup(
@@ -83,7 +85,7 @@ public class frmAÑADIRempleado extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -173,14 +175,19 @@ public class frmAÑADIRempleado extends javax.swing.JFrame {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        jbAtras.setBackground(new java.awt.Color(255, 102, 102));
-        jbAtras.setText("<<ATRAS");
-
-        jbAgregar.setBackground(new java.awt.Color(153, 255, 102));
-        jbAgregar.setText("+AGREGAR");
-        jbAgregar.addActionListener(new java.awt.event.ActionListener() {
+        btnAtras.setBackground(new java.awt.Color(255, 102, 102));
+        btnAtras.setText("<<ATRAS");
+        btnAtras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbAgregarActionPerformed(evt);
+                btnAtrasActionPerformed(evt);
+            }
+        });
+
+        btnAgregar.setBackground(new java.awt.Color(153, 255, 102));
+        btnAgregar.setText("+AGREGAR");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
             }
         });
 
@@ -190,9 +197,9 @@ public class frmAÑADIRempleado extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(73, 73, 73)
-                .addComponent(jbAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jbAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(85, 85, 85))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
@@ -218,8 +225,8 @@ public class frmAÑADIRempleado extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jbAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
-                    .addComponent(jbAtras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                    .addComponent(btnAtras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(26, 26, 26))
         );
 
@@ -243,29 +250,46 @@ public class frmAÑADIRempleado extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jbAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarActionPerformed
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        Empelado objEmpelado = new Empelado();
+        Usuario  objUsuario = new Usuario();
+        if(objUsuario.Buscar()){
+        JOptionPane.showMessageDialog(null,"El Usuario que Digitó ya existe");
+        }
+        else{
+        objEmpelado.setCedula(txtCedula.getText());
+        objEmpelado.setNombre1(txtNombre.getText());
+        objEmpelado.setNombre2(txtNombre2.getText());
+        objEmpelado.setApellido1(txtApellido.getText());
+        objEmpelado.setApellido2(txtApellido2.getText());
+        objEmpelado.setHorasTrabajadas(Double.parseDouble(txtHorasTrabajadas.getText()));
+        objEmpelado.setSalarioHoras(Double.parseDouble(txtSalario.getText()));
+        if(objEmpelado.CrearEmpleado())
+            JOptionPane.showMessageDialog(null,"Empleado Ingresado con Exito");
+        else {
+        JOptionPane.showMessageDialog(null,"Empleado NO se Ha Igresado");
+        }
+        }
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
-        
-         Empelado OBJ = new Empelado();
-        
-        OBJ.CrearEmpleado(); 
-        
-        
-        
-        
-    }//GEN-LAST:event_jbAgregarActionPerformed
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        Empelado objEmpelado = new Empelado();
+        objEmpelado.setCedula(txtCedula.getText());
+        if(objEmpelado.Buscar()){
+        txtNombre.setText(objEmpelado.getNombre1());
+        txtNombre2.setText(objEmpelado.getNombre2());
+        txtApellido.setText(objEmpelado.getApellido1());
+        txtApellido2.setText(objEmpelado.getApellido2());
+        }else{
+            JOptionPane.showMessageDialog(null,"Usuario no encontrado\nCree o digite bien el usuario");
+        }  
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
-    private void jbBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscar1ActionPerformed
-
-        Empelado OBJ = new Empelado();
-        
-        OBJ.Buscar(); 
-        
-        
-        
-        
-        
-    }//GEN-LAST:event_jbBuscar1ActionPerformed
+    private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
+        frmPRINCIPAL frm = new frmPRINCIPAL();
+        frm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnAtrasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -303,6 +327,9 @@ public class frmAÑADIRempleado extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnAtras;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -314,9 +341,6 @@ public class frmAÑADIRempleado extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JButton jbAgregar;
-    private javax.swing.JButton jbAtras;
-    private javax.swing.JButton jbBuscar1;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtApellido2;
     private javax.swing.JTextField txtCedula;

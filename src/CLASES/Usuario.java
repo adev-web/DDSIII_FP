@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author termi
- */
+ */ 
 public class Usuario {
 
  private String Cedula;

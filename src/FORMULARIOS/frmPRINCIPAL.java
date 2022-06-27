@@ -27,14 +27,14 @@ public class frmPRINCIPAL extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        JLBcrearUsuario = new javax.swing.JLabel();
+        btnCrearUsuario = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        JLBverEmpleado = new javax.swing.JLabel();
-        JLBcrearPlanilla = new javax.swing.JLabel();
+        btnVerEmpleado = new javax.swing.JLabel();
+        btnCrearPlanilla = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
         JLBexit = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -44,62 +44,62 @@ public class frmPRINCIPAL extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("MENU PRINCIPAL"));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        JLBcrearUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLBcrearUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_add_user_male_96px.png"))); // NOI18N
-        JLBcrearUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        JLBcrearUsuario.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        btnCrearUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnCrearUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_add_user_male_96px.png"))); // NOI18N
+        btnCrearUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnCrearUsuario.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
-                JLBcrearUsuarioMouseMoved(evt);
+                btnCrearUsuarioMouseMoved(evt);
             }
         });
-        JLBcrearUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnCrearUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JLBcrearUsuarioMouseClicked(evt);
+                btnCrearUsuarioMouseClicked(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                JLBcrearUsuarioMouseExited(evt);
+                btnCrearUsuarioMouseExited(evt);
             }
         });
-        jPanel1.add(JLBcrearUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, 140, 120));
+        jPanel1.add(btnCrearUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, 140, 120));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 233, 222));
         jLabel3.setText("Crear Usuario");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, -1, -1));
 
-        JLBverEmpleado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLBverEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_find_user_male_96px.png"))); // NOI18N
-        JLBverEmpleado.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        btnVerEmpleado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnVerEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_find_user_male_96px.png"))); // NOI18N
+        btnVerEmpleado.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
-                JLBverEmpleadoMouseMoved(evt);
+                btnVerEmpleadoMouseMoved(evt);
             }
         });
-        JLBverEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnVerEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JLBverEmpleadoMouseClicked(evt);
+                btnVerEmpleadoMouseClicked(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                JLBverEmpleadoMouseExited(evt);
+                btnVerEmpleadoMouseExited(evt);
             }
         });
-        jPanel1.add(JLBverEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 220, 140, 120));
+        jPanel1.add(btnVerEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 220, 140, 120));
 
-        JLBcrearPlanilla.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLBcrearPlanilla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_insert_table_96px_9.png"))); // NOI18N
-        JLBcrearPlanilla.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        btnCrearPlanilla.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnCrearPlanilla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_insert_table_96px_9.png"))); // NOI18N
+        btnCrearPlanilla.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
-                JLBcrearPlanillaMouseMoved(evt);
+                btnCrearPlanillaMouseMoved(evt);
             }
         });
-        JLBcrearPlanilla.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnCrearPlanilla.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JLBcrearPlanillaMouseClicked(evt);
+                btnCrearPlanillaMouseClicked(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                JLBcrearPlanillaMouseExited(evt);
+                btnCrearPlanillaMouseExited(evt);
             }
         });
-        jPanel1.add(JLBcrearPlanilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 220, 130, 120));
+        jPanel1.add(btnCrearPlanilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 220, 130, 120));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 255, 255));
@@ -114,10 +114,10 @@ public class frmPRINCIPAL extends javax.swing.JFrame {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_user_150px_2.png"))); // NOI18N
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 160, 140));
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 51));
-        jLabel8.setText("Jose Gonzalez");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 250, 40));
+        lblNombre.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(255, 255, 51));
+        lblNombre.setText("Jose Gonzalez");
+        jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 250, 40));
 
         JLBexit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_Close_40px_2.png"))); // NOI18N
         JLBexit.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -153,93 +153,65 @@ public class frmPRINCIPAL extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JLBcrearUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLBcrearUsuarioMouseClicked
+    private void btnCrearUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearUsuarioMouseClicked
  
-       
-        
-        
-         //AQUI PROGRAMAS MIKExd
            
            frmCrearUsuario FRM=new frmCrearUsuario();
            FRM.setVisible(true);
-           
-         
-         
-           
-        
-    }//GEN-LAST:event_JLBcrearUsuarioMouseClicked
+           this.dispose();
+    }//GEN-LAST:event_btnCrearUsuarioMouseClicked
 
-    private void JLBcrearUsuarioMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLBcrearUsuarioMouseMoved
+    private void btnCrearUsuarioMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearUsuarioMouseMoved
  
-        JLBcrearUsuario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        btnCrearUsuario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         
-    }//GEN-LAST:event_JLBcrearUsuarioMouseMoved
+    }//GEN-LAST:event_btnCrearUsuarioMouseMoved
 
-    private void JLBcrearUsuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLBcrearUsuarioMouseExited
+    private void btnCrearUsuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearUsuarioMouseExited
       
-         JLBcrearUsuario.setBorder(null);
+         btnCrearUsuario.setBorder(null);
    
          
-    }//GEN-LAST:event_JLBcrearUsuarioMouseExited
+    }//GEN-LAST:event_btnCrearUsuarioMouseExited
 
-    private void JLBverEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLBverEmpleadoMouseClicked
-      
-       
-        //AQUI PROGRAMAS MIKE
-           
-            frmBuscarUsuario FRM =new frmBuscarUsuario();
+    private void btnVerEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerEmpleadoMouseClicked
+           frmAÑADIRempleado FRM =new frmAÑADIRempleado();
            FRM.setVisible(true);
-           
-           
-           
-           
-           
-        
-    }//GEN-LAST:event_JLBverEmpleadoMouseClicked
+           this.dispose();    
+    }//GEN-LAST:event_btnVerEmpleadoMouseClicked
 
-    private void JLBverEmpleadoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLBverEmpleadoMouseMoved
+    private void btnVerEmpleadoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerEmpleadoMouseMoved
       
-        JLBverEmpleado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        btnVerEmpleado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         
         
         
-    }//GEN-LAST:event_JLBverEmpleadoMouseMoved
+    }//GEN-LAST:event_btnVerEmpleadoMouseMoved
 
-    private void JLBverEmpleadoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLBverEmpleadoMouseExited
+    private void btnVerEmpleadoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerEmpleadoMouseExited
 
-        JLBverEmpleado.setBorder(null);                                                     
+        btnVerEmpleado.setBorder(null);                                                     
   
-    }//GEN-LAST:event_JLBverEmpleadoMouseExited
+    }//GEN-LAST:event_btnVerEmpleadoMouseExited
 
-    private void JLBcrearPlanillaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLBcrearPlanillaMouseClicked
-
-     
-        
-        
-         //AQUI PROGRAMAS MIKE
-           
-           
+    private void btnCrearPlanillaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearPlanillaMouseClicked
            frmCrearPlanilla FRM =new frmCrearPlanilla();
            FRM.setVisible(true);
-         
-         
-         
-        
-        
-    }//GEN-LAST:event_JLBcrearPlanillaMouseClicked
+           this.dispose();    
+    }//GEN-LAST:event_btnCrearPlanillaMouseClicked
 
-    private void JLBcrearPlanillaMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLBcrearPlanillaMouseMoved
+    private void btnCrearPlanillaMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearPlanillaMouseMoved
  
-           JLBcrearPlanilla.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+           btnCrearPlanilla.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         
    
-    }//GEN-LAST:event_JLBcrearPlanillaMouseMoved
+    }//GEN-LAST:event_btnCrearPlanillaMouseMoved
 
-    private void JLBcrearPlanillaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLBcrearPlanillaMouseExited
+    private void btnCrearPlanillaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearPlanillaMouseExited
 
-            JLBcrearPlanilla.setBorder(null);
+            btnCrearPlanilla.setBorder(null);
           
-    }//GEN-LAST:event_JLBcrearPlanillaMouseExited
+    }//GEN-LAST:event_btnCrearPlanillaMouseExited
 
     private void JLBexitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLBexitMouseClicked
 
@@ -306,16 +278,16 @@ public class frmPRINCIPAL extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel JLBcrearPlanilla;
-    private javax.swing.JLabel JLBcrearUsuario;
     private javax.swing.JLabel JLBexit;
-    private javax.swing.JLabel JLBverEmpleado;
+    private javax.swing.JLabel btnCrearPlanilla;
+    private javax.swing.JLabel btnCrearUsuario;
+    private javax.swing.JLabel btnVerEmpleado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblNombre;
     // End of variables declaration//GEN-END:variables
 }

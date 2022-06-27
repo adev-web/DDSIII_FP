@@ -60,14 +60,12 @@ public class Empelado extends Usuario {
       PrintWriter pw = new PrintWriter(fw);
 
       pw.println(
-              super.getCedula() + this.separador
-              + super.getPassword() + this.separador
-              + super.getNombre1() + this.separador
-              + super.getNombre2() + this.separador
+              super.getCedula()      + this.separador
+              + super.getNombre1()   + this.separador
+              + super.getNombre2()   + this.separador
               + super.getApellido1() + this.separador
               + super.getApellido2() + this.separador
-              + this.fecha + this.separador
-              + this.salarioHoras + this.separador
+              + this.salarioHoras    + this.separador
               + this.horasTrabajadas + this.separador
               + "");
       pw.close();
