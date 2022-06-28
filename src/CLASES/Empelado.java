@@ -17,7 +17,7 @@ public class Empelado extends Usuario {
   private String usuarios = "usuario.txt";
   private final String separador = "|";
   private String fecha = super.getDia() + "/" + super.getMes() + "/" + super.getAño();
-  private double salarioBruto, SeguroSocial,SeguroEducativo,SalarioNeto;
+  
   private double salarioHoras, horasTrabajadas;
 
   public String getFecha() {
@@ -44,37 +44,7 @@ public class Empelado extends Usuario {
     this.horasTrabajadas = horasTrabajadas;
   }
 
-    public double getSalarioBruto() {
-        return salarioBruto = this.SalarioBruto();
-    }
-
-    public void setSalarioBruto(double salarioBruto) {
-        this.salarioBruto = salarioBruto;
-    }
-
-    public double getSeguroSocial() {
-        return SeguroSocial = this.SeguroSocial();
-    }
-
-    public void setSeguroSocial(double SeguroSocial) {
-        this.SeguroSocial = SeguroSocial;
-    }
-
-    public double getSeguroEducativo() {
-        return SeguroEducativo = this.SeguroEducativo();
-    }
-
-    public void setSeguroEducativo(double SeguroEducativo) {
-        this.SeguroEducativo = SeguroEducativo;
-    }
-
-    public double getSalarioNeto() {
-        return SalarioNeto = this.SalarioNeto();
-    }
-
-    public void setSalarioNeto(double SalarioNeto) {
-        this.SalarioNeto = SalarioNeto;
-    }
+   
 
   
   public Empelado() {
@@ -221,24 +191,25 @@ public class Empelado extends Usuario {
   }
 
   //MICROMETODOS
-    public  double SalarioBruto() {
+    public  String SalarioBruto() {
     double bruto = horasTrabajadas * salarioHoras;
-    return bruto;
-    
+    return bruto+"";
+    }
+
+    public String SeguroSocial() {
+     double Seguros = Double.parseDouble(SalarioBruto()) * 0.0975;
+     return Seguros+"";
   }
 
-    public double SeguroSocial() {
-     double Seguros = SalarioBruto() * 0.0975;
-     return Seguros;
-  }
+    public String SeguroEducativo() {
+    double SE = Double.parseDouble(SalarioBruto()) * 0.0125;
+    return SE+"";
+    }
 
-    public double SeguroEducativo() {
-    return SalarioBruto() * 0.0125;
-  }
-
-    public double SalarioNeto() {
-    return SalarioBruto() - SeguroEducativo() - SeguroSocial();
-  }
+    public String SalarioNeto() {
+     double neto = Double.parseDouble(SalarioBruto()) - Double.parseDouble(SeguroEducativo()) - Double.parseDouble(SeguroSocial());
+     return neto+"";
+    }
   
   //METODO DE MOSTRAR USUARIO EN TABLA
     public ArrayList<Empelado> mostrarTodo() {
@@ -253,6 +224,7 @@ public class Empelado extends Usuario {
     while(read.hasNextLine()){
     String linea = read.nextLine();
     String[] arr = linea.split("\\|");
+    //Double[] arr2 = linea.split("\\|");
     Empelado objEmpelado = new Empelado();
     objEmpelado.setCedula(arr[0]);
     objEmpelado.setNombre1(arr[1]);
@@ -261,11 +233,10 @@ public class Empelado extends Usuario {
     objEmpelado.setApellido2(arr[4]);
     objEmpelado.setHorasTrabajadas(Double.parseDouble(arr[5]));
     objEmpelado.setSalarioHoras(Double.parseDouble(arr[6]));
-    objEmpelado.setSalarioBruto(Double.parseDouble(arr[7]));
-    objEmpelado.setSeguroSocial(Double.parseDouble(arr[8]));
-    objEmpelado.setSeguroEducativo(Double.parseDouble(arr[9]));
-    objEmpelado.setSalarioNeto(Double.parseDouble(arr[10]));
-    empleadoLista.add(objEmpelado);
+    arr[7] =  objEmpelado.SalarioBruto();
+    arr[8] =  objEmpelado.SeguroSocial();
+    arr[9] =  objEmpelado.SeguroEducativo();
+    arr[10]=  objEmpelado.SalarioNeto();
     }
     read.close();
     return empleadoLista;
@@ -276,9 +247,7 @@ public class Empelado extends Usuario {
     }
     }
 
-    private void SBruto(String valueOf) {
-        double SBruto = horasTrabajadas * salarioHoras;
-    }
+    
 
     
 
