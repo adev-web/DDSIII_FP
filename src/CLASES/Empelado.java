@@ -241,20 +241,9 @@ public class Empelado extends Usuario {
     read.close();
     return empleadoLista;
     }
-    
+   
     catch(FileNotFoundException e){
         return null;
     }
     }
-
-    
-
-    
-
-    
-  
-  
-  
-  
-  
 }//FIN DE LA CLASE
