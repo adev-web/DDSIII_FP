@@ -171,9 +171,9 @@ public class Empelado extends Usuario {
         while (read.hasNextLine()) {
           String linea = read.nextLine();
           String[] arr = linea.split("\\|");
-          if (!arr[0].equals(super.getCedula())) {
+         if (!arr[0].equals(super.getCedula())) {
             pw.println(linea);
-          }
+         }
         }
         pw.close();
         fw.close();

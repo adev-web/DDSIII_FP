@@ -6,8 +6,10 @@ package FORMULARIOS;
 
 import CLASES.Empelado;
 import java.util.ArrayList;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import jdk.nashorn.internal.parser.Lexer;
 
 /**
  *
@@ -123,12 +125,15 @@ public class frmCrearPlanilla extends javax.swing.JFrame {
 
     private void btnEliminarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEmpleadoActionPerformed
         Empelado objEmpelado = new Empelado();
-        if(tblPlanilla.isCellSelected(ERROR, NORMAL)){
-        if(objEmpelado.EliminarEmpleado())
-        JOptionPane.showMessageDialog(rootPane, "Usuario eliminado");}
+        int numFilaSeleccionada = tblPlanilla.getSelectedRow();
+       
+        objEmpelado.setCedula((String) tblPlanilla.getValueAt(numFilaSeleccionada, 0));
         
-        
-           
+        if(objEmpelado.EliminarEmpleado()){
+        JOptionPane.showMessageDialog(rootPane, "Usuario eliminado");
+        }else{
+        JOptionPane.showMessageDialog(rootPane,"No se ha eliminado");
+        }
     }//GEN-LAST:event_btnEliminarEmpleadoActionPerformed
 
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
