@@ -6,6 +6,7 @@ package FORMULARIOS;
 
 import CLASES.Empelado;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -121,16 +122,13 @@ public class frmCrearPlanilla extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarEmpleadoActionPerformed
 
     private void btnEliminarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEmpleadoActionPerformed
-
-        Empelado OBJ = new Empelado();
-        
-        OBJ.EliminarEmpleado(); 
-        
-        
+        Empelado objEmpelado = new Empelado();
+        if(tblPlanilla.isCellSelected(ERROR, NORMAL)){
+        if(objEmpelado.EliminarEmpleado())
+        JOptionPane.showMessageDialog(rootPane, "Usuario eliminado");}
         
         
-        
-        
+           
     }//GEN-LAST:event_btnEliminarEmpleadoActionPerformed
 
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
