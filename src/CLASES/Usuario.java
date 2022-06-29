@@ -150,7 +150,7 @@ public class Usuario {
               + this.nombre2 + this.separador
               + this.apellido1 + this.separador
               + this.apellido2 + this.separador
-              + this.dia + "/" + this.mes + "/" + this.año + this.separador
+              + this.dia + this.separador + this.mes + this.separador  + this.año + this.separador
               + this.direccion + this.separador
               + this.telefono);
       pw.close();
@@ -199,10 +199,10 @@ public class Usuario {
           this.apellido1 = linea[4];
           this.apellido2 = linea[5];
           this.dia = linea[6];
-          this.mes = linea[6];
-          this.año = linea[6];
-          this.direccion = linea[7];
-          this.telefono = linea[8];
+          this.mes = linea[7];
+          this.año = linea[8];
+          this.direccion = linea[9];
+          this.telefono = linea[10];
           read.close();
           return true;
         }

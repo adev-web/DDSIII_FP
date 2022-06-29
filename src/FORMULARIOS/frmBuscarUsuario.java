@@ -113,6 +113,11 @@ public class frmBuscarUsuario extends javax.swing.JFrame {
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
 
         cmbAño.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Año", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", " " }));
+        cmbAño.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbAñoActionPerformed(evt);
+            }
+        });
         jPanel3.add(cmbAño, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, -1, -1));
 
         cmbMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mes", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", " " }));
@@ -198,7 +203,7 @@ public class frmBuscarUsuario extends javax.swing.JFrame {
 
     private void btnBuscarUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarUsuActionPerformed
       Usuario obj_Usuario = new Usuario();
-      obj_Usuario.setCedula(txtCedula.getText());
+      obj_Usuario.setCedula(txtCedulaBuscar.getText());
       if (obj_Usuario.Buscar()) {
         txtCedula.setText(obj_Usuario.getCedula());
         txtNombre.setText(obj_Usuario.getNombre1());
@@ -210,8 +215,6 @@ public class frmBuscarUsuario extends javax.swing.JFrame {
         cmbDia.setSelectedItem(obj_Usuario.getDia());
         txtDireccion.setText(obj_Usuario.getDireccion());
         txtTelefono.setText(obj_Usuario.getTelefono());
-      }else{
-          JOptionPane.showMessageDialog(null,"La Cedula que Busca No Ha sido Digitada");
       }
         
     }//GEN-LAST:event_btnBuscarUsuActionPerformed
@@ -233,8 +236,26 @@ public class frmBuscarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAtrasActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        // TODO add your handling code here:
+        Usuario obj_Usuario = new Usuario();
+        obj_Usuario.setCedula(txtCedula.getText());
+        obj_Usuario.setNombre1(txtNombre.getText());
+        obj_Usuario.setNombre2(txtNombre2.getText());
+        obj_Usuario.setApellido1(txtApellido.getText());
+        obj_Usuario.setApellido2(txtApellido2.getText());
+        obj_Usuario.setAño(cmbAño.getItemAt(cmbAño.getSelectedIndex()));
+        obj_Usuario.setDia(cmbDia.getItemAt(cmbDia.getSelectedIndex()));
+        obj_Usuario.setMes(cmbMes.getItemAt(cmbMes.getSelectedIndex()));
+        obj_Usuario.setDireccion(txtDireccion.getText());
+        obj_Usuario.setTelefono(txtTelefono.getText());
+        if(obj_Usuario.ModificarUsuario())
+            JOptionPane.showMessageDialog(rootPane, "El Usuario fue Actualizado");
+        else
+            JOptionPane.showMessageDialog(rootPane, "El Usuario NO pudo ser Actualizado");
     }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void cmbAñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbAñoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbAñoActionPerformed
 
     /**
      * @param args the command line arguments

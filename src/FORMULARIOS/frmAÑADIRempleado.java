@@ -177,7 +177,7 @@ public class frmAÑADIRempleado extends javax.swing.JFrame {
         objEmpelado.setApellido2(txtApellido2.getText());
         objEmpelado.setHorasTrabajadas(Double.parseDouble(txtHorasTrabajadas.getText()));
         objEmpelado.setSalarioHoras(Double.parseDouble(txtSalario.getText()));
-        if(!objEmpelado.CrearEmpleado()){
+        if(objEmpelado.CrearEmpleado()){
             JOptionPane.showMessageDialog(rootPane,"El Empleado se Ha Ingresado con Exito!!");
         }else{JOptionPane.showMessageDialog(rootPane, "El Empleado no se ha ingresado ERROR");
         }
