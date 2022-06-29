@@ -191,24 +191,24 @@ public class Empelado extends Usuario {
   }
 
   //MICROMETODOS
-    public  String SalarioBruto() {
+    public double SalarioBruto() {
     double bruto = horasTrabajadas * salarioHoras;
-    return bruto+"";
+    return bruto;
     }
 
-    public String SeguroSocial() {
-     double Seguros = Double.parseDouble(SalarioBruto()) * 0.0975;
-     return Seguros+"";
+    public double SeguroSocial() {
+     double Seguros = SalarioBruto() * 0.0975;
+     return Seguros;
   }
 
-    public String SeguroEducativo() {
-    double SE = Double.parseDouble(SalarioBruto()) * 0.0125;
-    return SE+"";
+    public double SeguroEducativo() {
+    double SE = SalarioBruto() * 0.0125;
+    return SE;
     }
 
-    public String SalarioNeto() {
-     double neto = Double.parseDouble(SalarioBruto()) - Double.parseDouble(SeguroEducativo()) - Double.parseDouble(SeguroSocial());
-     return neto+"";
+    public double SalarioNeto() {
+     double neto = SalarioBruto() - SeguroEducativo() - SeguroSocial();
+     return neto;
     }
   
   //METODO DE MOSTRAR USUARIO EN TABLA
@@ -233,10 +233,12 @@ public class Empelado extends Usuario {
     objEmpelado.setApellido2(arr[4]);
     objEmpelado.setHorasTrabajadas(Double.parseDouble(arr[5]));
     objEmpelado.setSalarioHoras(Double.parseDouble(arr[6]));
-    arr[7] =  objEmpelado.SalarioBruto();
-    arr[8] =  objEmpelado.SeguroSocial();
-    arr[9] =  objEmpelado.SeguroEducativo();
-    arr[10]=  objEmpelado.SalarioNeto();
+    objEmpelado.SalarioBruto();
+    empleadoLista.add(objEmpelado);
+    
+      objEmpelado.SeguroSocial();
+     objEmpelado.SeguroEducativo();
+      objEmpelado.SalarioNeto();
     }
     read.close();
     return empleadoLista;
