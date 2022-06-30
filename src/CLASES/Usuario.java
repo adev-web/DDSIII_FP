@@ -6,7 +6,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,6 +13,7 @@ import javax.swing.JOptionPane;
  */
 public class Usuario {
 
+  private static String CurrentUser;
   private String Cedula;
   private String cedulaSearch;
   private String password;
@@ -28,7 +28,6 @@ public class Usuario {
   private String telefono;
   private String ruta = "C:\\proyecto\\";
   private String usuarios = "usuario.txt";
-
   private String splitter = "\\|";
   private String concat = "|";
 
@@ -47,6 +46,14 @@ public class Usuario {
     this.año = año;
     this.direccion = direccion;
     this.telefono = telefono;
+  }
+
+  public static String getCurrentUser() {
+    return CurrentUser;
+  }
+
+  public static void setCurrentUser(String CurrentUser) {
+    Usuario.CurrentUser = CurrentUser;
   }
 
   public String getCedula() {

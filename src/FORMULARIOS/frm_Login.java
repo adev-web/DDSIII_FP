@@ -15,12 +15,12 @@ import javax.swing.border.BevelBorder;
  *
  * @author termi
  */
-public class Login extends javax.swing.JFrame {
+public class frm_Login extends javax.swing.JFrame {
 
   /**
    * Creates new form Login
    */
-  public Login() {
+  public frm_Login() {
     initComponents();
   }
 
@@ -166,73 +166,73 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_TXTusuarioActionPerformed
 
     private void TXTusuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TXTusuarioMouseClicked
-
+      
       TXTusuario.setBorder(javax.swing.BorderFactory.createBevelBorder(NORMAL));
       TXTpassword.setBorder(null);
     }//GEN-LAST:event_TXTusuarioMouseClicked
 
     private void TXTusuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TXTusuarioMousePressed
-
+      
       if (TXTusuario.getText().equals("Ingrese su Usuario")) {
         TXTusuario.setText("");
         TXTusuario.setForeground(Color.black);
       }
-
+      
       if (String.valueOf(TXTpassword.getPassword()).isEmpty()) {
         TXTpassword.setText("********");
         TXTpassword.setForeground(Color.gray);
-
+        
       }
-
+      
 
     }//GEN-LAST:event_TXTusuarioMousePressed
 
     private void TXTpasswordMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TXTpasswordMousePressed
-
+      
       if (String.valueOf(TXTpassword.getPassword()).equals("********")) {
         TXTpassword.setText("");
         TXTpassword.setForeground(Color.black);
       }
-
+      
       if (TXTusuario.getText().isEmpty()) {
         TXTusuario.setText("Ingrese su Usuario");
         TXTusuario.setForeground(Color.gray);
-
+        
       }
 
     }//GEN-LAST:event_TXTpasswordMousePressed
 
     private void TXTpasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TXTpasswordMouseClicked
-
+      
       TXTpassword.setBorder(javax.swing.BorderFactory.createBevelBorder(NORMAL));
-
+      
       TXTusuario.setBorder(null);
-
+      
 
     }//GEN-LAST:event_TXTpasswordMouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-
+      
       TXTpassword.setEchoChar((char) 0);
-
+      
 
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jLabel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseExited
-
+      
       TXTpassword.setEchoChar('*');
-
+      
 
     }//GEN-LAST:event_jLabel4MouseExited
 
     private void jLabel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseEntered
-
+      
 
     }//GEN-LAST:event_jLabel4MouseEntered
 
     private void BTNregistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNregistrarActionPerformed
-
-      frmCrearUsuario FRM = new frmCrearUsuario();
+      
+      frm_CrearUsuario FRM = new frm_CrearUsuario();
       FRM.setVisible(true);
       dispose();
       // aqui mike
@@ -245,24 +245,23 @@ public class Login extends javax.swing.JFrame {
       util obj_encript = new util();
       String valorPass = new String(TXTpassword.getPassword());
       String pssCifred = obj_encript.cifrar(String.valueOf(valorPass));
-
       boolean userCheck = obj_Usuario.LoginCheck(TXTusuario.getText(), pssCifred);
       if (userCheck == true) {
-        frmPRINCIPAL obj_Principal = new frmPRINCIPAL();
+        frm_Principal obj_Principal = new frm_Principal();
         JOptionPane.showMessageDialog(this, "Inicio de sesión satisfactorio.");
-        obj_Principal.setLblName(obj_Usuario.changeNamelbl(TXTusuario.getText()));
+        String nombreUser = obj_Usuario.changeNamelbl(TXTusuario.getText());
+        obj_Usuario.setCurrentUser(nombreUser);
+        obj_Principal.setLblName(obj_Usuario.getCurrentUser());
         obj_Principal.setVisible(true);
         this.dispose();
       } else {
-        JOptionPane.showMessageDialog(this, "Error de validacion\n Usuario u contraseña incorrectos.",
-      "Aviso!", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Error de validacion\n Usuario u contraseña incorrectos.", "Aviso!", JOptionPane.ERROR_MESSAGE);
       }
     }//GEN-LAST:event_BTNingresarActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
       System.exit(0);
     }//GEN-LAST:event_jButton3ActionPerformed
-
     private void TXTpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TXTpasswordActionPerformed
       // TODO add your handling code here:
     }//GEN-LAST:event_TXTpasswordActionPerformed
@@ -284,14 +283,18 @@ public class Login extends javax.swing.JFrame {
         }
       }
     } catch (ClassNotFoundException ex) {
-      java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      java.util.logging.Logger.getLogger(frm_Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     } catch (InstantiationException ex) {
-      java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      java.util.logging.Logger.getLogger(frm_Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     } catch (IllegalAccessException ex) {
-      java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      java.util.logging.Logger.getLogger(frm_Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-      java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      java.util.logging.Logger.getLogger(frm_Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     }
+    //</editor-fold>
+    //</editor-fold>
+    //</editor-fold>
+    //</editor-fold>
     //</editor-fold>
     //</editor-fold>
     //</editor-fold>
@@ -300,7 +303,7 @@ public class Login extends javax.swing.JFrame {
     /* Create and display the form */
     java.awt.EventQueue.invokeLater(new Runnable() {
       public void run() {
-        new Login().setVisible(true);
+        new frm_Login().setVisible(true);
       }
     });
   }

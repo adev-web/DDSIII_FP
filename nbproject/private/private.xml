@@ -3,9 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/50763/Documents/GitHub/PROYECTO1/ProyectoDDS3/src/FORMULARIOS/frmAÑADIRempleado.java</file>
-            <file>file:/C:/Users/50763/Documents/GitHub/PROYECTO1/ProyectoDDS3/src/FORMULARIOS/frmCrearPlanilla.java</file>
-            <file>file:/C:/Users/50763/Documents/GitHub/PROYECTO1/ProyectoDDS3/src/CLASES/Empelado.java</file>
+            <file>file:/C:/Users/Alessandro/Documents/GitHub/ProyectoDDS3/src/FORMULARIOS/frmCrearUsuario.java</file>
+            <file>file:/C:/Users/Alessandro/Documents/GitHub/ProyectoDDS3/src/CLASES/Empleado.java</file>
+            <file>file:/C:/Users/Alessandro/Documents/GitHub/ProyectoDDS3/src/FORMULARIOS/frmAÑADIRempleado.java</file>
+            <file>file:/C:/Users/Alessandro/Documents/GitHub/ProyectoDDS3/src/FORMULARIOS/frmPRINCIPAL.java</file>
+            <file>file:/C:/Users/Alessandro/Documents/GitHub/ProyectoDDS3/src/FORMULARIOS/frmBuscarUsuario.java</file>
+            <file>file:/C:/Users/Alessandro/Documents/GitHub/ProyectoDDS3/src/FORMULARIOS/Login.java</file>
+            <file>file:/C:/Users/Alessandro/Documents/GitHub/ProyectoDDS3/src/FORMULARIOS/frmCrearPlanilla.java</file>
         </group>
     </open-files>
 </project-private>
