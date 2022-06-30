@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 public class Usuario {
 
   private String Cedula;
+  private String cedulaSearch;
   private String password;
   private String nombre1;
   private String nombre2;
@@ -28,7 +29,8 @@ public class Usuario {
   private String ruta = "C:\\proyecto\\";
   private String usuarios = "usuario.txt";
 
-  private final String separador = "|";
+  private String splitter = "\\|";
+  private String concat = "|";
 
   public Usuario() {
   }
@@ -53,6 +55,14 @@ public class Usuario {
 
   public void setCedula(String Cedula) {
     this.Cedula = Cedula;
+  }
+
+  public String getCedulaSearch() {
+    return cedulaSearch;
+  }
+
+  public void setCedulaSearch(String cedulaSearch) {
+    this.cedulaSearch = cedulaSearch;
   }
 
   public String getNombre1() {
@@ -144,14 +154,16 @@ public class Usuario {
     try {
       FileWriter fw = new FileWriter(ruta + usuarios, true);
       PrintWriter pw = new PrintWriter(fw);
-      pw.println(this.Cedula + this.separador
-              + this.password + this.separador
-              + this.nombre1 + this.separador
-              + this.nombre2 + this.separador
-              + this.apellido1 + this.separador
-              + this.apellido2 + this.separador
-              + this.dia + this.separador + this.mes + this.separador  + this.año + this.separador
-              + this.direccion + this.separador
+      pw.println(this.Cedula + this.concat
+              + this.password + this.concat
+              + this.nombre1 + this.concat
+              + this.nombre2 + this.concat
+              + this.apellido1 + this.concat
+              + this.apellido2 + this.concat
+              + this.dia + this.concat
+              + this.mes + this.concat
+              + this.año + this.concat
+              + this.direccion + this.concat
               + this.telefono);
       pw.close();
       fw.close();
@@ -162,6 +174,7 @@ public class Usuario {
   }
   //FIN DEL METODO INSERTAR///// 
 
+//METODO DE CHECKEO DE LOGIN/////
   public boolean LoginCheck(String userValue, String Pass) {
     boolean result = false;
     try {
@@ -169,7 +182,7 @@ public class Usuario {
       Scanner read = new Scanner(path);
 
       while (read.hasNextLine()) {
-        String[] linea = read.nextLine().split("\\|");
+        String[] linea = read.nextLine().split(this.splitter);
         if (linea[0].equals(userValue) && linea[1].equals(Pass)) {
           result = true;
         }
@@ -179,9 +192,11 @@ public class Usuario {
     }
     return result;
   }
-  //METODO BUSCAR//// 
+//FIN METODO DE CHECKEO DE LOGIN/////
 
+//METODO BUSCAR//// 
   public boolean Buscar() {
+    boolean result = false;
     File fileRuta = new File(ruta);
     if (!fileRuta.exists()) {
       fileRuta.mkdir();
@@ -190,7 +205,7 @@ public class Usuario {
     try {
       Scanner read = new Scanner(fl);
       while (read.hasNextLine()) {
-        String[] linea = read.nextLine().split("\\|");
+        String[] linea = read.nextLine().split(this.splitter);
         if (linea[0].equals(this.Cedula)) {
           this.Cedula = linea[0];
           this.password = linea[1];
@@ -203,44 +218,58 @@ public class Usuario {
           this.año = linea[8];
           this.direccion = linea[9];
           this.telefono = linea[10];
-          read.close();
-          return true;
+          result = true;
         }
       }
       read.close();
-      return false;
     } catch (FileNotFoundException e) {
-      return false;
+      System.err.println(e);
     }
+    return result;
   }
 // FIN DEL METODO BUSCAR  
 
-  //METODO DE MODIFICAR EL USUARIO
+//METODO DE MODIFICAR EL USUARIO
   public boolean ModificarUsuario() {
+    boolean result = false;
     File fileRuta = new File(ruta);
     if (!fileRuta.exists()) {
       fileRuta.mkdir();
     }
     File fl = new File(ruta + usuarios);
-
     try {
       FileWriter fw = new FileWriter(ruta + usuarios + ".tmp");
       PrintWriter pw = new PrintWriter(fw);
       try {
         Scanner read = new Scanner(fl);
         while (read.hasNextLine()) {
-          String linea = read.nextLine()/*.split("\\|")*/;
-          String[] arr = linea.split("\\|");
-          if (arr[0].equals(this.Cedula)) {
-            pw.println(this.Cedula + this.separador
-                    + this.password + this.separador
-                    + this.nombre1 + this.separador
-                    + this.nombre2 + this.separador
-                    + this.apellido1 + this.separador
-                    + this.apellido2 + this.separador
-                    + this.dia + "/" + this.mes + "/" + this.año + this.separador
-                    + this.direccion + this.separador
-                    + this.telefono);
+          String linea = read.nextLine();
+          String[] arr = linea.split(this.splitter);
+          if (arr[0].equals(getCedulaSearch())) {
+            arr[0] = getCedula();
+            arr[1] = arr[1];
+            arr[2] = getNombre1();
+            arr[3] = getNombre2();
+            arr[4] = getApellido1();
+            arr[5] = getApellido2();
+            arr[6] = getDia();
+            arr[7] = getMes();
+            arr[8] = getAño();
+            arr[9] = getDireccion();
+            arr[10] = getTelefono();
+            pw.println(
+                    arr[0] + this.concat
+                    + arr[1] + this.concat
+                    + arr[2] + this.concat
+                    + arr[3] + this.concat
+                    + arr[4] + this.concat
+                    + arr[5] + this.concat
+                    + arr[6] + this.concat
+                    + arr[7] + this.concat
+                    + arr[8] + this.concat
+                    + arr[9] + this.concat
+                    + arr[10]);
+            result = true;
           } else {
             pw.println(linea);
           }
@@ -251,22 +280,24 @@ public class Usuario {
         fl.delete();
         File newFile = new File(ruta + usuarios + ".tmp");
         newFile.renameTo(fl);
-        return true;
       } catch (FileNotFoundException e) {
-        return false;
+        System.err.println(e);
       }
     } catch (IOException e) {
-      return false;
+      System.err.println(e);
     }
+    return result;
   }
+//FIN METODO DE MODIFICAR
 
+//METODO PARA CAMBIO DE TEXTO EN LBL DEL USER
   public String changeNamelbl(String userValue) {
     String result = "";
     try {
       File path = new File(ruta + usuarios);
       Scanner read = new Scanner(path);
       while (read.hasNextLine()) {
-        String[] linea = read.nextLine().split("\\|");
+        String[] linea = read.nextLine().split(this.splitter);
         if (linea[0].equals(userValue)) {
           result = linea[2] + " " + linea[4];
         }
@@ -276,5 +307,5 @@ public class Usuario {
     }
     return result;
   }
-
+//FIN METODO PARA CAMBIO DE TEXTO EN LBL DEL USER
 }
