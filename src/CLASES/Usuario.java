@@ -147,6 +147,7 @@ public class Usuario {
 
   //METODO DE INSERTAR/////
   public boolean CrearUsuario() {
+    boolean result = false;
     File fileRuta = new File(ruta);
     if (!fileRuta.exists()) {
       fileRuta.mkdir();
@@ -154,23 +155,26 @@ public class Usuario {
     try {
       FileWriter fw = new FileWriter(ruta + usuarios, true);
       PrintWriter pw = new PrintWriter(fw);
-      pw.println(this.Cedula + this.concat
-              + this.password + this.concat
-              + this.nombre1 + this.concat
-              + this.nombre2 + this.concat
-              + this.apellido1 + this.concat
-              + this.apellido2 + this.concat
-              + this.dia + this.concat
-              + this.mes + this.concat
-              + this.año + this.concat
-              + this.direccion + this.concat
-              + this.telefono);
+      if (Buscar() == false) {
+        pw.println(this.Cedula + this.concat
+                + this.password + this.concat
+                + this.nombre1 + this.concat
+                + this.nombre2 + this.concat
+                + this.apellido1 + this.concat
+                + this.apellido2 + this.concat
+                + this.dia + this.concat
+                + this.mes + this.concat
+                + this.año + this.concat
+                + this.direccion + this.concat
+                + this.telefono);
+        result = true;
+      }
       pw.close();
       fw.close();
-      return true;
     } catch (IOException e) {
-      return false;
+      System.err.print(e);
     }
+    return result;
   }
   //FIN DEL METODO INSERTAR///// 
 
@@ -238,7 +242,7 @@ public class Usuario {
     }
     File fl = new File(ruta + usuarios);
     try {
-      FileWriter fw = new FileWriter(ruta + usuarios + ".tmp");
+      FileWriter fw = new FileWriter(ruta + usuarios + ".tmp", true);
       PrintWriter pw = new PrintWriter(fw);
       try {
         Scanner read = new Scanner(fl);
@@ -271,7 +275,18 @@ public class Usuario {
                     + arr[10]);
             result = true;
           } else {
-            pw.println(linea);
+            pw.println(
+                    arr[0] + this.concat
+                    + arr[1] + this.concat
+                    + arr[2] + this.concat
+                    + arr[3] + this.concat
+                    + arr[4] + this.concat
+                    + arr[5] + this.concat
+                    + arr[6] + this.concat
+                    + arr[7] + this.concat
+                    + arr[8] + this.concat
+                    + arr[9] + this.concat
+                    + arr[10]);
           }
         }
         pw.close();
