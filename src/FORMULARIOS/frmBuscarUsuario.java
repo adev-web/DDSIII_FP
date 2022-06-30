@@ -63,7 +63,7 @@ public class frmBuscarUsuario extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 204, 204));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Busqueda de Empleado", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 14))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Busqueda de Usuario", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 14))); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Busqueda", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 14))); // NOI18N
@@ -147,7 +147,7 @@ public class frmBuscarUsuario extends javax.swing.JFrame {
         jPanel3.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 298, -1));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel10.setText("Datos Del Empleado");
+        jLabel10.setText("Datos Del Usuario");
         jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, -1, -1));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/WhatsApp Image 2022-06-25 at 6.39.58 PM.jpeg"))); // NOI18N
@@ -180,7 +180,7 @@ public class frmBuscarUsuario extends javax.swing.JFrame {
                 btnModificarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 560, -1, 40));
+        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 560, -1, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -235,6 +235,10 @@ public class frmBuscarUsuario extends javax.swing.JFrame {
        this.dispose();
     }//GEN-LAST:event_btnAtrasActionPerformed
 
+    private void cmbAñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbAñoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbAñoActionPerformed
+
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         Usuario obj_Usuario = new Usuario();
         obj_Usuario.setCedula(txtCedula.getText());
@@ -248,14 +252,10 @@ public class frmBuscarUsuario extends javax.swing.JFrame {
         obj_Usuario.setDireccion(txtDireccion.getText());
         obj_Usuario.setTelefono(txtTelefono.getText());
         if(obj_Usuario.ModificarUsuario())
-            JOptionPane.showMessageDialog(rootPane, "El Usuario fue Actualizado");
+        JOptionPane.showMessageDialog(rootPane, "El Usuario fue Actualizado");
         else
-            JOptionPane.showMessageDialog(rootPane, "El Usuario NO pudo ser Actualizado");
+        JOptionPane.showMessageDialog(rootPane, "El Usuario NO pudo ser Actualizado");
     }//GEN-LAST:event_btnModificarActionPerformed
-
-    private void cmbAñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbAñoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbAñoActionPerformed
 
     /**
      * @param args the command line arguments

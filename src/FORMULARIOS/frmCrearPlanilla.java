@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import jdk.nashorn.internal.parser.Lexer;
+//import jdk.nashorn.internal.parser.Lexer;
 
 /**
  *
@@ -38,6 +38,7 @@ public class frmCrearPlanilla extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnMostrar = new javax.swing.JButton();
         btnRegresar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         btnAgregarEmpleado = new javax.swing.JButton();
         btnEliminarEmpleado = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -65,7 +66,7 @@ public class frmCrearPlanilla extends javax.swing.JFrame {
                 btnMostrarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 100, 142, 51));
+        jPanel2.add(btnMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 100, 142, 51));
 
         btnRegresar.setBackground(new java.awt.Color(255, 153, 255));
         btnRegresar.setText("Regresar");
@@ -76,6 +77,10 @@ public class frmCrearPlanilla extends javax.swing.JFrame {
         });
         jPanel2.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 29, -1, -1));
 
+        jButton1.setBackground(new java.awt.Color(51, 255, 204));
+        jButton1.setText("Modificar");
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 100, 140, 50));
+
         btnAgregarEmpleado.setBackground(new java.awt.Color(51, 255, 204));
         btnAgregarEmpleado.setText("+Adicionar Empleado");
         btnAgregarEmpleado.addActionListener(new java.awt.event.ActionListener() {
@@ -83,7 +88,7 @@ public class frmCrearPlanilla extends javax.swing.JFrame {
                 btnAgregarEmpleadoActionPerformed(evt);
             }
         });
-        jPanel2.add(btnAgregarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 153, 51));
+        jPanel2.add(btnAgregarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 153, 51));
 
         btnEliminarEmpleado.setBackground(new java.awt.Color(51, 255, 204));
         btnEliminarEmpleado.setText("-Eliminar Empleado");
@@ -92,7 +97,7 @@ public class frmCrearPlanilla extends javax.swing.JFrame {
                 btnEliminarEmpleadoActionPerformed(evt);
             }
         });
-        jPanel2.add(btnEliminarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, 142, 51));
+        jPanel2.add(btnEliminarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 142, 51));
 
         tblPlanilla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -203,6 +208,7 @@ public class frmCrearPlanilla extends javax.swing.JFrame {
     private javax.swing.JButton btnEliminarEmpleado;
     private javax.swing.JButton btnMostrar;
     private javax.swing.JButton btnRegresar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
