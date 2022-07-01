@@ -118,12 +118,12 @@ public class Empleado extends Usuario {
           String[] arr = linea.split(this.splitter);
           if (arr[0].equals(super.getCedula())) {
             pw.println(
-                      super.getCedula()    + this.concat //DUDAS DE MODIFICACION
-                    + super.getNombre1()   + this.concat
-                    + super.getNombre2()   + this.concat
+                    super.getCedula() + this.concat
+                    + super.getNombre1() + this.concat
+                    + super.getNombre2() + this.concat
                     + super.getApellido1() + this.concat
                     + super.getApellido2() + this.concat
-                    + this.salarioHoras    + this.concat
+                    + this.salarioHoras + this.concat
                     + this.horasTrabajadas
             );
           } else {
@@ -236,4 +236,7 @@ public class Empleado extends Usuario {
       return null;
     }
   }
+  
+  
+  
 }//FIN DE LA CLASE

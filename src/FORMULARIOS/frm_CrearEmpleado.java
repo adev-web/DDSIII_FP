@@ -227,7 +227,15 @@ public class frm_CrearEmpleado extends javax.swing.JFrame {
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
       frm_CrearUsuario obj_CrearUsuario = new frm_CrearUsuario();
-      obj_CrearUsuario.setVisible(true);
+      frm_CrearPlanilla obj_Planilla = new frm_CrearPlanilla();
+      Usuario obj_Usuario = new Usuario();
+      Empleado obj_Empleado = new Empleado();
+      obj_Usuario.setCedula(txtCedula.getText());
+      if (!obj_Usuario.Buscar()) {
+        obj_CrearUsuario.setVisible(true);
+      } else {
+        obj_Planilla.setVisible(true);
+      }
       this.dispose();
     }//GEN-LAST:event_btnAtrasActionPerformed
 

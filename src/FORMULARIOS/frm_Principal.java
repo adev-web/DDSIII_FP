@@ -192,7 +192,7 @@ public class frm_Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVerEmpleadoMouseExited
 
     private void btnCrearPlanillaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearPlanillaMouseClicked
-      frm_CrearPanilla FRM = new frm_CrearPanilla();
+      frm_CrearPlanilla FRM = new frm_CrearPlanilla();
       FRM.setVisible(true);
       this.dispose();
     }//GEN-LAST:event_btnCrearPlanillaMouseClicked
