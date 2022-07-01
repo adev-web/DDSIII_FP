@@ -137,13 +137,17 @@ public class frm_CrearPlanilla extends javax.swing.JFrame {
     private void btnEliminarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEmpleadoActionPerformed
       Empleado objEmpelado = new Empleado();
       int numFilaSeleccionada = tblPlanilla.getSelectedRow();
-
+      int Desicion = JOptionPane.showConfirmDialog(rootPane, "Desea Eliminar a Este Empleado" );
+      if(Desicion == 0){
       objEmpelado.setCedula((String) tblPlanilla.getValueAt(numFilaSeleccionada, 0));
 
       if (objEmpelado.EliminarEmpleado()) {
         JOptionPane.showMessageDialog(rootPane, "Usuario eliminado");
       } else {
         JOptionPane.showMessageDialog(rootPane, "No se ha eliminado");
+      }
+      }else{
+      JOptionPane.showMessageDialog(rootPane, "No Se Ha Eliminado el Empleado ");
       }
     }//GEN-LAST:event_btnEliminarEmpleadoActionPerformed
 
@@ -176,7 +180,9 @@ public class frm_CrearPlanilla extends javax.swing.JFrame {
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
       Empleado objEmpelado = new Empleado();
       int numFilaSeleccionada = tblPlanilla.getSelectedRow();
-
+      int Desicion = JOptionPane.showConfirmDialog(rootPane, "Desea Modificar a Este Empleado" );
+      
+       if(Desicion == 0){
       objEmpelado.setCedula((String) tblPlanilla.getValueAt(numFilaSeleccionada, 0));
       objEmpelado.setNombre1((String) tblPlanilla.getValueAt(numFilaSeleccionada, 1));
       objEmpelado.setNombre2((String) tblPlanilla.getValueAt(numFilaSeleccionada, 2));
@@ -190,6 +196,10 @@ public class frm_CrearPlanilla extends javax.swing.JFrame {
       } else {
         JOptionPane.showMessageDialog(rootPane, "No se Ha Modificado");
       }
+     }else{
+      JOptionPane.showMessageDialog(rootPane, "No Se Ha Modoficado el Empleado ");
+     }
+       
     }//GEN-LAST:event_btnModificarActionPerformed
 
   /**
