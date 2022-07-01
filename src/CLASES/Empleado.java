@@ -117,14 +117,14 @@ public class Empleado extends Usuario {
           String linea = read.nextLine()/*.split("\\|")*/;
           String[] arr = linea.split(this.splitter);
           if (arr[0].equals(super.getCedula())) {
-            pw.println(""
-                    + super.getCedula() + this.concat //DUDAS DE MODIFICACION
-                    + super.getNombre1() + this.concat
-                    + super.getNombre2() + this.concat
+            pw.println(
+                      super.getCedula()    + this.concat //DUDAS DE MODIFICACION
+                    + super.getNombre1()   + this.concat
+                    + super.getNombre2()   + this.concat
                     + super.getApellido1() + this.concat
                     + super.getApellido2() + this.concat
-                    + this.salarioHoras + this.concat
-                    + this.horasTrabajadas + this.concat
+                    + this.salarioHoras    + this.concat
+                    + this.horasTrabajadas
             );
           } else {
             pw.println(linea);
