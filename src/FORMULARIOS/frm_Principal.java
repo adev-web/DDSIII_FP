@@ -181,9 +181,7 @@ public class frm_Principal extends javax.swing.JFrame {
 
     private void btnCrearUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearUsuarioMouseClicked
 
-      frm_CrearUsuario FRM = new frm_CrearUsuario();
-      FRM.setVisible(true);
-      this.dispose();
+      
     }//GEN-LAST:event_btnCrearUsuarioMouseClicked
 
     private void btnCrearUsuarioMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearUsuarioMouseMoved

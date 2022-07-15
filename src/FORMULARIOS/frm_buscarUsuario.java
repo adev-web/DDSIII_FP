@@ -61,6 +61,7 @@ public class frm_buscarUsuario extends javax.swing.JFrame {
         btnCrear = new javax.swing.JButton();
         btnAtras = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
+        btnNuevo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -169,7 +170,7 @@ public class frm_buscarUsuario extends javax.swing.JFrame {
                 btnCrearActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 560, 90, 40));
+        jPanel1.add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 560, 90, 40));
 
         btnAtras.setBackground(new java.awt.Color(153, 255, 204));
         btnAtras.setText("ATRAS");
@@ -178,7 +179,7 @@ public class frm_buscarUsuario extends javax.swing.JFrame {
                 btnAtrasActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 560, 80, 40));
+        jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 560, 80, 40));
 
         btnModificar.setBackground(new java.awt.Color(102, 255, 204));
         btnModificar.setText("Modificar");
@@ -187,7 +188,16 @@ public class frm_buscarUsuario extends javax.swing.JFrame {
                 btnModificarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 560, -1, 40));
+        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 560, -1, 40));
+
+        btnNuevo.setBackground(new java.awt.Color(102, 255, 204));
+        btnNuevo.setText("Nuevo");
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 560, -1, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -288,6 +298,10 @@ public class frm_buscarUsuario extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnModificarActionPerformed
 
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNuevoActionPerformed
+
   /**
    * @param args the command line arguments
    */
@@ -343,6 +357,7 @@ public class frm_buscarUsuario extends javax.swing.JFrame {
     private javax.swing.JButton btnBuscarUsu;
     private javax.swing.JButton btnCrear;
     private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnNuevo;
     private javax.swing.JComboBox<String> cmbAño;
     private javax.swing.JComboBox<String> cmbDia;
     private javax.swing.JComboBox<String> cmbMes;

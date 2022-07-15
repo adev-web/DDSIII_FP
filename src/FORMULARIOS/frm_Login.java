@@ -232,10 +232,7 @@ public class frm_Login extends javax.swing.JFrame {
 
     private void BTNregistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNregistrarActionPerformed
       
-      frm_CrearUsuario FRM = new frm_CrearUsuario();
-      FRM.setVisible(true);
-      dispose();
-      // aqui mike
+     
 
 
     }//GEN-LAST:event_BTNregistrarActionPerformed
