@@ -4,26 +4,35 @@
  */
 package CLASES;
 
-
 import java.sql.*;
+
 public class conexion {
 
-public static Connection getConnection (){
-    Connection con;
-    try{
-        try{    
-        Class.forName("com.mysql.jdbc.Driver");
-        }catch(ClassNotFoundException e){
-        return null;
+    private static Connection con;
+    private static final String driver = "com.mysql.jdbc.Driver";
+    private static final String user = "root";
+    private static final String password = "";
+    private static final String url = "jdbc:mysql://localhost:3306/planilla";
+
+    public static Connection getConnection() {
+        con = null;
+        try {
+            Class.forName(driver);
+            con = DriverManager.getConnection(url, user, password);
+            if (con != null) {
+                System.out.println("Connection succesfull");
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            System.err.println("Failure Connection" + e);
         }
-        con = DriverManager.getConnection("JDBC:MYSQL://localhost/planilla","root","");
         return con;
-    }catch(SQLException e){
-        System.out.println("NO SE ENCONTRÓ LA BASE DE DATOS");
-        return null;
     }
-}
 
+    public void close_db() {
+        con = null;
+        if (con == null) {
+            System.out.println("Connection ended");
 
-
+        }
+    }
 }

@@ -28,6 +28,7 @@ public class frm_Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSeparator1 = new javax.swing.JSeparator();
         jPanel1 = new javax.swing.JPanel();
         btnCrearUsuario = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -68,8 +69,9 @@ public class frm_Principal extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 233, 222));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Crear Usuario");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 345, -1, -1));
 
         btnVerEmpleado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnVerEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_find_user_male_96px.png"))); // NOI18N
@@ -107,21 +109,24 @@ public class frm_Principal extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Empleados");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 345, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 51, 153));
-        jLabel6.setText("Crear Planilla");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 340, 110, 30));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("+Crear Planilla");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 345, 170, 30));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_user_150px_2.png"))); // NOI18N
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 160, 140));
 
         lblNombre.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblNombre.setForeground(new java.awt.Color(255, 255, 51));
+        lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNombre.setText("Jose Gonzalez");
-        jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 250, 40));
+        jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 250, 40));
 
         btnVerEmpleado1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnVerEmpleado1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_find_user_male_96px.png"))); // NOI18N
@@ -142,8 +147,9 @@ public class frm_Principal extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(51, 255, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Usuarios");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 340, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(425, 345, 110, -1));
 
         JLBexit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_Close_40px_2.png"))); // NOI18N
         JLBexit.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -195,7 +201,7 @@ public class frm_Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCrearUsuarioMouseExited
 
     private void btnVerEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerEmpleadoMouseClicked
-      frm_buscarUsuario frm = new frm_buscarUsuario();
+      frm_GestionarUsuario frm = new frm_GestionarUsuario();
       frm.setVisible(true);
       this.dispose();
     }//GEN-LAST:event_btnVerEmpleadoMouseClicked
@@ -324,6 +330,7 @@ public class frm_Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblNombre;
     // End of variables declaration//GEN-END:variables
 }
