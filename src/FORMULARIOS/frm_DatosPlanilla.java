@@ -4,6 +4,9 @@
  */
 package FORMULARIOS;
 
+import CLASES.Usuario;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author User
@@ -47,6 +50,11 @@ public class frm_DatosPlanilla extends javax.swing.JFrame {
         cmbDia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dia", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
         btnCrearPlanilla.setText("Crear Planilla");
+        btnCrearPlanilla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearPlanillaActionPerformed(evt);
+            }
+        });
 
         btnAdicionarEmpleado.setText("Adicionar Empleado");
 
@@ -108,6 +116,16 @@ public class frm_DatosPlanilla extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCrearPlanillaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearPlanillaActionPerformed
+        // TODO add your handling code here:
+        Usuario obj_usu = new Usuario();
+        obj_usu.setDia(cmbDia.getItemAt(cmbDia.getSelectedIndex()));
+        obj_usu.setMes(cmbMes.getItemAt(cmbMes.getSelectedIndex()));
+        obj_usu.setAño(cmbAño.getItemAt(cmbAño.getSelectedIndex()));
+        if(obj_usu.insertarPlanilla())
+            JOptionPane.showMessageDialog(rootPane,"Se ha ingresado el id de planilla#"+obj_usu.getId_planilla());
+    }//GEN-LAST:event_btnCrearPlanillaActionPerformed
 
     /**
      * @param args the command line arguments

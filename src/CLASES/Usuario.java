@@ -5,15 +5,20 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.Scanner;
-
+import java.sql.*;
 /**
  *
  * @author termi
  */
 public class Usuario {
-
+  Connection  con; 
+  PreparedStatement ps;
+  ResultSet rs;
   private static String CurrentUser;
+  private int id_planilla;
   private String Cedula;
   private String cedulaSearch;
   private String password;
@@ -47,6 +52,14 @@ public class Usuario {
     this.direccion = direccion;
     this.telefono = telefono;
   }
+
+    public int getId_planilla() {
+        return id_planilla;
+    }
+
+    public void setId_planilla(int id_planilla) {
+        this.id_planilla = id_planilla;
+    }
 
   public static String getCurrentUser() {
     return CurrentUser;
@@ -153,35 +166,24 @@ public class Usuario {
   }
 
   //METODO DE INSERTAR/////
-  public boolean CrearUsuario() {
-    boolean result = false;
-    File fileRuta = new File(ruta);
-    if (!fileRuta.exists()) {
-      fileRuta.mkdir();
+  public boolean insertarPlanilla() {
+    try{
+    con = conexion.getConnection();
+    ps = con.prepareCall("call sp_insert_planilla(?)");
+    ps.setString(1,año+mes+dia);
+    rs = ps.executeQuery();
+    if(rs.next()){
+    this.id_planilla = Integer.parseInt( rs.getString("ultimo_id"));
+    con.close();
+    return true;
     }
-    try {
-      FileWriter fw = new FileWriter(ruta + usuarios, true);
-      PrintWriter pw = new PrintWriter(fw);
-      if (Buscar() == false) {
-        pw.println(this.Cedula + this.concat
-                + this.password + this.concat
-                + this.nombre1 + this.concat
-                + this.nombre2 + this.concat
-                + this.apellido1 + this.concat
-                + this.apellido2 + this.concat
-                + this.dia + this.concat
-                + this.mes + this.concat
-                + this.año + this.concat
-                + this.direccion + this.concat
-                + this.telefono);
-        result = true;
-      }
-      pw.close();
-      fw.close();
-    } catch (IOException e) {
-      System.err.print(e);
+    con.close();
+    return false;  
+    }catch(SQLException e){
+    return false;
     }
-    return result;
+    //return false;
+       
   }
   //FIN DEL METODO INSERTAR///// 
 

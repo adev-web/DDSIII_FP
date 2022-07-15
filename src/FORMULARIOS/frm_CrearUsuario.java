@@ -209,7 +209,7 @@ public class frm_CrearUsuario extends javax.swing.JFrame {
             obj_Usuario.setMes(jcMes.getItemAt(jcMes.getSelectedIndex()));
             obj_Usuario.setDireccion(txtDireccion.getText());
             obj_Usuario.setTelefono(txtTelefono.getText());
-            obj_Usuario.CrearUsuario();
+    //        obj_Usuario.CrearUsuario();ªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªªcambio
             //------------------------------
             if (obj_Usuario.Buscar()) {//BUSCAR2
               JOptionPane.showMessageDialog(this, "Su usuario se ha insertado con EXITO!");
