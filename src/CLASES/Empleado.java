@@ -36,9 +36,9 @@ public class Empleado extends Usuario {
   public Empleado() {
   }
 
-  public Empleado(String Cedula, String password, String nombre1, String nombre2, String apellido1, String apellido2, String dia, String mes, String año, String direccion, String telefono) {
+  /*public Empleado(String Cedula, String password, String nombre1, String nombre2, String apellido1, String apellido2, String dia, String mes, String año, String direccion, String telefono) {
     super(Cedula, password, nombre1, nombre2, apellido1, apellido2, dia, mes, año, direccion, telefono);
-  }
+  }*/
 
   //METODO DE CREAR/////
   public boolean CrearEmpleado() {

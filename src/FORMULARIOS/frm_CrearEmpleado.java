@@ -201,7 +201,7 @@ public class frm_CrearEmpleado extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-      Usuario obj_Usuario = new Usuario();
+      /*Usuario obj_Usuario = new Usuario();
       obj_Usuario.setCedula(txtCedula.getText());
       if (obj_Usuario.Buscar() == true) {
         JOptionPane.showMessageDialog(this, "Usuario encontrado: " + obj_Usuario.Buscar());
@@ -222,7 +222,7 @@ public class frm_CrearEmpleado extends javax.swing.JFrame {
         txtSalario.setEditable(false);
         txtHorasTrabajadas.setEditable(false);
 
-      }
+      }*/
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed

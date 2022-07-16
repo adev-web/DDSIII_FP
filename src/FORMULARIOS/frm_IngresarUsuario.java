@@ -9,14 +9,14 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author termi
+ * @author 50763
  */
-public class frm_GestionarUsuario extends javax.swing.JFrame {
+public class frm_IngresarUsuario extends javax.swing.JFrame {
 
     /**
-     * Creates new form frmBuscarUsuario
+     * Creates new form frm_IngresarUsuario
      */
-    public frm_GestionarUsuario() {
+    public frm_IngresarUsuario() {
         initComponents();
     }
 
@@ -39,28 +39,19 @@ public class frm_GestionarUsuario extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        cmbAño = new javax.swing.JComboBox<>();
-        cmbMes = new javax.swing.JComboBox<>();
-        cmbDia = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         txtCedula = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
-        txtNombre2 = new javax.swing.JTextField();
         txtApellido = new javax.swing.JTextField();
-        txtApellido2 = new javax.swing.JTextField();
         txtDireccion = new javax.swing.JTextField();
-        txtTelefono = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        txtContraseña = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JPasswordField();
+        txtUsuario = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         btnCrear = new javax.swing.JButton();
         btnAtras = new javax.swing.JButton();
-        btnModificar = new javax.swing.JButton();
         btnNuevo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -94,74 +85,55 @@ public class frm_GestionarUsuario extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setText("Primer Nombre");
+        jLabel2.setText("Contraseña");
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("Segundo Nombre");
+        jLabel3.setText("Primer Nombre");
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setText("Primer Apellido");
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
 
-        jLabel5.setText("Segundo Apellido");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
-
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel6.setText("Cedula");
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
-        jLabel7.setText("Fecha de Nacimiento");
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
-
-        cmbAño.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Año", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", " " }));
-        cmbAño.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbAñoActionPerformed(evt);
-            }
-        });
-        jPanel3.add(cmbAño, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, -1, -1));
-
-        cmbMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mes", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", " " }));
-        cmbMes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbMesActionPerformed(evt);
-            }
-        });
-        jPanel3.add(cmbMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, -1, -1));
-
-        cmbDia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dia", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        jPanel3.add(cmbDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, -1, -1));
-
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel8.setText("Direccion");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, -1, -1));
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel9.setText("Telefono");
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, -1));
+        txtCedula.setEnabled(false);
         jPanel3.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 299, -1));
-        jPanel3.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 299, -1));
-        jPanel3.add(txtNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 298, -1));
+
+        txtNombre.setEnabled(false);
+        jPanel3.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 298, -1));
+
+        txtApellido.setEnabled(false);
         jPanel3.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 298, -1));
-        jPanel3.add(txtApellido2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 298, -1));
-        jPanel3.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, 298, -1));
-        jPanel3.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, 298, -1));
+
+        txtDireccion.setEnabled(false);
+        jPanel3.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 298, -1));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel10.setText("Datos del Usuario");
         jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel13.setText("Contraseña");
+        jLabel13.setText("Usuario");
         jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
-        jPanel3.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 299, -1));
+
+        txtPassword.setEnabled(false);
+        jPanel3.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 300, -1));
+
+        txtUsuario.setEnabled(false);
+        jPanel3.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 299, -1));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/WhatsApp Image 2022-06-25 at 6.39.58 PM.jpeg"))); // NOI18N
         jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 560));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 440, 400));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 440, 300));
 
         btnCrear.setBackground(new java.awt.Color(153, 255, 204));
         btnCrear.setText("+Crear");
@@ -170,25 +142,16 @@ public class frm_GestionarUsuario extends javax.swing.JFrame {
                 btnCrearActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 560, 90, 40));
+        jPanel1.add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 470, 90, 40));
 
         btnAtras.setBackground(new java.awt.Color(153, 255, 204));
-        btnAtras.setText("Atrás");
+        btnAtras.setText("Atrás>>>>");
         btnAtras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAtrasActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 560, 80, 40));
-
-        btnModificar.setBackground(new java.awt.Color(102, 255, 204));
-        btnModificar.setText("Modificar");
-        btnModificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 560, -1, 40));
+        jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 470, 100, 40));
 
         btnNuevo.setBackground(new java.awt.Color(102, 255, 204));
         btnNuevo.setText("Nuevo");
@@ -197,7 +160,7 @@ public class frm_GestionarUsuario extends javax.swing.JFrame {
                 btnNuevoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 560, -1, 40));
+        jPanel1.add(btnNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 90, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -210,12 +173,11 @@ public class frm_GestionarUsuario extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 607, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarUsuActionPerformed
@@ -224,35 +186,21 @@ public class frm_GestionarUsuario extends javax.swing.JFrame {
         System.out.println("Usuario encontrado: " + checkerUser);
         if (checkerUser) {
             txtCedula.setText(obj_Usuario.getCedula());
+            txtUsuario.setText(obj_Usuario.getUsu());
+            txtPassword.setText(obj_Usuario.getPassword());
             txtNombre.setText(obj_Usuario.getNombre1());
-            txtNombre2.setText("");
             txtApellido.setText(obj_Usuario.getApellido1());
-            txtApellido2.setText("");
-            cmbAño.setSelectedIndex(0);
-            cmbMes.setSelectedIndex(0);
-            cmbDia.setSelectedIndex(0);
             txtDireccion.setText(obj_Usuario.getDireccion());
-            txtTelefono.setText("");
         } else {
             txtCedula.setText("");
             txtNombre.setText("");
-            txtNombre2.setText("");
+            txtNombre.setText("");
             txtApellido.setText("");
-            txtApellido2.setText("");
-            cmbAño.setSelectedIndex(0);
-            cmbMes.setSelectedIndex(0);
-            cmbDia.setSelectedIndex(0);
             txtDireccion.setText("");
-            txtTelefono.setText("");
             JOptionPane.showMessageDialog(this, "El Usuario no fue encontrado\nRegrese presione Crear para generar un nuevo usuario");
             //System.err.print(cmbAño.getSelectedIndex());
         }
-
     }//GEN-LAST:event_btnBuscarUsuActionPerformed
-
-    private void cmbMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbMesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbMesActionPerformed
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
         frm_CrearEmpleado frm = new frm_CrearEmpleado();
@@ -265,36 +213,6 @@ public class frm_GestionarUsuario extends javax.swing.JFrame {
         obj_Login.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnAtrasActionPerformed
-
-    private void cmbAñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbAñoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbAñoActionPerformed
-
-    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        Usuario obj_Usuario = new Usuario();
-        obj_Usuario.setCedulaSearch(txtCedulaBuscar.getText());
-        if (txtCedulaBuscar.getText().length() > 0 && txtCedula.getText().length() > 0 && txtNombre.getText().length() > 0 && txtNombre2.getText().length() > 0 && txtApellido.getText().length() > 0 && txtApellido2.getText().length() > 0 && txtDireccion.getText().length() > 0 && txtTelefono.getText().length() > 0 && cmbDia.getSelectedIndex() > 0 && cmbMes.getSelectedIndex() > 0 && cmbAño.getSelectedIndex() > 0) {
-            obj_Usuario.setCedula(txtCedula.getText());
-            obj_Usuario.setNombre1(txtNombre.getText());
-            obj_Usuario.setNombre2(txtNombre2.getText());
-            obj_Usuario.setApellido1(txtApellido.getText());
-            obj_Usuario.setApellido2(txtApellido2.getText());
-            obj_Usuario.setAño(cmbAño.getItemAt(cmbAño.getSelectedIndex()));
-            obj_Usuario.setDia(cmbDia.getItemAt(cmbDia.getSelectedIndex()));
-            obj_Usuario.setMes(cmbMes.getItemAt(cmbMes.getSelectedIndex()));
-            obj_Usuario.setDireccion(txtDireccion.getText());
-            obj_Usuario.setTelefono(txtTelefono.getText());
-            //System.out.println(obj_Usuario.ModificarUsuario());
-            //obj_Usuario.ModificarUsuario();
-            /*if (obj_Usuario.ModificarUsuario()) {
-                JOptionPane.showMessageDialog(this, "El Usuario fue actualizado");
-            } else {
-                JOptionPane.showMessageDialog(this, "El Usuario no pudo ser actualizado");
-            }
-        } else {
-            JOptionPane.showMessageDialog(this, "El Usuario no puede actualizarse si hay campos vacíos");
-        */}
-    }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         // TODO add your handling code here:
@@ -317,51 +235,20 @@ public class frm_GestionarUsuario extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frm_GestionarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frm_IngresarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frm_GestionarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frm_IngresarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frm_GestionarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frm_IngresarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frm_GestionarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frm_IngresarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frm_GestionarUsuario().setVisible(true);
+                new frm_IngresarUsuario().setVisible(true);
             }
         });
     }
@@ -370,11 +257,7 @@ public class frm_GestionarUsuario extends javax.swing.JFrame {
     private javax.swing.JButton btnAtras;
     private javax.swing.JButton btnBuscarUsu;
     private javax.swing.JButton btnCrear;
-    private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnNuevo;
-    private javax.swing.JComboBox<String> cmbAño;
-    private javax.swing.JComboBox<String> cmbDia;
-    private javax.swing.JComboBox<String> cmbMes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -383,22 +266,17 @@ public class frm_GestionarUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField txtApellido;
-    private javax.swing.JTextField txtApellido2;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtCedulaBuscar;
-    private javax.swing.JTextField txtContraseña;
     private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtNombre2;
-    private javax.swing.JTextField txtTelefono;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

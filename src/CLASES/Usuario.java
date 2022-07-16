@@ -35,14 +35,14 @@ public class Usuario {
     private String direccion;
     private String telefono;
     private String ruta = "C:\\proyecto\\";
-    private String usuarios = "usuario.txt";
+    private String usu ;
     private String splitter = "\\|";
     private String concat = "|";
 
     public Usuario() {
     }
 
-    public Usuario(String Cedula, String password, String nombre1, String nombre2, String apellido1, String apellido2, String dia, String mes, String año, String direccion, String telefono) {
+    public Usuario(String Cedula,String usu, String password, String nombre1, String nombre2, String apellido1, String apellido2, String dia, String mes, String año, String direccion, String telefono) {
         this.Cedula = Cedula;
         this.password = password;
         this.nombre1 = nombre1;
@@ -54,6 +54,15 @@ public class Usuario {
         this.año = año;
         this.direccion = direccion;
         this.telefono = telefono;
+        this.usu = usu;
+    }
+
+    public String getUsu() {
+        return usu;
+    }
+
+    public void setUsu(String usu) {
+        this.usu = usu;
     }
 
     public int getId_planilla() {
@@ -191,7 +200,7 @@ public class Usuario {
     //FIN DEL METODO INSERTAR///// 
 
 //METODO DE CHECKEO DE LOGIN/////
-    public boolean LoginCheck(String userValue, String Pass) {
+   /* public boolean LoginCheck(String userValue, String Pass) {
         boolean result = false;
         try {
             File path = new File(ruta + usuarios);
@@ -207,11 +216,11 @@ public class Usuario {
             System.err.println(e);
         }
         return result;
-    }
+    }*/
 //FIN METODO DE CHECKEO DE LOGIN/////
 
 //METODO BUSCAR//// 
-    public boolean Buscar() {
+    /*public boolean Buscar() {
         boolean result = false;
         File fileRuta = new File(ruta);
         if (!fileRuta.exists()) {
@@ -242,11 +251,11 @@ public class Usuario {
             System.err.println(e);
         }
         return result;
-    }
+    }*/
 // FIN DEL METODO BUSCAR  
 
 //METODO DE MODIFICAR EL USUARIO
-    public boolean ModificarUsuario() {
+   /* public boolean ModificarUsuario() {
         boolean result = false;
         File fileRuta = new File(ruta);
         if (!fileRuta.exists()) {
@@ -314,11 +323,11 @@ public class Usuario {
             System.err.println(e);
         }
         return result;
-    }
+    }*/
 //FIN METODO DE MODIFICAR
 
 //METODO PARA CAMBIO DE TEXTO EN LBL DEL USER
-    public String changeNamelbl(String userValue) {
+   /* public String changeNamelbl(String userValue) {
         String result = "";
         try {
             File path = new File(ruta + usuarios);
@@ -333,7 +342,7 @@ public class Usuario {
             System.err.println(e);
         }
         return result;
-    }
+    }*/
 //FIN METODO PARA CAMBIO DE TEXTO EN LBL DEL USER
 
 ///////////////////////////////////////////////////
@@ -374,6 +383,8 @@ public class Usuario {
                 String validador = registro.getString("cedula");
                 System.out.println(validador);
                 Cedula = registro.getString("cedula");
+                usu = registro.getString("userid");
+                password = registro.getString("contrasenna");
                 nombre1 = registro.getString("nombre");
                 apellido1 = registro.getString("apellido");
                 direccion  = registro.getString("direccion");

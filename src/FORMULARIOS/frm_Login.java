@@ -242,8 +242,8 @@ public class frm_Login extends javax.swing.JFrame {
         if (userCheck == true) {
             frm_Principal obj_Principal = new frm_Principal();
             JOptionPane.showMessageDialog(this, "Inicio de sesión satisfactorio.");
-            String nombreUser = obj_Usuario.changeNamelbl(TXTusuario.getText());
-            obj_Usuario.setCurrentUser(nombreUser);
+        //    String nombreUser = obj_Usuario.changeNamelbl(TXTusuario.getText());
+//            obj_Usuario.setCurrentUser(nombreUser);
             obj_Principal.setLblName(obj_Usuario.getCurrentUser());
             obj_Principal.setVisible(true);
             this.dispose();
