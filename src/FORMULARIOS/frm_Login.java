@@ -228,7 +228,7 @@ public class frm_Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4MouseEntered
 
     private void BTNregistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNregistrarActionPerformed
-        frm_GestionarEmpleado obj_GestU = new frm_GestionarEmpleado();
+        frm_GestionarUsuario obj_GestU = new frm_GestionarUsuario();
         obj_GestU.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BTNregistrarActionPerformed

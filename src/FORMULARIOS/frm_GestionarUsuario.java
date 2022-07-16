@@ -46,7 +46,6 @@ public class frm_GestionarUsuario extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         btn_Crear = new javax.swing.JButton();
         btn_Atras = new javax.swing.JButton();
-        btn_nuevo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -131,12 +130,13 @@ public class frm_GestionarUsuario extends javax.swing.JFrame {
 
         btn_Crear.setBackground(new java.awt.Color(153, 255, 204));
         btn_Crear.setText("+Crear");
+        btn_Crear.setEnabled(false);
         btn_Crear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_CrearActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_Crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 470, 90, 40));
+        jPanel1.add(btn_Crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 470, 110, 40));
 
         btn_Atras.setBackground(new java.awt.Color(153, 255, 204));
         btn_Atras.setText("Atrás ->");
@@ -145,16 +145,7 @@ public class frm_GestionarUsuario extends javax.swing.JFrame {
                 btn_AtrasActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_Atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 470, 100, 40));
-
-        btn_nuevo.setBackground(new java.awt.Color(102, 255, 204));
-        btn_nuevo.setText("Nuevo");
-        btn_nuevo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_nuevoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btn_nuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 90, 40));
+        jPanel1.add(btn_Atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 470, 110, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -186,17 +177,18 @@ public class frm_GestionarUsuario extends javax.swing.JFrame {
             txt_Nombre.setText(obj_Usuario.getNombre1());
             txt_Apellido.setText(obj_Usuario.getApellido1());
             txt_Direccion.setText(obj_Usuario.getDireccion());
-            btn_Crear.setEnabled(false);
+            //btn_Crear.setEnabled(false);
         } else {
 
-            txt_Cedula.setText("");
-            txt_UserId.setText("");
-            jfield_Password.setText("");
-            txt_Nombre.setText("");
-            txt_Apellido.setText("");
-            txt_Direccion.setText("");
-            JOptionPane.showMessageDialog(this, "El Usuario no fue encontrado\nRegrese presione Crear para generar un nuevo usuario");
+            txt_Cedula.setEnabled(true);
+            txt_UserId.setEnabled(true);
+            jfield_Password.setEnabled(true);
+            txt_Nombre.setEnabled(true);
+            txt_Apellido.setEnabled(true);
+            txt_Direccion.setEnabled(true);
             btn_Crear.setEnabled(true);
+            JOptionPane.showMessageDialog(this, "El Usuario no fue encontrado\nRegrese presione Crear para generar un nuevo usuario");
+            
         }
     }//GEN-LAST:event_btn_BuscarActionPerformed
 
@@ -211,10 +203,6 @@ public class frm_GestionarUsuario extends javax.swing.JFrame {
         obj_Login.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_AtrasActionPerformed
-
-    private void btn_nuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nuevoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_nuevoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -256,7 +244,6 @@ public class frm_GestionarUsuario extends javax.swing.JFrame {
     private javax.swing.JButton btn_Atras;
     private javax.swing.JButton btn_Buscar;
     private javax.swing.JButton btn_Crear;
-    private javax.swing.JButton btn_nuevo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
