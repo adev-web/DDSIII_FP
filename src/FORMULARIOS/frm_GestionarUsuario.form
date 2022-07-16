@@ -47,7 +47,7 @@
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
             <TitledBorder title="Busqueda de Usuario">
-              <Font PropertyName="font" name="Segoe UI" size="14" style="0"/>
+              <Font PropertyName="font" name="Segoe UI" size="14" style="1"/>
             </TitledBorder>
           </Border>
         </Property>
@@ -80,20 +80,26 @@
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="14" style="0"/>
+                  <Font name="Segoe UI" size="14" style="1"/>
                 </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="Cedula"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="11" y="43" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="0" y="40" width="80" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_searchCedula">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="12" style="2"/>
+                </Property>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="66" y="40" width="229" height="-1"/>
+                  <AbsoluteConstraints x="80" y="40" width="229" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -106,7 +112,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="313" y="40" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="320" y="40" width="75" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -145,7 +151,7 @@
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="14" style="0"/>
+                  <Font name="Segoe UI" size="14" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Contrase&#xf1;a"/>
               </Properties>
@@ -158,7 +164,7 @@
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="14" style="0"/>
+                  <Font name="Segoe UI" size="14" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Primer Nombre"/>
               </Properties>
@@ -171,7 +177,7 @@
             <Component class="javax.swing.JLabel" name="jLabel4">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="14" style="0"/>
+                  <Font name="Segoe UI" size="14" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Primer Apellido"/>
               </Properties>
@@ -184,7 +190,7 @@
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="14" style="0"/>
+                  <Font name="Segoe UI" size="14" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cedula"/>
               </Properties>
@@ -197,7 +203,7 @@
             <Component class="javax.swing.JLabel" name="jLabel8">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="14" style="0"/>
+                  <Font name="Segoe UI" size="14" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Direccion"/>
               </Properties>
@@ -209,7 +215,9 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txt_Cedula">
               <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="12" style="2"/>
+                </Property>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -219,7 +227,9 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txt_Nombre">
               <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="12" style="2"/>
+                </Property>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -229,7 +239,9 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txt_Apellido">
               <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="12" style="2"/>
+                </Property>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -239,7 +251,9 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txt_Direccion">
               <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="12" style="2"/>
+                </Property>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -250,7 +264,7 @@
             <Component class="javax.swing.JLabel" name="jLabel10">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="18" style="0"/>
+                  <Font name="Segoe UI" size="14" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Datos del Usuario"/>
               </Properties>
@@ -263,7 +277,7 @@
             <Component class="javax.swing.JLabel" name="jLabel13">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="14" style="0"/>
+                  <Font name="Segoe UI" size="14" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Usuario"/>
               </Properties>
@@ -273,9 +287,11 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JPasswordField" name="jfield_Password">
+            <Component class="javax.swing.JPasswordField" name="txt_Password">
               <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="12" style="2"/>
+                </Property>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -285,7 +301,9 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txt_UserId">
               <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="12" style="2"/>
+                </Property>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -313,14 +331,13 @@
               <Color blue="cc" green="ff" red="99" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="+Crear"/>
-            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_CrearActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="100" y="470" width="110" height="40"/>
+              <AbsoluteConstraints x="360" y="470" width="75" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -336,7 +353,23 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="280" y="470" width="110" height="40"/>
+              <AbsoluteConstraints x="70" y="470" width="-1" height="30"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JButton" name="btn_nuevo">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="ff" red="66" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Nuevo"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_nuevoActionPerformed"/>
+          </Events>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="210" y="470" width="75" height="30"/>
             </Constraint>
           </Constraints>
         </Component>

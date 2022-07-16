@@ -5,6 +5,9 @@
 package FORMULARIOS;
 
 import CLASES.Usuario;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.awt.Window;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +21,15 @@ public class frm_GestionarEmpleado extends javax.swing.JFrame {
      */
     public frm_GestionarEmpleado() {
         initComponents();
+        centreWindow(this);
+
+    }
+
+    public static void centreWindow(Window frame) {
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
+        int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
+        frame.setLocation(x, y);
     }
 
     /**
@@ -55,8 +67,6 @@ public class frm_GestionarEmpleado extends javax.swing.JFrame {
         txtDireccion = new javax.swing.JTextField();
         txtTelefono = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        txtContraseña = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         btnCrear = new javax.swing.JButton();
         btnAtras = new javax.swing.JButton();
@@ -95,25 +105,25 @@ public class frm_GestionarEmpleado extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("Primer Nombre");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, 20));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Segundo Nombre");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, 20));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setText("Primer Apellido");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, 20));
 
         jLabel5.setText("Segundo Apellido");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, 20));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel6.setText("Cedula");
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
 
         jLabel7.setText("Fecha de Nacimiento");
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, 20));
 
         cmbAño.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Año", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", " " }));
         cmbAño.addActionListener(new java.awt.event.ActionListener() {
@@ -121,7 +131,7 @@ public class frm_GestionarEmpleado extends javax.swing.JFrame {
                 cmbAñoActionPerformed(evt);
             }
         });
-        jPanel3.add(cmbAño, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, -1, -1));
+        jPanel3.add(cmbAño, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, -1, 20));
 
         cmbMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mes", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", " " }));
         cmbMes.addActionListener(new java.awt.event.ActionListener() {
@@ -129,34 +139,29 @@ public class frm_GestionarEmpleado extends javax.swing.JFrame {
                 cmbMesActionPerformed(evt);
             }
         });
-        jPanel3.add(cmbMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, -1, -1));
+        jPanel3.add(cmbMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, -1, 20));
 
         cmbDia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dia", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        jPanel3.add(cmbDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, -1, -1));
+        jPanel3.add(cmbDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 240, -1, 20));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel8.setText("Direccion");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, -1, -1));
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, 20));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel9.setText("Telefono");
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, -1));
-        jPanel3.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 299, -1));
-        jPanel3.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 299, -1));
-        jPanel3.add(txtNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 298, -1));
-        jPanel3.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 298, -1));
-        jPanel3.add(txtApellido2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 298, -1));
-        jPanel3.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, 298, -1));
-        jPanel3.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, 298, -1));
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, 20));
+        jPanel3.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 299, -1));
+        jPanel3.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 299, 20));
+        jPanel3.add(txtNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 298, 20));
+        jPanel3.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 298, 20));
+        jPanel3.add(txtApellido2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 298, 20));
+        jPanel3.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 298, 20));
+        jPanel3.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 298, 20));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel10.setText("Datos del Empleado");
         jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, -1, -1));
-
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel13.setText("Contraseña");
-        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
-        jPanel3.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 299, -1));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/WhatsApp Image 2022-06-25 at 6.39.58 PM.jpeg"))); // NOI18N
         jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 560));
@@ -214,6 +219,8 @@ public class frm_GestionarEmpleado extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        jPanel1.getAccessibleContext().setAccessibleName("Busqueda de Empleado");
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -245,7 +252,6 @@ public class frm_GestionarEmpleado extends javax.swing.JFrame {
             txtDireccion.setText("");
             txtTelefono.setText("");
             JOptionPane.showMessageDialog(this, "El Usuario no fue encontrado\nRegrese presione Crear para generar un nuevo usuario");
-            //System.err.print(cmbAño.getSelectedIndex());
         }
 
     }//GEN-LAST:event_btnBuscarUsuActionPerformed
@@ -256,11 +262,7 @@ public class frm_GestionarEmpleado extends javax.swing.JFrame {
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
         Usuario obj_Usuario = new Usuario();
-        util obj_encript = new util();
-        String valorPass = new String(txtContraseña.getText());
-        String passCifred = obj_encript.cifrar(String.valueOf(valorPass));
         obj_Usuario.setCedula(txtCedula.getText());
-        obj_Usuario.setPassword(passCifred);
         obj_Usuario.setNombre1(txtNombre.getText());
         obj_Usuario.setApellido1(txtApellido.getText());
         obj_Usuario.setDireccion(txtDireccion.getText());
@@ -299,7 +301,8 @@ public class frm_GestionarEmpleado extends javax.swing.JFrame {
             }
         } else {
             JOptionPane.showMessageDialog(this, "El Usuario no puede actualizarse si hay campos vacíos");
-        */}
+             */
+        }
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
@@ -417,7 +420,6 @@ public class frm_GestionarEmpleado extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -433,7 +435,6 @@ public class frm_GestionarEmpleado extends javax.swing.JFrame {
     private javax.swing.JTextField txtApellido2;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtCedulaBuscar;
-    private javax.swing.JTextField txtContraseña;
     private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNombre2;
