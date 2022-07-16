@@ -38,7 +38,7 @@ public class frm_Principal extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
-        btnVerEmpleado1 = new javax.swing.JLabel();
+        btnBuscarUsuario = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         JLBexit = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -128,22 +128,22 @@ public class frm_Principal extends javax.swing.JFrame {
         lblNombre.setText("Jose Gonzalez");
         jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 250, 40));
 
-        btnVerEmpleado1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnVerEmpleado1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_find_user_male_96px.png"))); // NOI18N
-        btnVerEmpleado1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        btnBuscarUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnBuscarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_find_user_male_96px.png"))); // NOI18N
+        btnBuscarUsuario.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
-                btnVerEmpleado1MouseMoved(evt);
+                btnBuscarUsuarioMouseMoved(evt);
             }
         });
-        btnVerEmpleado1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnBuscarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnVerEmpleado1MouseClicked(evt);
+                btnBuscarUsuarioMouseClicked(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnVerEmpleado1MouseExited(evt);
+                btnBuscarUsuarioMouseExited(evt);
             }
         });
-        jPanel1.add(btnVerEmpleado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 220, 140, 120));
+        jPanel1.add(btnBuscarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 220, 140, 120));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(51, 255, 255));
@@ -263,17 +263,19 @@ public class frm_Principal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_JLBexitMouseExited
 
-    private void btnVerEmpleado1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerEmpleado1MouseMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnVerEmpleado1MouseMoved
+    private void btnBuscarUsuarioMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarUsuarioMouseMoved
+        btnBuscarUsuario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+    }//GEN-LAST:event_btnBuscarUsuarioMouseMoved
 
-    private void btnVerEmpleado1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerEmpleado1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnVerEmpleado1MouseClicked
+    private void btnBuscarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarUsuarioMouseClicked
+        frm_BuscarUsuarios obj = new frm_BuscarUsuarios();
+        obj.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnBuscarUsuarioMouseClicked
 
-    private void btnVerEmpleado1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerEmpleado1MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnVerEmpleado1MouseExited
+    private void btnBuscarUsuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarUsuarioMouseExited
+        btnBuscarUsuario.setBorder(null);
+    }//GEN-LAST:event_btnBuscarUsuarioMouseExited
 
   /**
    * @param args the command line arguments
@@ -319,10 +321,10 @@ public class frm_Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JLBexit;
+    private javax.swing.JLabel btnBuscarUsuario;
     private javax.swing.JLabel btnCrearPlanilla;
     private javax.swing.JLabel btnCrearUsuario;
     private javax.swing.JLabel btnVerEmpleado;
-    private javax.swing.JLabel btnVerEmpleado1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;

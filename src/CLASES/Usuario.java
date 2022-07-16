@@ -30,7 +30,8 @@ public class Usuario {
     private String año;
     private String direccion;
     private String telefono;
-
+    
+    
     public Usuario() {
     }
 
@@ -48,6 +49,9 @@ public class Usuario {
         this.telefono = telefono;
     }
 
+    
+
+    
     public int getId_planilla() {
         return id_planilla;
     }
@@ -223,4 +227,31 @@ public class Usuario {
         }
         return result;
     }
+    
+    public boolean db_SearchEmpleado(String searchUser) {
+        boolean result = false;
+        try {
+            Statement consulta = Conn.getConnection().createStatement();
+            ResultSet registro = consulta.executeQuery("call sp_select_tbl_empleado_by_id('" + searchUser + "');");
+            if (registro.next()) {
+                Cedula = registro.getString("cedula");
+                nombre1 = registro.getString("nombre1");
+                nombre2 = registro.getString("nombre2");
+                apellido1 = registro.getString("apellido1");
+                apellido2 = registro.getString("apellido2");
+                String [] fechaNacimiento = registro.getString("fechanacimeinto").split("-");
+                fechaNacimiento[0] = this.getAño();
+                fechaNacimiento[1] = this.getMes();
+                fechaNacimiento[2] = this.getDia();
+                direccion = registro.getString("direccion");
+                telefono  =  registro.getString("telefono");
+                result = true;
+            }
+            Conn.close_db();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+    
 }

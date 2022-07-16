@@ -126,6 +126,7 @@ public class frm_GestionarEmpleado extends javax.swing.JFrame {
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, 20));
 
         cmbAño.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Año", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", " " }));
+        cmbAño.setEnabled(false);
         cmbAño.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbAñoActionPerformed(evt);
@@ -134,6 +135,7 @@ public class frm_GestionarEmpleado extends javax.swing.JFrame {
         jPanel3.add(cmbAño, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, -1, 20));
 
         cmbMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mes", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", " " }));
+        cmbMes.setEnabled(false);
         cmbMes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbMesActionPerformed(evt);
@@ -142,6 +144,7 @@ public class frm_GestionarEmpleado extends javax.swing.JFrame {
         jPanel3.add(cmbMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, -1, 20));
 
         cmbDia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dia", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        cmbDia.setEnabled(false);
         jPanel3.add(cmbDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 240, -1, 20));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -151,13 +154,27 @@ public class frm_GestionarEmpleado extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel9.setText("Telefono");
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, 20));
-        jPanel3.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 299, -1));
-        jPanel3.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 299, 20));
-        jPanel3.add(txtNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 298, 20));
-        jPanel3.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 298, 20));
-        jPanel3.add(txtApellido2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 298, 20));
-        jPanel3.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 298, 20));
-        jPanel3.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 298, 20));
+
+        txtCedula.setEditable(false);
+        jPanel3.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 299, 30));
+
+        txtNombre.setEditable(false);
+        jPanel3.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 299, 30));
+
+        txtNombre2.setEditable(false);
+        jPanel3.add(txtNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 298, 30));
+
+        txtApellido.setEditable(false);
+        jPanel3.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 298, 30));
+
+        txtApellido2.setEditable(false);
+        jPanel3.add(txtApellido2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 298, 30));
+
+        txtDireccion.setEditable(false);
+        jPanel3.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 298, 30));
+
+        txtTelefono.setEditable(false);
+        jPanel3.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 298, 30));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel10.setText("Datos del Empleado");
@@ -170,6 +187,7 @@ public class frm_GestionarEmpleado extends javax.swing.JFrame {
 
         btnCrear.setBackground(new java.awt.Color(153, 255, 204));
         btnCrear.setText("+Crear");
+        btnCrear.setEnabled(false);
         btnCrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCrearActionPerformed(evt);
@@ -188,6 +206,7 @@ public class frm_GestionarEmpleado extends javax.swing.JFrame {
 
         btnModificar.setBackground(new java.awt.Color(102, 255, 204));
         btnModificar.setText("Modificar");
+        btnModificar.setEnabled(false);
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModificarActionPerformed(evt);
@@ -233,25 +252,48 @@ public class frm_GestionarEmpleado extends javax.swing.JFrame {
             txtCedula.setText(obj_Usuario.getCedula());
             txtNombre.setText(obj_Usuario.getNombre1());
             txtNombre2.setText("");
+            txtNombre2.setEditable(true);
             txtApellido.setText(obj_Usuario.getApellido1());
             txtApellido2.setText("");
+            txtApellido2.setEditable(true);
             cmbAño.setSelectedIndex(0);
+            cmbAño.setEnabled(true);
             cmbMes.setSelectedIndex(0);
+            cmbMes.setEnabled(true);
             cmbDia.setSelectedIndex(0);
+            cmbDia.setEnabled(true);
             txtDireccion.setText(obj_Usuario.getDireccion());
             txtTelefono.setText("");
+            txtTelefono.setEditable(true);
+            btnCrear.setEnabled(true);
+            btnModificar.setEnabled(true);
+            //txtCedulaBuscar.setEditable(false);
         } else {
             txtCedula.setText("");
+            txtCedula.setEditable(false);
             txtNombre.setText("");
+            txtNombre.setEditable(false);
             txtNombre2.setText("");
+            txtNombre2.setEditable(false);
             txtApellido.setText("");
+            txtApellido.setEditable(false);
             txtApellido2.setText("");
+            txtApellido2.setEditable(false);
             cmbAño.setSelectedIndex(0);
+            cmbAño.setEnabled(false);
             cmbMes.setSelectedIndex(0);
+            cmbMes.setEnabled(false);
             cmbDia.setSelectedIndex(0);
+            cmbDia.setEnabled(false);
             txtDireccion.setText("");
+            txtDireccion.setEditable(false);
             txtTelefono.setText("");
-            JOptionPane.showMessageDialog(this, "El Usuario no fue encontrado\nRegrese presione Crear para generar un nuevo usuario");
+            txtTelefono.setEditable(false);
+            btnCrear.setEnabled(false);
+            btnModificar.setEnabled(false);
+            JOptionPane.showMessageDialog(this, "El Usuario no fue encontrado\n"
+                                                +"Regrese a la Pantalla pricipal y Registrese en Crear Ususario o\n"
+                                                +"Verifique si la cedula que busca ha sido digitada de manera Correcta");
         }
 
     }//GEN-LAST:event_btnBuscarUsuActionPerformed
