@@ -1,9 +1,10 @@
-
 package FORMULARIOS;
 
 import CLASES.Usuario;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.awt.Window;
 import javax.swing.JOptionPane;
-
 
 public class frm_GestionarUsuario extends javax.swing.JFrame {
 
@@ -12,6 +13,21 @@ public class frm_GestionarUsuario extends javax.swing.JFrame {
      */
     public frm_GestionarUsuario() {
         initComponents();
+        txt_Cedula.setEditable(false);
+        txt_UserId.setEditable(false);
+        txt_Password.setEditable(false);
+        txt_Nombre.setEditable(false);
+        txt_Apellido.setEditable(false);
+        txt_Direccion.setEditable(false);
+        centreWindow(this);
+
+    }
+
+    public static void centreWindow(Window frame) {
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
+        int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
+        frame.setLocation(x, y);
     }
 
     /**
@@ -41,7 +57,7 @@ public class frm_GestionarUsuario extends javax.swing.JFrame {
         txt_Direccion = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jfield_Password = new javax.swing.JPasswordField();
+        txt_Password = new javax.swing.JPasswordField();
         txt_UserId = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         btn_Crear = new javax.swing.JButton();
@@ -51,16 +67,19 @@ public class frm_GestionarUsuario extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 204, 204));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Busqueda de Usuario", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 14))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Busqueda de Usuario", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Busqueda", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 14))); // NOI18N
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Cedula");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 43, -1, -1));
-        jPanel2.add(txt_searchCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 40, 229, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 80, 30));
+
+        txt_searchCedula.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        jPanel2.add(txt_searchCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 229, 30));
 
         btn_Buscar.setText("Buscar");
         btn_Buscar.addActionListener(new java.awt.event.ActionListener() {
@@ -68,7 +87,7 @@ public class frm_GestionarUsuario extends javax.swing.JFrame {
                 btn_BuscarActionPerformed(evt);
             }
         });
-        jPanel2.add(btn_Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 40, -1, -1));
+        jPanel2.add(btn_Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, 75, 30));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/WhatsApp Image 2022-06-25 at 6.39.58 PM.jpeg"))); // NOI18N
         jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -160, -1, -1));
@@ -78,50 +97,50 @@ public class frm_GestionarUsuario extends javax.swing.JFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos del Empleador", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Contraseña");
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("Primer Nombre");
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setText("Primer Apellido");
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setText("Cedula");
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel8.setText("Direccion");
         jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
 
-        txt_Cedula.setEnabled(false);
+        txt_Cedula.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         jPanel3.add(txt_Cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 299, -1));
 
-        txt_Nombre.setEnabled(false);
+        txt_Nombre.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         jPanel3.add(txt_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 298, -1));
 
-        txt_Apellido.setEnabled(false);
+        txt_Apellido.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         jPanel3.add(txt_Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 298, -1));
 
-        txt_Direccion.setEnabled(false);
+        txt_Direccion.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         jPanel3.add(txt_Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 298, -1));
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel10.setText("Datos del Usuario");
         jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, -1, -1));
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel13.setText("Usuario");
         jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
-        jfield_Password.setEnabled(false);
-        jPanel3.add(jfield_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 300, -1));
+        txt_Password.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        jPanel3.add(txt_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 300, -1));
 
-        txt_UserId.setEnabled(false);
+        txt_UserId.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         jPanel3.add(txt_UserId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 299, -1));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/WhatsApp Image 2022-06-25 at 6.39.58 PM.jpeg"))); // NOI18N
@@ -136,7 +155,7 @@ public class frm_GestionarUsuario extends javax.swing.JFrame {
                 btn_CrearActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_Crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 470, 90, 40));
+        jPanel1.add(btn_Crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 470, 75, 30));
 
         btn_Atras.setBackground(new java.awt.Color(153, 255, 204));
         btn_Atras.setText("Atrás ->");
@@ -145,7 +164,7 @@ public class frm_GestionarUsuario extends javax.swing.JFrame {
                 btn_AtrasActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_Atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 470, 100, 40));
+        jPanel1.add(btn_Atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 470, -1, 30));
 
         btn_nuevo.setBackground(new java.awt.Color(102, 255, 204));
         btn_nuevo.setText("Nuevo");
@@ -154,7 +173,7 @@ public class frm_GestionarUsuario extends javax.swing.JFrame {
                 btn_nuevoActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_nuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 90, 40));
+        jPanel1.add(btn_nuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 470, 75, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -178,31 +197,44 @@ public class frm_GestionarUsuario extends javax.swing.JFrame {
         Usuario obj_Usuario = new Usuario();
         boolean checkerUser = obj_Usuario.db_SearchUser(txt_searchCedula.getText());
         System.out.println("Usuario encontrado: " + checkerUser);
-
         if (checkerUser) {
             txt_Cedula.setText(obj_Usuario.getCedula());
             txt_UserId.setText(obj_Usuario.getUserLog());
-            jfield_Password.setText(obj_Usuario.getPassword());
+            txt_Password.setText(obj_Usuario.getPassword());
             txt_Nombre.setText(obj_Usuario.getNombre1());
             txt_Apellido.setText(obj_Usuario.getApellido1());
             txt_Direccion.setText(obj_Usuario.getDireccion());
             btn_Crear.setEnabled(false);
         } else {
-
             txt_Cedula.setText("");
             txt_UserId.setText("");
-            jfield_Password.setText("");
+            txt_Password.setText("");
             txt_Nombre.setText("");
             txt_Apellido.setText("");
             txt_Direccion.setText("");
-            JOptionPane.showMessageDialog(this, "El Usuario no fue encontrado\nRegrese presione Crear para generar un nuevo usuario");
             btn_Crear.setEnabled(true);
+            JOptionPane.showMessageDialog(this, "El Usuario no fue encontrado\nRegrese presione Crear para generar un nuevo usuario");
+
         }
     }//GEN-LAST:event_btn_BuscarActionPerformed
 
     private void btn_CrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CrearActionPerformed
-        frm_CrearEmpleado frm = new frm_CrearEmpleado();
-        frm.setVisible(true);
+        frm_Login obj_Login = new frm_Login();
+        Usuario obj_Usuario = new Usuario();
+        String pass = new String(txt_Password.getPassword());
+        util cifred = new util();
+        String passCiffred = cifred.cifrar(pass);
+        System.out.println(passCiffred);
+
+        obj_Usuario.setCedula(txt_Cedula.getText());
+        obj_Usuario.setUserLog(txt_UserId.getText());
+        obj_Usuario.setPassword(passCiffred);
+        obj_Usuario.setNombre1(txt_Nombre.getText());
+        obj_Usuario.setApellido1(txt_Apellido.getText());
+        obj_Usuario.setDireccion(txt_Direccion.getText());
+        ///////////////////////////////
+        obj_Usuario.db_InsertUser();
+        obj_Login.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_CrearActionPerformed
 
@@ -214,6 +246,20 @@ public class frm_GestionarUsuario extends javax.swing.JFrame {
 
     private void btn_nuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nuevoActionPerformed
         // TODO add your handling code here:
+        btn_Crear.setEnabled(true);
+        ///////////////////////////
+        txt_Cedula.setEditable(true);
+        txt_UserId.setEditable(true);
+        txt_Password.setEditable(true);
+        txt_Nombre.setEditable(true);
+        txt_Apellido.setEditable(true);
+        txt_Direccion.setEditable(true);
+        txt_Cedula.setText("");
+        txt_UserId.setText("");
+        txt_Password.setText("");
+        txt_Nombre.setText("");
+        txt_Apellido.setText("");
+        txt_Direccion.setText("");
     }//GEN-LAST:event_btn_nuevoActionPerformed
 
     /**
@@ -270,11 +316,11 @@ public class frm_GestionarUsuario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPasswordField jfield_Password;
     private javax.swing.JTextField txt_Apellido;
     private javax.swing.JTextField txt_Cedula;
     private javax.swing.JTextField txt_Direccion;
     private javax.swing.JTextField txt_Nombre;
+    private javax.swing.JPasswordField txt_Password;
     private javax.swing.JTextField txt_UserId;
     private javax.swing.JTextField txt_searchCedula;
     // End of variables declaration//GEN-END:variables

@@ -30,10 +30,6 @@ public class Usuario {
     private String año;
     private String direccion;
     private String telefono;
-    private String ruta = "C:\\proyecto\\";
-    private String usuarios = "usuario.txt";
-    private String splitter = "\\|";
-    private String concat = "|";
 
     public Usuario() {
     }
@@ -172,25 +168,6 @@ public class Usuario {
         this.UserLog = UserLog;
     }
 
-//METODO PARA CAMBIO DE TEXTO EN LBL DEL USER
-    public String changeNamelbl(String userValue) {
-        String result = "";
-        try {
-            File path = new File(ruta + usuarios);
-            Scanner read = new Scanner(path);
-            while (read.hasNextLine()) {
-                String[] linea = read.nextLine().split(this.splitter);
-                if (linea[0].equals(userValue)) {
-                    result = linea[2] + " " + linea[4];
-                }
-            }
-        } catch (Exception e) {
-            System.err.println(e);
-        }
-        return result;
-    }
-//FIN METODO PARA CAMBIO DE TEXTO EN LBL DEL USER
-
 ///////////////////////////////////////////////////
     private conexion Conn = new conexion();
 
@@ -198,20 +175,17 @@ public class Usuario {
         boolean result = false;
         try {
             Statement consulta = Conn.getConnection().createStatement();
-            ResultSet registro = consulta.executeQuery("call sp_select_tbl_usuarios_by_id('" + checkUser + "');");
+            ResultSet registro = consulta.executeQuery("call sp_LoginCheck('" + checkUser + "', '" + checkPass + "');");
             if (registro.next()) {
-                String user = registro.getString("userid");
-                String pass = registro.getString("contrasenna");
-                if (checkUser == user) {
-                    if (checkPass == pass) {
-                        result = true;
-                    }
-                }
+                String prueba = new String(registro.getString("result"));
+                System.out.print("objeto encontrado: " + prueba);
+                result = true;
             }
             Conn.close_db();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        System.out.print("Login: " + result);
         return result;
     }
 
@@ -240,9 +214,10 @@ public class Usuario {
         boolean result = false;
         try {
             Statement consulta = Conn.getConnection().createStatement();
-            String insertQuery = "INSERT INTO tbl_usuarios(cedula,userid,contrasenna,nombre,apellido,direccion,fechaingreso) VALUES('" + getCedula() + "', '" + getUserLog() + "', '" + getPassword() + "', '" + getNombre1() + "', '" + getApellido1() + "', '" + getDireccion() + "', now();";
+            String insertQuery = "INSERT INTO tbl_usuarios(cedula,userid,contrasenna,nombre,apellido,direccion,fechaingreso) VALUES('" + getCedula() + "', '" + getUserLog() + "', '" + getPassword() + "', '" + getNombre1() + "', '" + getApellido1() + "', '" + getDireccion() + "', now());";
             consulta.executeUpdate(insertQuery);
             Conn.close_db();
+            result = true;
         } catch (SQLException e) {
             e.printStackTrace();
         }

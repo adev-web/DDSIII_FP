@@ -7,6 +7,9 @@ package FORMULARIOS;
 import CLASES.Usuario;
 import CLASES.conexion;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.awt.Window;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -19,6 +22,15 @@ public class frm_Login extends javax.swing.JFrame {
 
     public frm_Login() {
         initComponents();
+        centreWindow(this);
+
+    }
+
+    public static void centreWindow(Window frame) {
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
+        int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
+        frame.setLocation(x, y);
     }
 
     /**
@@ -228,7 +240,7 @@ public class frm_Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4MouseEntered
 
     private void BTNregistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNregistrarActionPerformed
-        frm_GestionarEmpleado obj_GestU = new frm_GestionarEmpleado();
+        frm_GestionarUsuario obj_GestU = new frm_GestionarUsuario();
         obj_GestU.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BTNregistrarActionPerformed
@@ -242,8 +254,7 @@ public class frm_Login extends javax.swing.JFrame {
         if (userCheck == true) {
             frm_Principal obj_Principal = new frm_Principal();
             JOptionPane.showMessageDialog(this, "Inicio de sesión satisfactorio.");
-            String nombreUser = obj_Usuario.changeNamelbl(TXTusuario.getText());
-            obj_Usuario.setCurrentUser(nombreUser);
+            obj_Usuario.setCurrentUser(TXTusuario.getText());
             obj_Principal.setLblName(obj_Usuario.getCurrentUser());
             obj_Principal.setVisible(true);
             this.dispose();
@@ -256,7 +267,6 @@ public class frm_Login extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jButton3ActionPerformed
     private void txt_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_passwordActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_txt_passwordActionPerformed
 
     /**
