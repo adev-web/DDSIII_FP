@@ -31,7 +31,7 @@ public class frm_Login extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        TXTpassword = new javax.swing.JPasswordField();
+        txt_password = new javax.swing.JPasswordField();
         jSeparator2 = new javax.swing.JSeparator();
         TXTusuario = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -52,25 +52,25 @@ public class frm_Login extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        TXTpassword.setBackground(new java.awt.Color(153, 255, 204));
-        TXTpassword.setFont(TXTpassword.getFont().deriveFont((TXTpassword.getFont().getStyle() & ~java.awt.Font.ITALIC) | java.awt.Font.BOLD));
-        TXTpassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        TXTpassword.setText("********");
-        TXTpassword.setBorder(null);
-        TXTpassword.addMouseListener(new java.awt.event.MouseAdapter() {
+        txt_password.setBackground(new java.awt.Color(153, 255, 204));
+        txt_password.setFont(txt_password.getFont().deriveFont((txt_password.getFont().getStyle() & ~java.awt.Font.ITALIC) | java.awt.Font.BOLD));
+        txt_password.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_password.setText("********");
+        txt_password.setBorder(null);
+        txt_password.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                TXTpasswordMouseClicked(evt);
+                txt_passwordMouseClicked(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                TXTpasswordMousePressed(evt);
+                txt_passwordMousePressed(evt);
             }
         });
-        TXTpassword.addActionListener(new java.awt.event.ActionListener() {
+        txt_password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TXTpasswordActionPerformed(evt);
+                txt_passwordActionPerformed(evt);
             }
         });
-        jPanel1.add(TXTpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 280, 250, 40));
+        jPanel1.add(txt_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 280, 250, 40));
 
         jSeparator2.setBackground(new java.awt.Color(51, 0, 255));
         jSeparator2.setForeground(new java.awt.Color(51, 255, 51));
@@ -165,7 +165,7 @@ public class frm_Login extends javax.swing.JFrame {
     private void TXTusuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TXTusuarioMouseClicked
 
         TXTusuario.setBorder(javax.swing.BorderFactory.createBevelBorder(NORMAL));
-        TXTpassword.setBorder(null);
+        txt_password.setBorder(null);
     }//GEN-LAST:event_TXTusuarioMouseClicked
 
     private void TXTusuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TXTusuarioMousePressed
@@ -175,20 +175,20 @@ public class frm_Login extends javax.swing.JFrame {
             TXTusuario.setForeground(Color.black);
         }
 
-        if (String.valueOf(TXTpassword.getPassword()).isEmpty()) {
-            TXTpassword.setText("********");
-            TXTpassword.setForeground(Color.gray);
+        if (String.valueOf(txt_password.getPassword()).isEmpty()) {
+            txt_password.setText("********");
+            txt_password.setForeground(Color.gray);
 
         }
 
 
     }//GEN-LAST:event_TXTusuarioMousePressed
 
-    private void TXTpasswordMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TXTpasswordMousePressed
+    private void txt_passwordMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_passwordMousePressed
 
-        if (String.valueOf(TXTpassword.getPassword()).equals("********")) {
-            TXTpassword.setText("");
-            TXTpassword.setForeground(Color.black);
+        if (String.valueOf(txt_password.getPassword()).equals("********")) {
+            txt_password.setText("");
+            txt_password.setForeground(Color.black);
         }
 
         if (TXTusuario.getText().isEmpty()) {
@@ -197,27 +197,27 @@ public class frm_Login extends javax.swing.JFrame {
 
         }
 
-    }//GEN-LAST:event_TXTpasswordMousePressed
+    }//GEN-LAST:event_txt_passwordMousePressed
 
-    private void TXTpasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TXTpasswordMouseClicked
+    private void txt_passwordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_passwordMouseClicked
 
-        TXTpassword.setBorder(javax.swing.BorderFactory.createBevelBorder(NORMAL));
+        txt_password.setBorder(javax.swing.BorderFactory.createBevelBorder(NORMAL));
 
         TXTusuario.setBorder(null);
 
 
-    }//GEN-LAST:event_TXTpasswordMouseClicked
+    }//GEN-LAST:event_txt_passwordMouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
 
-        TXTpassword.setEchoChar((char) 0);
+        txt_password.setEchoChar((char) 0);
 
 
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jLabel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseExited
 
-        TXTpassword.setEchoChar('*');
+        txt_password.setEchoChar('*');
 
 
     }//GEN-LAST:event_jLabel4MouseExited
@@ -228,7 +228,7 @@ public class frm_Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4MouseEntered
 
     private void BTNregistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNregistrarActionPerformed
-        frm_GestionarUsuario obj_GestU = new frm_GestionarUsuario();
+        frm_GestionarEmpleado obj_GestU = new frm_GestionarEmpleado();
         obj_GestU.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BTNregistrarActionPerformed
@@ -236,14 +236,14 @@ public class frm_Login extends javax.swing.JFrame {
     private void BTNingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNingresarActionPerformed
 
         util obj_encript = new util();
-        String valorPass = new String(TXTpassword.getPassword());
+        String valorPass = new String(txt_password.getPassword());
         String pssCifred = obj_encript.cifrar(String.valueOf(valorPass));
         boolean userCheck = obj_Usuario.db_LoginCheck(TXTusuario.getText(), pssCifred);
         if (userCheck == true) {
             frm_Principal obj_Principal = new frm_Principal();
             JOptionPane.showMessageDialog(this, "Inicio de sesión satisfactorio.");
-        //    String nombreUser = obj_Usuario.changeNamelbl(TXTusuario.getText());
-//            obj_Usuario.setCurrentUser(nombreUser);
+            String nombreUser = obj_Usuario.changeNamelbl(TXTusuario.getText());
+            obj_Usuario.setCurrentUser(nombreUser);
             obj_Principal.setLblName(obj_Usuario.getCurrentUser());
             obj_Principal.setVisible(true);
             this.dispose();
@@ -255,9 +255,9 @@ public class frm_Login extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton3ActionPerformed
-    private void TXTpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TXTpasswordActionPerformed
+    private void txt_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_passwordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TXTpasswordActionPerformed
+    }//GEN-LAST:event_txt_passwordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -304,7 +304,6 @@ public class frm_Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTNingresar;
     private javax.swing.JButton BTNregistrar;
-    private javax.swing.JPasswordField TXTpassword;
     private javax.swing.JTextField TXTusuario;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
@@ -314,5 +313,6 @@ public class frm_Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JPasswordField txt_password;
     // End of variables declaration//GEN-END:variables
 }

@@ -123,8 +123,6 @@ public class frm_DatosPlanilla extends javax.swing.JFrame {
         obj_usu.setDia(cmbDia.getItemAt(cmbDia.getSelectedIndex()));
         obj_usu.setMes(cmbMes.getItemAt(cmbMes.getSelectedIndex()));
         obj_usu.setAño(cmbAño.getItemAt(cmbAño.getSelectedIndex()));
-        if(obj_usu.insertarPlanilla())
-            JOptionPane.showMessageDialog(rootPane,"Se ha ingresado el id de planilla#"+obj_usu.getId_planilla());
     }//GEN-LAST:event_btnCrearPlanillaActionPerformed
 
     /**

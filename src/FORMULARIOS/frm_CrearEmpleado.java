@@ -165,19 +165,7 @@ public class frm_CrearEmpleado extends javax.swing.JFrame {
   }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-      /*
-      Usuario obj_Usuario = new Usuario();
-      Empleado obj_Empleado = new Empleado();
-      obj_Usuario.setCedula(txtCedula.getText());
-      obj_Empleado.setCedula(txtCedula.getText());
-      obj_Empleado.setNombre1(txtNombre.getText());
-      obj_Empleado.setNombre2(txtNombre2.getText());
-      obj_Empleado.setApellido1(txtApellido.getText());
-      obj_Empleado.setApellido2(txtApellido2.getText());
-      obj_Empleado.setHorasTrabajadas(Double.parseDouble(txtHorasTrabajadas.getText()));
-      obj_Empleado.setSalarioHoras(Double.parseDouble(txtSalario.getText()));
-      obj_Empleado.CrearEmpleado();
-       */
+
       Usuario obj_Usuario = new Usuario();
       Empleado obj_Empleado = new Empleado();
       obj_Usuario.setCedula(txtCedula.getText());
@@ -201,28 +189,7 @@ public class frm_CrearEmpleado extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-      /*Usuario obj_Usuario = new Usuario();
-      obj_Usuario.setCedula(txtCedula.getText());
-      if (obj_Usuario.Buscar() == true) {
-        JOptionPane.showMessageDialog(this, "Usuario encontrado: " + obj_Usuario.Buscar());
-        txtNombre.setText(obj_Usuario.getNombre1());
-        txtNombre2.setText(obj_Usuario.getNombre2());
-        txtApellido.setText(obj_Usuario.getApellido1());
-        txtApellido2.setText(obj_Usuario.getApellido2());
-        txtSalario.setEditable(true);
-        txtHorasTrabajadas.setEditable(true);
-      } else {
-        JOptionPane.showMessageDialog(this, "Usuario encontrado: " + obj_Usuario.Buscar());
-        txtNombre.setText("");
-        txtNombre2.setText("");
-        txtApellido.setText("");
-        txtApellido2.setText("");
-        txtSalario.setText("");
-        txtHorasTrabajadas.setText("");
-        txtSalario.setEditable(false);
-        txtHorasTrabajadas.setEditable(false);
 
-      }*/
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed

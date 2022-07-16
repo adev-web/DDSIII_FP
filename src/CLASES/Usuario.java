@@ -5,11 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Scanner;
 import java.sql.*;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,11 +15,9 @@ import javax.swing.JOptionPane;
  */
 public class Usuario {
 
-    Connection con;
-    PreparedStatement ps;
-    ResultSet rs;
     private static String CurrentUser;
     private int id_planilla;
+    private String UserLog;
     private String Cedula;
     private String cedulaSearch;
     private String password;
@@ -35,14 +31,14 @@ public class Usuario {
     private String direccion;
     private String telefono;
     private String ruta = "C:\\proyecto\\";
-    private String usu ;
+    private String usuarios = "usuario.txt";
     private String splitter = "\\|";
     private String concat = "|";
 
     public Usuario() {
     }
 
-    public Usuario(String Cedula,String usu, String password, String nombre1, String nombre2, String apellido1, String apellido2, String dia, String mes, String año, String direccion, String telefono) {
+    public Usuario(String Cedula, String password, String nombre1, String nombre2, String apellido1, String apellido2, String dia, String mes, String año, String direccion, String telefono) {
         this.Cedula = Cedula;
         this.password = password;
         this.nombre1 = nombre1;
@@ -54,15 +50,6 @@ public class Usuario {
         this.año = año;
         this.direccion = direccion;
         this.telefono = telefono;
-        this.usu = usu;
-    }
-
-    public String getUsu() {
-        return usu;
-    }
-
-    public void setUsu(String usu) {
-        this.usu = usu;
     }
 
     public int getId_planilla() {
@@ -177,157 +164,16 @@ public class Usuario {
         this.telefono = telefono;
     }
 
-    //METODO DE INSERTAR/////
-    public boolean insertarPlanilla() {
-        try {
-            con = conexion.getConnection();
-            ps = con.prepareCall("call sp_insert_planilla(?)");
-            ps.setString(1, año + mes + dia);
-            rs = ps.executeQuery();
-            if (rs.next()) {
-                this.id_planilla = Integer.parseInt(rs.getString("ultimo_id"));
-                con.close();
-                return true;
-            }
-            con.close();
-            return false;
-        } catch (SQLException e) {
-            return false;
-        }
-        //return false;
-
+    public String getUserLog() {
+        return UserLog;
     }
-    //FIN DEL METODO INSERTAR///// 
 
-//METODO DE CHECKEO DE LOGIN/////
-   /* public boolean LoginCheck(String userValue, String Pass) {
-        boolean result = false;
-        try {
-            File path = new File(ruta + usuarios);
-            Scanner read = new Scanner(path);
-
-            while (read.hasNextLine()) {
-                String[] linea = read.nextLine().split(this.splitter);
-                if (linea[0].equals(userValue) && linea[1].equals(Pass)) {
-                    result = true;
-                }
-            }
-        } catch (Exception e) {
-            System.err.println(e);
-        }
-        return result;
-    }*/
-//FIN METODO DE CHECKEO DE LOGIN/////
-
-//METODO BUSCAR//// 
-    /*public boolean Buscar() {
-        boolean result = false;
-        File fileRuta = new File(ruta);
-        if (!fileRuta.exists()) {
-            fileRuta.mkdir();
-        }
-        File fl = new File(ruta + usuarios);
-        try {
-            Scanner read = new Scanner(fl);
-            while (read.hasNextLine()) {
-                String[] linea = read.nextLine().split(this.splitter);
-                if (linea[0].equals(this.Cedula)) {
-                    this.Cedula = linea[0];
-                    this.password = linea[1];
-                    this.nombre1 = linea[2];
-                    this.nombre2 = linea[3];
-                    this.apellido1 = linea[4];
-                    this.apellido2 = linea[5];
-                    this.dia = linea[6];
-                    this.mes = linea[7];
-                    this.año = linea[8];
-                    this.direccion = linea[9];
-                    this.telefono = linea[10];
-                    result = true;
-                }
-            }
-            read.close();
-        } catch (FileNotFoundException e) {
-            System.err.println(e);
-        }
-        return result;
-    }*/
-// FIN DEL METODO BUSCAR  
-
-//METODO DE MODIFICAR EL USUARIO
-   /* public boolean ModificarUsuario() {
-        boolean result = false;
-        File fileRuta = new File(ruta);
-        if (!fileRuta.exists()) {
-            fileRuta.mkdir();
-        }
-        File fl = new File(ruta + usuarios);
-        try {
-            FileWriter fw = new FileWriter(ruta + usuarios + ".tmp", true);
-            PrintWriter pw = new PrintWriter(fw);
-            try {
-                Scanner read = new Scanner(fl);
-                while (read.hasNextLine()) {
-                    String linea = read.nextLine();
-                    String[] arr = linea.split(this.splitter);
-                    if (arr[0].equals(getCedulaSearch())) {
-                        arr[0] = getCedula();
-                        arr[1] = arr[1];
-                        arr[2] = getNombre1();
-                        arr[3] = getNombre2();
-                        arr[4] = getApellido1();
-                        arr[5] = getApellido2();
-                        arr[6] = getDia();
-                        arr[7] = getMes();
-                        arr[8] = getAño();
-                        arr[9] = getDireccion();
-                        arr[10] = getTelefono();
-                        pw.println(
-                                arr[0] + this.concat
-                                + arr[1] + this.concat
-                                + arr[2] + this.concat
-                                + arr[3] + this.concat
-                                + arr[4] + this.concat
-                                + arr[5] + this.concat
-                                + arr[6] + this.concat
-                                + arr[7] + this.concat
-                                + arr[8] + this.concat
-                                + arr[9] + this.concat
-                                + arr[10]);
-                        result = true;
-                    } else {
-                        pw.println(
-                                arr[0] + this.concat
-                                + arr[1] + this.concat
-                                + arr[2] + this.concat
-                                + arr[3] + this.concat
-                                + arr[4] + this.concat
-                                + arr[5] + this.concat
-                                + arr[6] + this.concat
-                                + arr[7] + this.concat
-                                + arr[8] + this.concat
-                                + arr[9] + this.concat
-                                + arr[10]);
-                    }
-                }
-                pw.close();
-                fw.close();
-                read.close();
-                fl.delete();
-                File newFile = new File(ruta + usuarios + ".tmp");
-                newFile.renameTo(fl);
-            } catch (FileNotFoundException e) {
-                System.err.println(e);
-            }
-        } catch (IOException e) {
-            System.err.println(e);
-        }
-        return result;
-    }*/
-//FIN METODO DE MODIFICAR
+    public void setUserLog(String UserLog) {
+        this.UserLog = UserLog;
+    }
 
 //METODO PARA CAMBIO DE TEXTO EN LBL DEL USER
-   /* public String changeNamelbl(String userValue) {
+    public String changeNamelbl(String userValue) {
         String result = "";
         try {
             File path = new File(ruta + usuarios);
@@ -342,7 +188,7 @@ public class Usuario {
             System.err.println(e);
         }
         return result;
-    }*/
+    }
 //FIN METODO PARA CAMBIO DE TEXTO EN LBL DEL USER
 
 ///////////////////////////////////////////////////
@@ -350,27 +196,22 @@ public class Usuario {
 
     public boolean db_LoginCheck(String checkUser, String checkPass) {
         boolean result = false;
-
         try {
             Statement consulta = Conn.getConnection().createStatement();
-            ResultSet registro = consulta.executeQuery("call sp_select_tbl_usuarios();");
+            ResultSet registro = consulta.executeQuery("call sp_select_tbl_usuarios_by_id('" + checkUser + "');");
             if (registro.next()) {
                 String user = registro.getString("userid");
                 String pass = registro.getString("contrasenna");
                 if (checkUser == user) {
                     if (checkPass == pass) {
                         result = true;
-                    } else {
                     }
-                } else {
                 }
             }
             Conn.close_db();
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return result;
     }
 
@@ -378,16 +219,14 @@ public class Usuario {
         boolean result = false;
         try {
             Statement consulta = Conn.getConnection().createStatement();
-            ResultSet registro = consulta.executeQuery("call sp_select_tbl_usuarios();");
+            ResultSet registro = consulta.executeQuery("call sp_select_tbl_usuarios_by_id('" + searchUser + "');");
             if (registro.next()) {
-                String validador = registro.getString("cedula");
-                System.out.println(validador);
                 Cedula = registro.getString("cedula");
-                usu = registro.getString("userid");
+                UserLog = registro.getString("userid");
                 password = registro.getString("contrasenna");
                 nombre1 = registro.getString("nombre");
                 apellido1 = registro.getString("apellido");
-                direccion  = registro.getString("direccion");
+                direccion = registro.getString("direccion");
                 result = true;
             }
             Conn.close_db();
@@ -399,14 +238,14 @@ public class Usuario {
 
     public boolean db_InsertUser() {
         boolean result = false;
-
         try {
-            Statement insercion = Conn.getConnection().createStatement();
-            String query = "call ";
-            insercion.execute(dia);
-        } catch (Exception e) {
+            Statement consulta = Conn.getConnection().createStatement();
+            String insertQuery = "INSERT INTO tbl_usuarios(cedula,userid,contrasenna,nombre,apellido,direccion,fechaingreso) VALUES('" + getCedula() + "', '" + getUserLog() + "', '" + getPassword() + "', '" + getNombre1() + "', '" + getApellido1() + "', '" + getDireccion() + "', now();";
+            consulta.executeUpdate(insertQuery);
+            Conn.close_db();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-
         return result;
     }
 }
