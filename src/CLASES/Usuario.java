@@ -30,8 +30,7 @@ public class Usuario {
     private String año;
     private String direccion;
     private String telefono;
-    
-    
+
     public Usuario() {
     }
 
@@ -49,9 +48,6 @@ public class Usuario {
         this.telefono = telefono;
     }
 
-    
-
-    
     public int getId_planilla() {
         return id_planilla;
     }
@@ -227,7 +223,7 @@ public class Usuario {
         }
         return result;
     }
-    
+
     public boolean db_SearchEmpleado(String searchUser) {
         boolean result = false;
         try {
@@ -239,12 +235,12 @@ public class Usuario {
                 nombre2 = registro.getString("nombre2");
                 apellido1 = registro.getString("apellido1");
                 apellido2 = registro.getString("apellido2");
-                String [] fechaNacimiento = registro.getString("fechanacimeinto").split("-");
-                fechaNacimiento[0] = this.getAño();
-                fechaNacimiento[1] = this.getMes();
-                fechaNacimiento[2] = this.getDia();
+                String[] fechaNacimiento = registro.getString("fechanacimeinto").split("\\-");
+                this.setAño(fechaNacimiento[0]);
+                this.setMes(fechaNacimiento[1]);
+                this.setDia(fechaNacimiento[2]);
                 direccion = registro.getString("direccion");
-                telefono  =  registro.getString("telefono");
+                telefono = registro.getString("telefono");
                 result = true;
             }
             Conn.close_db();
@@ -253,5 +249,5 @@ public class Usuario {
         }
         return result;
     }
-    
+
 }

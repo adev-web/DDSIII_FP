@@ -19,6 +19,7 @@ public class frm_GestionarUsuario extends javax.swing.JFrame {
         txt_Nombre.setEditable(false);
         txt_Apellido.setEditable(false);
         txt_Direccion.setEditable(false);
+        btn_Crear.setEnabled(false);
         centreWindow(this);
 
     }
