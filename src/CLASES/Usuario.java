@@ -249,5 +249,19 @@ public class Usuario {
         }
         return result;
     }
+    
+    public boolean db_InsertEmpleado() {
+        boolean result = false;
+        try {
+            Statement consulta = Conn.getConnection().createStatement();
+            String insertQuery = "INSERT INTO tbl_empleado(cedula,nombre1,nombre2,apellido1,apellido2,fechanacimeinto,direccion,telefono) VALUES('" + this.getCedula() + "', '" + this.getNombre1() + "', '" + this.getNombre2()+ "', '" + this.getApellido1()+ "', '" + this.getApellido2() + "', '" + this.getAño()+this.getMes()+this.getDia() + "',"+this.getDireccion()+"',"+ this.getTelefono()+");+";
+            consulta.executeUpdate(insertQuery);
+            Conn.close_db();
+            result = true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 
 }
