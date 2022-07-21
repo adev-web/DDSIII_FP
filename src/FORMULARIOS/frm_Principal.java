@@ -4,15 +4,21 @@
  */
 package FORMULARIOS;
 
+import CLASES.Usuario;
+import java.awt.Cursor;
 
 /**
  *
  * @author termi
  */
 public class frm_Principal extends javax.swing.JFrame {
+
+    Usuario obj_Usuario = new Usuario();
+    Cursor poiter = new Cursor(Cursor.HAND_CURSOR);
+
     public frm_Principal() {
         initComponents();
-
+        lblNombre.setText(obj_Usuario.getCurrentUser());
     }
 
     /**
@@ -28,16 +34,16 @@ public class frm_Principal extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         btnCrearUsuario = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        btnVerEmpleado = new javax.swing.JLabel();
-        btnCrearPlanilla = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        btnVerEmpleado = new javax.swing.JLabel();
+        btnCrearPlanilla = new javax.swing.JLabel();
+        btnBuscarUsuario = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
-        btnBuscarUsuario = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        JLBexit = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        JLBexit = new javax.swing.JLabel();
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 233, 222));
@@ -49,50 +55,11 @@ public class frm_Principal extends javax.swing.JFrame {
         btnCrearUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Principal");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnVerEmpleado.setBackground(new java.awt.Color(0, 0, 0));
-        btnVerEmpleado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnVerEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_find_user_male_96px.png"))); // NOI18N
-        btnVerEmpleado.setAlignmentY(0.0F);
-        btnVerEmpleado.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnVerEmpleado.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                btnVerEmpleadoMouseMoved(evt);
-            }
-        });
-        btnVerEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnVerEmpleadoMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnVerEmpleadoMouseExited(evt);
-            }
-        });
-        jPanel1.add(btnVerEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 150, 150));
-
-        btnCrearPlanilla.setBackground(new java.awt.Color(0, 0, 0));
-        btnCrearPlanilla.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnCrearPlanilla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_insert_table_96px_9.png"))); // NOI18N
-        btnCrearPlanilla.setAlignmentY(0.0F);
-        btnCrearPlanilla.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnCrearPlanilla.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                btnCrearPlanillaMouseMoved(evt);
-            }
-        });
-        btnCrearPlanilla.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCrearPlanillaMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnCrearPlanillaMouseExited(evt);
-            }
-        });
-        jPanel1.add(btnCrearPlanilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 180, 150, 150));
 
         jLabel5.setBackground(new java.awt.Color(0, 0, 0));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -112,17 +79,54 @@ public class frm_Principal extends javax.swing.JFrame {
         jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 330, 150, 50));
 
-        jLabel7.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_user_150px_2.png"))); // NOI18N
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 150, 150));
+        jLabel8.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(51, 255, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Usuarios");
+        jLabel8.setAlignmentY(0.0F);
+        jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 150, 50));
 
-        lblNombre.setBackground(new java.awt.Color(0, 0, 0));
-        lblNombre.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        lblNombre.setForeground(new java.awt.Color(255, 255, 51));
-        lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNombre.setText("Jose Gonzalez");
-        jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, 325, 150));
+        btnVerEmpleado.setBackground(new java.awt.Color(0, 0, 0));
+        btnVerEmpleado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnVerEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_find_user_male_96px.png"))); // NOI18N
+        btnVerEmpleado.setAlignmentY(0.0F);
+        btnVerEmpleado.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnVerEmpleado.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                btnVerEmpleadoMouseMoved(evt);
+            }
+        });
+        btnVerEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnVerEmpleadoMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnVerEmpleadoMouseExited(evt);
+            }
+        });
+        jPanel1.add(btnVerEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 150, 200));
+
+        btnCrearPlanilla.setBackground(new java.awt.Color(0, 0, 0));
+        btnCrearPlanilla.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnCrearPlanilla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_insert_table_96px_9.png"))); // NOI18N
+        btnCrearPlanilla.setAlignmentY(0.0F);
+        btnCrearPlanilla.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCrearPlanilla.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                btnCrearPlanillaMouseMoved(evt);
+            }
+        });
+        btnCrearPlanilla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCrearPlanillaMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCrearPlanillaMouseExited(evt);
+            }
+        });
+        jPanel1.add(btnCrearPlanilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 180, 150, 200));
 
         btnBuscarUsuario.setBackground(new java.awt.Color(0, 0, 0));
         btnBuscarUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -142,16 +146,22 @@ public class frm_Principal extends javax.swing.JFrame {
                 btnBuscarUsuarioMouseExited(evt);
             }
         });
-        jPanel1.add(btnBuscarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 150, 150));
+        jPanel1.add(btnBuscarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 150, 200));
 
-        jLabel8.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(51, 255, 255));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Usuarios");
-        jLabel8.setAlignmentY(0.0F);
-        jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 150, 50));
+        jLabel7.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_user_150px_2.png"))); // NOI18N
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 150, 150));
+
+        lblNombre.setBackground(new java.awt.Color(0, 0, 0));
+        lblNombre.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(255, 255, 51));
+        lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNombre.setText("Jose Gonzalez");
+        jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, 325, 150));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/fondo-color-verde-azul-neon-claro-fondo-degradado-borroso-abstracto-plantilla-banner_335640-3440 (1).jpg"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -4, 810, 410));
 
         JLBexit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLBexit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_Close_40px_2.png"))); // NOI18N
@@ -169,9 +179,6 @@ public class frm_Principal extends javax.swing.JFrame {
             }
         });
         jPanel1.add(JLBexit, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 0, 50, 40));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/fondo-color-verde-azul-neon-claro-fondo-degradado-borroso-abstracto-plantilla-banner_335640-3440 (1).jpg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -4, 810, 410));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -196,6 +203,8 @@ public class frm_Principal extends javax.swing.JFrame {
 
     private void btnVerEmpleadoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerEmpleadoMouseMoved
         btnVerEmpleado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+
+        btnVerEmpleado.setCursor(poiter);
     }//GEN-LAST:event_btnVerEmpleadoMouseMoved
 
     private void btnVerEmpleadoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerEmpleadoMouseExited
@@ -210,6 +219,7 @@ public class frm_Principal extends javax.swing.JFrame {
 
     private void btnCrearPlanillaMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearPlanillaMouseMoved
         btnCrearPlanilla.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        btnCrearPlanilla.setCursor(poiter);
     }//GEN-LAST:event_btnCrearPlanillaMouseMoved
 
     private void btnCrearPlanillaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearPlanillaMouseExited
@@ -222,6 +232,7 @@ public class frm_Principal extends javax.swing.JFrame {
 
     private void JLBexitMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLBexitMouseMoved
         JLBexit.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        JLBexit.setCursor(poiter);
     }//GEN-LAST:event_JLBexitMouseMoved
 
     public void setLblName(String userValue) {
@@ -234,11 +245,12 @@ public class frm_Principal extends javax.swing.JFrame {
 
     private void btnBuscarUsuarioMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarUsuarioMouseMoved
         btnBuscarUsuario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        btnBuscarUsuario.setCursor(poiter);
     }//GEN-LAST:event_btnBuscarUsuarioMouseMoved
 
     private void btnBuscarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarUsuarioMouseClicked
-        frm_BuscarUsuarios obj = new frm_BuscarUsuarios();
-        obj.setVisible(true);
+        frm_GestionarUsuario obj_GestionarUsuario = new frm_GestionarUsuario();
+        obj_GestionarUsuario.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBuscarUsuarioMouseClicked
 

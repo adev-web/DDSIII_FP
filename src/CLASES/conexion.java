@@ -15,6 +15,15 @@ public class conexion {
     private static final String url = "jdbc:mysql://localhost:3306/planilla";
 
     public static Connection getConnection() {
+        /*
+        
+        //for online. 
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection conn = DriverManager.getConnection(
+            "jdbc:mysql://jk6u9316dsxd.us-east-2.psdb.cloud/planilla?sslMode=VERIFY_IDENTITY",
+            "lmz0lviewjs4",
+            "pscale_pw_A3_b79WZrnO7NL8DItlcTxc8mdbIM8I57bpLs6sRXHc");
+         */
         con = null;
         try {
             Class.forName(driver);
