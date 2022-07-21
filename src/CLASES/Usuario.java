@@ -5,6 +5,7 @@ import java.sql.*;
 
 public class Usuario {
 
+    private String id_planilla;
     private static String currentUser;
     private String cedulaSearch;
     private String cedula;
@@ -20,6 +21,16 @@ public class Usuario {
     private String direccion;
 
     // <editor-fold defaultstate="collapsed" desc="Set&Get">  
+
+    public String getId_planilla() {
+        return id_planilla;
+    }
+
+    public void setId_planilla(String id_planilla) {
+        this.id_planilla = id_planilla;
+    }
+    
+    
     public String getDireccion() {
         return direccion;
     }

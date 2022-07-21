@@ -141,7 +141,7 @@ public class frm_CrearPlanilla extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarEmpleadoActionPerformed
-        frm_CrearEmpleado FRM = new frm_CrearEmpleado();
+        frm_SeleccionSalario FRM = new frm_SeleccionSalario();
         FRM.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnAgregarEmpleadoActionPerformed
@@ -153,20 +153,20 @@ public class frm_CrearPlanilla extends javax.swing.JFrame {
         if (Desicion == 0) {
             objEmpelado.setCedula((String) tblPlanilla.getValueAt(numFilaSeleccionada, 0));
 
-            if (objEmpelado.EliminarEmpleado()) {
+            /*if (objEmpelado.EliminarEmpleado()) {
                 JOptionPane.showMessageDialog(rootPane, "Usuario eliminado");
             } else {
                 JOptionPane.showMessageDialog(rootPane, "No se ha eliminado");
             }
         } else {
             JOptionPane.showMessageDialog(rootPane, "No Se Ha Eliminado el Empleado ");
-        }
+        */}
     }//GEN-LAST:event_btnEliminarEmpleadoActionPerformed
 
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
         ArrayList<Empleado> lista = new ArrayList<>();
         Empleado objEmpelado = new Empleado();
-        lista = objEmpelado.mostrarTodo();
+        //lista = objEmpelado.mostrarTodo();
         DefaultTableModel modelo = (DefaultTableModel) tblPlanilla.getModel();
         int cantidad = modelo.getRowCount();
         for (int i = 0; i < cantidad; i++) {
@@ -203,14 +203,14 @@ public class frm_CrearPlanilla extends javax.swing.JFrame {
             objEmpelado.setSalarioHoras(Double.parseDouble((String) tblPlanilla.getValueAt(numFilaSeleccionada, 5)));
             objEmpelado.setHorasTrabajadas(Double.parseDouble((String) tblPlanilla.getValueAt(numFilaSeleccionada, 6)));
 
-            if (objEmpelado.ModificarEmpleado()) {
+            /*if (objEmpelado.ModificarEmpleado()) {
                 JOptionPane.showMessageDialog(rootPane, "Usuario Modificado");
             } else {
                 JOptionPane.showMessageDialog(rootPane, "No se Ha Modificado");
             }
         } else {
             JOptionPane.showMessageDialog(rootPane, "No Se Ha Modoficado el Empleado ");
-        }
+        */}
 
     }//GEN-LAST:event_btnModificarActionPerformed
 

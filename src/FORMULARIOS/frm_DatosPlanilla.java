@@ -4,6 +4,7 @@
  */
 package FORMULARIOS;
 
+import CLASES.Empleado;
 import CLASES.Usuario;
 import javax.swing.JOptionPane;
 
@@ -43,7 +44,7 @@ public class frm_DatosPlanilla extends javax.swing.JFrame {
 
         jLabel1.setText("Seleccione la Fecha");
 
-        cmbAño.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Año", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004" }));
+        cmbAño.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Año", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", " " }));
 
         cmbMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mes", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
 
@@ -57,6 +58,12 @@ public class frm_DatosPlanilla extends javax.swing.JFrame {
         });
 
         btnAdicionarEmpleado.setText("Adicionar Empleado");
+        btnAdicionarEmpleado.setEnabled(false);
+        btnAdicionarEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdicionarEmpleadoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -119,11 +126,29 @@ public class frm_DatosPlanilla extends javax.swing.JFrame {
 
     private void btnCrearPlanillaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearPlanillaActionPerformed
         // TODO add your handling code here:
-        Usuario obj_usu = new Usuario();
-        obj_usu.setDia(cmbDia.getItemAt(cmbDia.getSelectedIndex()));
-        obj_usu.setMes(cmbMes.getItemAt(cmbMes.getSelectedIndex()));
-        obj_usu.setAño(cmbAño.getItemAt(cmbAño.getSelectedIndex()));
+        Empleado obj_emp = new Empleado();
+        obj_emp.setDia(cmbDia.getItemAt(cmbDia.getSelectedIndex()));
+        obj_emp.setMes(cmbMes.getItemAt(cmbMes.getSelectedIndex()));
+        obj_emp.setAño(cmbAño.getItemAt(cmbAño.getSelectedIndex()));
+        if(cmbAño.getSelectedIndex() == 0|| cmbMes.getSelectedIndex() == 0|| cmbDia.getSelectedIndex() == 0) {
+        JOptionPane.showMessageDialog(null, "Rellene todos los Campos");
+        }else{
+            obj_emp.setAño(this.cmbAño.getItemAt(cmbAño.getSelectedIndex()));
+            obj_emp.setMes(this.cmbMes.getSelectedIndex() + "");
+            obj_emp.setDia(this.cmbDia.getSelectedIndex() + "");
+            obj_emp.db_Insert_Planilla();
+            System.out.println(cmbDia.getItemAt(cmbDia.getSelectedIndex())+"-"+cmbMes.getSelectedIndex()+"-"+cmbAño.getSelectedIndex());
+            JOptionPane.showMessageDialog(null, "Fecha ingresada, Presione adicionar Empleado");
+            btnAdicionarEmpleado.setEnabled(true);
+        }
+        
     }//GEN-LAST:event_btnCrearPlanillaActionPerformed
+
+    private void btnAdicionarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarEmpleadoActionPerformed
+        frm_SeleccionSalario frm = new frm_SeleccionSalario();
+        frm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnAdicionarEmpleadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,7 +177,7 @@ public class frm_DatosPlanilla extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-
+        new frm_DatosPlanilla().setVisible(true);
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
