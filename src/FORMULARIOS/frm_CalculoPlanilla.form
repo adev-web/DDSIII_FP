@@ -134,22 +134,28 @@
                 <Component class="javax.swing.JTable" name="tblPlanilla">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="11" rowCount="0">
+                      <Table columnCount="12" rowCount="0">
+                        <Column editable="true" title="#Planilla" type="java.lang.Object"/>
+                        <Column editable="true" title="Fecha" type="java.lang.Object"/>
                         <Column editable="true" title="Cedula" type="java.lang.Object"/>
-                        <Column editable="true" title="Nombre1" type="java.lang.Object"/>
-                        <Column editable="true" title="Nombre2" type="java.lang.Object"/>
-                        <Column editable="true" title="Apellido1" type="java.lang.Object"/>
-                        <Column editable="true" title="Apellido2" type="java.lang.Object"/>
+                        <Column editable="true" title="Nombre" type="java.lang.Object"/>
+                        <Column editable="true" title="Nombre 2" type="java.lang.Object"/>
+                        <Column editable="true" title="Apellido" type="java.lang.Object"/>
+                        <Column editable="true" title="Apellido 2" type="java.lang.Object"/>
                         <Column editable="true" title="HT" type="java.lang.Object"/>
-                        <Column editable="true" title="S xH" type="java.lang.Object"/>
-                        <Column editable="true" title="Salario Bruto" type="java.lang.Object"/>
+                        <Column editable="true" title="SB" type="java.lang.Object"/>
                         <Column editable="true" title="SS" type="java.lang.Object"/>
                         <Column editable="true" title="SE" type="java.lang.Object"/>
-                        <Column editable="true" title="Salario Neto" type="java.lang.Object"/>
+                        <Column editable="true" title="Sal. Neto" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
-                      <TableColumnModel selectionModel="0">
+                      <TableColumnModel selectionModel="1">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                           <Title/>
                           <Editor/>
@@ -207,8 +213,9 @@
                         </Column>
                       </TableColumnModel>
                     </Property>
+                    <Property name="columnSelectionAllowed" type="boolean" value="true"/>
                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                      <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                     </Property>
                   </Properties>
                 </Component>

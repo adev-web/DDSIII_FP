@@ -124,7 +124,7 @@ public class frm_Planilla extends javax.swing.JFrame {
     private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
         DefaultTableModel modelo = (DefaultTableModel) tblPlanilla.getModel();
         Usuario obj_Usuario = new Usuario();
-        int cant = obj_Usuario.calculoPlanilla().size();
+        int cant = obj_Usuario.db_planilla().size();
         int cantidad = modelo.getRowCount();
 
         for(int i=0 ; i<cantidad ; i++){
@@ -134,12 +134,12 @@ public class frm_Planilla extends javax.swing.JFrame {
         for (int i = 0; i < cant; i++) {
 
             String[] RowTable = {
-                obj_Usuario.calculoPlanilla().get(i).getId_planilla(),
-                obj_Usuario.calculoPlanilla().get(i).getFecha(),
-                obj_Usuario.calculoPlanilla().get(i).getTSB(),
-                obj_Usuario.calculoPlanilla().get(i).getTSS(),
-                obj_Usuario.calculoPlanilla().get(i).getTEE(),
-                obj_Usuario.calculoPlanilla().get(i).getTSN()};
+                obj_Usuario.db_planilla().get(i).getId_planilla(),
+                obj_Usuario.db_planilla().get(i).getFecha(),
+                obj_Usuario.db_planilla().get(i).getTSB(),
+                obj_Usuario.db_planilla().get(i).getTSS(),
+                obj_Usuario.db_planilla().get(i).getTEE(),
+                obj_Usuario.db_planilla().get(i).getTSN()};
 
             modelo.addRow(RowTable);
         }

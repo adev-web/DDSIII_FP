@@ -189,11 +189,11 @@ public class Empleado extends Usuario {
     public boolean db_select_idPlanilla(){
         try {
             Statement consulta = Conn.getConnection().createStatement();
-            ResultSet registro = consulta.executeQuery("call sp_select_tbl_planilla_id_planilla ;");           
-            //etCedula(registro.getString("cedula"));
+            ResultSet registro = consulta.executeQuery("call sp_select_tbl_planilla_id_planilla();");           
             if(registro.next()){
             this.setId_planilla((registro.getString("id_planilla")));
             }
+            Conn.close_db();
         }catch(SQLException e){
             e.printStackTrace();
         }
@@ -209,11 +209,11 @@ public class Empleado extends Usuario {
                 +"('"+this.getId_planilla()+"',"
                 +"'"+this.getCedula()+"',"
                 +"'"+this.getHorasTrabajadas()+"',"
-                +"'"+this.getSalarioHoras()+"',"
-                +"'"+SalarioBruto()+"',"
-                +"'"+SeguroSocial()+"',"
-                +"'"+SeguroEducativo()+"',"
-                +"'"+SalarioNeto()+"');";
+                +"'"+df.format(this.getSalarioHoras())+"',"
+                +"'"+df.format(SalarioBruto())+"',"
+                +"'"+df.format(SeguroSocial())+"',"
+                +"'"+df.format(SeguroEducativo())+"',"
+                +"'"+df.format(SalarioNeto())+"');";
             consulta.executeUpdate(insertQuery);
             Conn.close_db();
         } catch (SQLException e) {
