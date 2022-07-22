@@ -5,11 +5,6 @@
 package CLASES;
 
 import java.util.Base64;
-
-/**
- *
- * @author Alessandro
- */
 public class Util {
 
     public static String encode(String str) {

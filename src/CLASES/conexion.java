@@ -6,7 +6,7 @@ package CLASES;
 
 import java.sql.*;
 
-public class conexion {
+public class Conexion {
 
     private static Connection con;
     private static final String driver = "com.mysql.jdbc.Driver";
@@ -15,16 +15,7 @@ public class conexion {
     private static final String url = "jdbc:mysql://localhost:3306/planilla";
 
     public static Connection getConnection() {
-        /*
-        
-        //for online. 
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conn = DriverManager.getConnection(
-            "jdbc:mysql://jk6u9316dsxd.us-east-2.psdb.cloud/planilla?sslMode=VERIFY_IDENTITY",
-            "lmz0lviewjs4",
-            "pscale_pw_A3_b79WZrnO7NL8DItlcTxc8mdbIM8I57bpLs6sRXHc");
-         */
-        con = null;
+        Connection con = null;
         try {
             Class.forName(driver);
             con = DriverManager.getConnection(url, user, password);
@@ -35,6 +26,19 @@ public class conexion {
             System.err.println("Failure Connection" + e);
         }
         return con;
+    }
+
+    public static ResultSet getTable(String consulta) {
+        Connection con2 = getConnection();
+        Statement st;
+        ResultSet datos = null;
+        try {
+            st = con2.createStatement();
+            datos = st.executeQuery(consulta);
+        } catch (Exception e) {
+            System.out.print(e.toString());
+        }
+        return datos;
     }
 
     public void close_db() {

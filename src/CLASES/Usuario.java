@@ -2,9 +2,11 @@ package CLASES;
 
 import java.sql.SQLException;
 import java.sql.*;
+import java.util.ArrayList;
 
 public class Usuario {
 
+    // <editor-fold defaultstate="collapsed" desc="private variable">
     private static String currentUser;
     private String cedulaSearch;
     private String cedula;
@@ -18,8 +20,14 @@ public class Usuario {
     private String mes;
     private String año;
     private String direccion;
+    // </editor-fold>///////////////////////////////
 
+    // <editor-fold defaultstate="collapsed" desc="SAVED">
+    // </editor-fold>///////////////////////////////
     // <editor-fold defaultstate="collapsed" desc="Set&Get">  
+    public Usuario() {
+    }
+
     public String getDireccion() {
         return direccion;
     }
@@ -132,9 +140,8 @@ public class Usuario {
     public void setAño(String año) {
         this.año = año;
     }
-// </editor-fold>      
-    ///////////////////////////////
-    conexion Conn = new conexion();
+// </editor-fold>///////////////////////////////
+    Conexion Conn = new Conexion();
 
     public boolean db_LoginCheck(String checkUser, String checkPass) {
         boolean result = false;
@@ -228,4 +235,30 @@ public class Usuario {
         }
         return result;
     }
+
+    public ArrayList<Planilla> calculoPlanilla() {
+        ArrayList<Planilla> Datos = new ArrayList<>();
+
+        try {
+            Statement st = Conn.getConnection().createStatement();
+            String query = "call sp_select_calculo_planilla();";
+            ResultSet rs = st.executeQuery(query);
+            while (rs.next()) {
+                Planilla obj_Planilla = new Planilla();
+                obj_Planilla.setId_planilla(rs.getString("id_planilla"));
+                obj_Planilla.setFecha(rs.getString("fecha"));
+                obj_Planilla.setTSB(rs.getString("TSB"));
+                obj_Planilla.setTSS(rs.getString("TSS"));
+                obj_Planilla.setTEE(rs.getString("TEE"));
+                obj_Planilla.setTSN(rs.getString("TSN"));
+                Datos.add(obj_Planilla);
+            }
+            Conn.close_db();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return Datos;
+    }
+
 }
