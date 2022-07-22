@@ -22,6 +22,7 @@ public class frm_DatosPlanilla extends javax.swing.JFrame {
      */
     public frm_DatosPlanilla() {
         initComponents();
+
         centreWindow(this);
     }
 
@@ -136,23 +137,38 @@ public class frm_DatosPlanilla extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCrearPlanillaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearPlanillaActionPerformed
-        // TODO add your handling code here:
         Empleado obj_emp = new Empleado();
-        obj_emp.setDia(cmbDia.getItemAt(cmbDia.getSelectedIndex()));
-        obj_emp.setMes(cmbMes.getItemAt(cmbMes.getSelectedIndex()));
-        obj_emp.setAño(cmbAño.getItemAt(cmbAño.getSelectedIndex()));
-        if(cmbAño.getSelectedIndex() == 0|| cmbMes.getSelectedIndex() == 0|| cmbDia.getSelectedIndex() == 0) {
-        JOptionPane.showMessageDialog(null, "Rellene todos los Campos");
-        }else{
+        if (cmbAño.getSelectedIndex() == 0 || cmbMes.getSelectedIndex() == 0 || cmbDia.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(null, "Rellene todos los Campos");
+        } else {
             obj_emp.setAño(this.cmbAño.getItemAt(cmbAño.getSelectedIndex()));
             obj_emp.setMes(this.cmbMes.getSelectedIndex() + "");
             obj_emp.setDia(this.cmbDia.getSelectedIndex() + "");
-            obj_emp.db_Insert_Planilla();
-            System.out.println(cmbDia.getItemAt(cmbDia.getSelectedIndex())+"-"+cmbMes.getSelectedIndex()+"-"+cmbAño.getSelectedIndex());
-            JOptionPane.showMessageDialog(null, "Fecha ingresada, Presione adicionar Empleado");
-            btnAdicionarEmpleado.setEnabled(true);
+            int dia, mes;
+
+            dia = Integer.parseInt(obj_emp.getDia());
+            mes = Integer.parseInt(obj_emp.getMes());
+            int intPlanilla = 0;
+            if (dia < 10 || mes < 10) {
+                intPlanilla = Integer.parseInt(obj_emp.getAño() + "0" + obj_emp.getMes() + "0" + obj_emp.getDia());
+            } else if (dia < 10) {
+                intPlanilla = Integer.parseInt(obj_emp.getAño() + "" + obj_emp.getMes() + "0" + obj_emp.getDia());
+            } else if (mes < 10) {
+                intPlanilla = Integer.parseInt(obj_emp.getAño() + "0" + obj_emp.getMes() + "" + obj_emp.getDia());
+            } else {
+                intPlanilla = Integer.parseInt(obj_emp.getAño() + "" + obj_emp.getMes() + "" + obj_emp.getDia());
+            }
+            System.out.println(intPlanilla + "   " + obj_emp.db_intLastPlanilla());
+            if (intPlanilla > obj_emp.db_intLastPlanilla()) {
+                obj_emp.db_Insert_Planilla();
+                JOptionPane.showMessageDialog(null, "Planilla insertada correctamente");
+
+                btnAdicionarEmpleado.setEnabled(true);
+            } else {
+                JOptionPane.showMessageDialog(null, "No puede ingresar planillas anteriores a la planilla actual");
+                btnAdicionarEmpleado.setEnabled(true);
+            }
         }
-        
     }//GEN-LAST:event_btnCrearPlanillaActionPerformed
 
     private void btnAdicionarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarEmpleadoActionPerformed
