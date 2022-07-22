@@ -6,7 +6,7 @@ package FORMULARIOS;
 
 import CLASES.Usuario;
 import CLASES.Util;
-import CLASES.conexion;
+import CLASES.Conexion;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 
 public class frm_Login extends javax.swing.JFrame {
 
-    private conexion Conn = new conexion();
+    private Conexion Conn = new Conexion();
     private Usuario obj_Usuario = new Usuario();
 
     public frm_Login() {
