@@ -114,7 +114,12 @@ public class frm_CalculoPlanilla extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel) tblPlanilla.getModel();
         Usuario obj_Usuario = new Usuario();
         int cant = obj_Usuario.calculoPlanilla().size();
+        int cantidad = modelo.getRowCount();
 
+        for(int i=0 ; i<cantidad ; i++){
+        modelo.removeRow(0);
+        }
+        
         for (int i = 0; i < cant; i++) {
 
             String[] RowTable = {
