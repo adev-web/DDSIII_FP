@@ -51,9 +51,7 @@ public class frm_CalculoPlanilla extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnMostrar = new javax.swing.JButton();
         btnRegresar = new javax.swing.JButton();
-        btnModificar = new javax.swing.JButton();
         btnAgregarEmpleado = new javax.swing.JButton();
-        btnEliminarEmpleado = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblPlanilla = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
@@ -79,7 +77,7 @@ public class frm_CalculoPlanilla extends javax.swing.JFrame {
                 btnMostrarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 100, 142, 51));
+        jPanel2.add(btnMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 100, 142, 51));
 
         btnRegresar.setBackground(new java.awt.Color(255, 153, 255));
         btnRegresar.setText("Regresar");
@@ -90,15 +88,6 @@ public class frm_CalculoPlanilla extends javax.swing.JFrame {
         });
         jPanel2.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 29, 100, 40));
 
-        btnModificar.setBackground(new java.awt.Color(51, 255, 204));
-        btnModificar.setText("Modificar");
-        btnModificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 100, 140, 50));
-
         btnAgregarEmpleado.setBackground(new java.awt.Color(51, 255, 204));
         btnAgregarEmpleado.setText("+Adicionar Empleado");
         btnAgregarEmpleado.addActionListener(new java.awt.event.ActionListener() {
@@ -106,16 +95,7 @@ public class frm_CalculoPlanilla extends javax.swing.JFrame {
                 btnAgregarEmpleadoActionPerformed(evt);
             }
         });
-        jPanel2.add(btnAgregarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 153, 51));
-
-        btnEliminarEmpleado.setBackground(new java.awt.Color(51, 255, 204));
-        btnEliminarEmpleado.setText("-Eliminar Empleado");
-        btnEliminarEmpleado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarEmpleadoActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnEliminarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 142, 51));
+        jPanel2.add(btnAgregarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, 153, 51));
 
         tblPlanilla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -141,27 +121,10 @@ public class frm_CalculoPlanilla extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarEmpleadoActionPerformed
-        frm_SeleccionSalario FRM = new frm_SeleccionSalario();
+        frm_GestionarEmpleado FRM = new frm_GestionarEmpleado();
         FRM.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnAgregarEmpleadoActionPerformed
-
-    private void btnEliminarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEmpleadoActionPerformed
-        Empleado objEmpelado = new Empleado();
-        int numFilaSeleccionada = tblPlanilla.getSelectedRow();
-        int Desicion = JOptionPane.showConfirmDialog(rootPane, "Desea Eliminar a Este Empleado");
-        if (Desicion == 0) {
-            objEmpelado.setCedula((String) tblPlanilla.getValueAt(numFilaSeleccionada, 0));
-
-            /*if (objEmpelado.EliminarEmpleado()) {
-                JOptionPane.showMessageDialog(rootPane, "Usuario eliminado");
-            } else {
-                JOptionPane.showMessageDialog(rootPane, "No se ha eliminado");
-            }
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "No Se Ha Eliminado el Empleado ");
-        */}
-    }//GEN-LAST:event_btnEliminarEmpleadoActionPerformed
 
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
         ArrayList<Empleado> lista = new ArrayList<>();
@@ -184,35 +147,10 @@ public class frm_CalculoPlanilla extends javax.swing.JFrame {
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         frm_Principal obj_Principal = new frm_Principal();
         Usuario obj_Usuario = new Usuario();
-        obj_Principal.setLblName(obj_Usuario.getCurrentUser());
+        //obj_Principal.setLblName(obj_Usuario.getCurrentUser());
         obj_Principal.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
-
-    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        Empleado objEmpelado = new Empleado();
-        int numFilaSeleccionada = tblPlanilla.getSelectedRow();
-        int Desicion = JOptionPane.showConfirmDialog(rootPane, "Desea Modificar a Este Empleado");
-
-        if (Desicion == 0) {
-            objEmpelado.setCedula((String) tblPlanilla.getValueAt(numFilaSeleccionada, 0));
-            objEmpelado.setNombre1((String) tblPlanilla.getValueAt(numFilaSeleccionada, 1));
-            objEmpelado.setNombre2((String) tblPlanilla.getValueAt(numFilaSeleccionada, 2));
-            objEmpelado.setApellido1((String) tblPlanilla.getValueAt(numFilaSeleccionada, 3));
-            objEmpelado.setApellido2((String) tblPlanilla.getValueAt(numFilaSeleccionada, 4));
-            objEmpelado.setSalarioHoras(Double.parseDouble((String) tblPlanilla.getValueAt(numFilaSeleccionada, 5)));
-            objEmpelado.setHorasTrabajadas(Double.parseDouble((String) tblPlanilla.getValueAt(numFilaSeleccionada, 6)));
-
-            /*if (objEmpelado.ModificarEmpleado()) {
-                JOptionPane.showMessageDialog(rootPane, "Usuario Modificado");
-            } else {
-                JOptionPane.showMessageDialog(rootPane, "No se Ha Modificado");
-            }
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "No Se Ha Modoficado el Empleado ");
-        */}
-
-    }//GEN-LAST:event_btnModificarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -259,8 +197,6 @@ public class frm_CalculoPlanilla extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarEmpleado;
-    private javax.swing.JButton btnEliminarEmpleado;
-    private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnMostrar;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JLabel jLabel1;
