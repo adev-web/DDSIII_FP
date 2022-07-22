@@ -5,6 +5,7 @@
 package FORMULARIOS;
 
 import CLASES.Empleado;
+import CLASES.Planilla;
 import CLASES.Usuario;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -130,30 +131,30 @@ public class frm_CalculoPlanilla extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarEmpleadoActionPerformed
 
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
-        DefaultTableModel modelo = (DefaultTableModel) tblPlanilla.getModel();
-        Usuario obj_Usuario = new Usuario();
-        int cant = obj_Usuario.db_planilla().size();
+       ArrayList<Planilla> lista = new ArrayList<>();
+        Planilla obj_Planilla = new Planilla();
+        lista = obj_Planilla.calculoPlanilla();
+        DefaultTableModel modelo = (DefaultTableModel)tblPlanilla.getModel();
         int cantidad = modelo.getRowCount();
-
         for(int i=0 ; i<cantidad ; i++){
         modelo.removeRow(0);
         }
-        
-        for (int i = 0; i < cant; i++) {
-            Object[] RowTable = {
-                obj_Usuario.calculoPlanilla().get(i).getId_planilla(),
-                obj_Usuario.calculoPlanilla().get(i).getFecha(),
-                obj_Usuario.calculoPlanilla().get(i).getCedula(),
-                obj_Usuario.calculoPlanilla().get(i).getNombre1(),
-                obj_Usuario.calculoPlanilla().get(i).getNombre2(),
-                obj_Usuario.calculoPlanilla().get(i).getApellido1(),
-                obj_Usuario.calculoPlanilla().get(i).getApellido2(),
-                obj_Usuario.calculoPlanilla().get(i).getHT(),
-                obj_Usuario.calculoPlanilla().get(i).getTSXH(),
-                obj_Usuario.calculoPlanilla().get(i).getTSB(),
-                obj_Usuario.calculoPlanilla().get(i).getTSS(),
-                obj_Usuario.calculoPlanilla().get(i).getTEE(),
-                obj_Usuario.calculoPlanilla().get(i).getTSN()};
+            
+        for (int i = 0; i < lista.size(); i++) {
+            String [] RowTable = {
+                obj_Planilla.calculoPlanilla().get(i).getId_planilla(),
+                obj_Planilla.calculoPlanilla().get(i).getFecha(),
+                obj_Planilla.calculoPlanilla().get(i).getCedula(),
+                obj_Planilla.calculoPlanilla().get(i).getNombre1(),
+                obj_Planilla.calculoPlanilla().get(i).getNombre2(),
+                obj_Planilla.calculoPlanilla().get(i).getApellido1(),
+                obj_Planilla.calculoPlanilla().get(i).getApellido2(),
+                obj_Planilla.calculoPlanilla().get(i).getHT(),
+                obj_Planilla.calculoPlanilla().get(i).getTSXH(),
+                obj_Planilla.calculoPlanilla().get(i).getTSB(),
+                obj_Planilla.calculoPlanilla().get(i).getTSS(),
+                obj_Planilla.calculoPlanilla().get(i).getTEE(),
+                obj_Planilla.calculoPlanilla().get(i).getTSN()};
 
             modelo.addRow(RowTable);
         }

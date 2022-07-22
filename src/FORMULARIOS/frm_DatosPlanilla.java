@@ -148,17 +148,10 @@ public class frm_DatosPlanilla extends javax.swing.JFrame {
             obj_emp.setMes(this.cmbMes.getSelectedIndex() + "");
             obj_emp.setDia(this.cmbDia.getSelectedIndex() + "");
             obj_emp.db_Insert_Planilla();
-            if(obj_emp.db_select_CheckFecha()){
-            JOptionPane.showMessageDialog(null, "Ya Existe Esta Planilla");
-            btnAdicionarEmpleado.setEnabled(true);
-            }
-            else{
-            
             System.out.println(cmbDia.getItemAt(cmbDia.getSelectedIndex())+"-"+cmbMes.getSelectedIndex()+"-"+cmbAño.getSelectedIndex());
             JOptionPane.showMessageDialog(null, "Fecha ingresada, Presione adicionar Empleado");
             btnAdicionarEmpleado.setEnabled(true);
-            }
-            }
+        }
         
     }//GEN-LAST:event_btnCrearPlanillaActionPerformed
 
