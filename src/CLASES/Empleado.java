@@ -222,6 +222,22 @@ public class Empleado extends Usuario {
     return false;
     }
     
+    public boolean db_select_CheckFecha(){
+        try {
+            Statement consulta = Conn.getConnection().createStatement();
+            ResultSet registro = consulta.executeQuery("call sp_insert_planilla_simple ("+this.getAño()+"-"+this.getMes()+"-"+this.getDia()+");");           
+            //etCedula(registro.getString("cedula"));
+            if(registro.next()){
+            String[] fechaNacimiento = registro.getString("fecha").split("\\-");
+                this.setAño(fechaNacimiento[0]);
+                this.setMes(fechaNacimiento[1]);
+                this.setDia(fechaNacimiento[2]); 
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+       return false;
+    }
     
     
 }//FIN DE LA CLASE
