@@ -14,11 +14,6 @@ import javax.swing.JOptionPane;
 
 public class Empleado extends Usuario {
     
-    private String empleados = "empleados.txt";
-    private String ruta = "C:\\proyecto\\";
-    private String usuarios = "usuario.txt";
-    private final String concat = "|";
-    private final String splitter = "\\|";
     private double salarioHoras, horasTrabajadas;
     
     public double getSalarioHoras() {
