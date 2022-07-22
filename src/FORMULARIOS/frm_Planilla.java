@@ -36,6 +36,7 @@ public class frm_Planilla extends javax.swing.JFrame {
         btnCrear = new javax.swing.JButton();
         btnVer = new javax.swing.JButton();
         btnCerrar = new javax.swing.JButton();
+        btnDetallePla = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,6 +74,13 @@ public class frm_Planilla extends javax.swing.JFrame {
             }
         });
 
+        btnDetallePla.setText("Planilla Detallada");
+        btnDetallePla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDetallePlaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -88,6 +96,8 @@ public class frm_Planilla extends javax.swing.JFrame {
                         .addComponent(btnCrear)
                         .addGap(18, 18, 18)
                         .addComponent(btnVer)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnDetallePla)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnCerrar)))
                 .addGap(16, 16, 16))
@@ -103,7 +113,8 @@ public class frm_Planilla extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCrear)
                     .addComponent(btnVer)
-                    .addComponent(btnCerrar))
+                    .addComponent(btnCerrar)
+                    .addComponent(btnDetallePla))
                 .addGap(50, 50, 50))
         );
 
@@ -149,6 +160,12 @@ public class frm_Planilla extends javax.swing.JFrame {
         obj_DatosPlanilla.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnCrearActionPerformed
+
+    private void btnDetallePlaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetallePlaActionPerformed
+        frm_CalculoPlanilla frm = new frm_CalculoPlanilla();
+        frm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnDetallePlaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -199,6 +216,7 @@ public class frm_Planilla extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnCrear;
+    private javax.swing.JButton btnDetallePla;
     private javax.swing.JButton btnVer;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
