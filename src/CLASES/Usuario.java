@@ -2,6 +2,7 @@ package CLASES;
 
 import java.sql.SQLException;
 import java.sql.*;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Usuario {
@@ -20,9 +21,9 @@ public class Usuario {
     private String mes;
     private String año;
     private String direccion;
+    DecimalFormat df = new DecimalFormat("#.00");
 
     // <editor-fold defaultstate="collapsed" desc="Set&Get">  
-
     public String getId_planilla() {
         return id_planilla;
     }
@@ -30,8 +31,7 @@ public class Usuario {
     public void setId_planilla(String id_planilla) {
         this.id_planilla = id_planilla;
     }
-    
-    
+
     public String getDireccion() {
         return direccion;
     }
@@ -240,12 +240,12 @@ public class Usuario {
         }
         return result;
     }
-        public ArrayList<Planilla> calculoPlanilla() {
-        ArrayList<Planilla> Datos = new ArrayList<>();
 
+    public ArrayList<Planilla> db_planilla() {
+        ArrayList<Planilla> Datos = new ArrayList<>();
         try {
             Statement st = Conn.getConnection().createStatement();
-            String query = "call sp_select_calculo_planilla();";
+            String query = "call sp_select_join_planilla_detallada();";
             ResultSet rs = st.executeQuery(query);
             while (rs.next()) {
                 Planilla obj_Planilla = new Planilla();
@@ -264,4 +264,35 @@ public class Usuario {
 
         return Datos;
     }
+
+    public ArrayList<Planilla> calculoPlanilla() {
+        ArrayList<Planilla> Datos = new ArrayList<>();
+        try {
+            Statement st = Conn.getConnection().createStatement();
+            String query = "call sp_select_calculo_planilla();";
+            ResultSet rs = st.executeQuery(query);
+            while (rs.next()) {
+                Planilla obj_Planilla = new Planilla();
+                obj_Planilla.setId_planilla(rs.getString("id_planilla"));
+                obj_Planilla.setFecha(rs.getString("fecha"));
+                obj_Planilla.setCedula(rs.getString("cedula"));
+                obj_Planilla.setNombre1(rs.getString("nombre1"));
+                obj_Planilla.setNombre2(rs.getString("nombre2"));
+                obj_Planilla.setApellido1(rs.getString("apellido1"));
+                obj_Planilla.setApellido2(rs.getString("apellido2"));
+                obj_Planilla.setHT(rs.getString("horas_trabajadas"));
+                obj_Planilla.setTSXH(rs.getString("sph"));
+                obj_Planilla.setTSB(rs.getString("sb"));
+                obj_Planilla.setTSS(rs.getString("ss"));
+                obj_Planilla.setTEE(rs.getString("se"));
+                obj_Planilla.setTSN(rs.getString("sn"));
+                Datos.add(obj_Planilla);
+            }
+            Conn.close_db();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Datos;
+    }
+
 }

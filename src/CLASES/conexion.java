@@ -15,7 +15,7 @@ public class Conexion {
     private static final String url = "jdbc:mysql://localhost:3306/planilla";
 
     public static Connection getConnection() {
-        Connection con = null;
+        con = null;
         try {
             Class.forName(driver);
             con = DriverManager.getConnection(url, user, password);

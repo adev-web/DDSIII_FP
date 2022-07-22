@@ -8,7 +8,7 @@ public class Planilla extends Empleado {
 
     // <editor-fold defaultstate="collapsed" desc="SAVED">
     Conexion Conn = new Conexion();
-    private String id_planilla, fecha, TSB, TSS, TEE, TSN;
+    private String id_planilla, fecha, TSB, TSS, TEE, TSN, TSXH, HT;
 
     public String getId_planilla() {
         return id_planilla;
@@ -57,7 +57,22 @@ public class Planilla extends Empleado {
     public void setTSN(String TSN) {
         this.TSN = TSN;
     }
-    // </editor-fold>///////////////////////////////
 
+    public String getTSXH() {
+        return TSXH;
+    }
+
+    public void setTSXH(String TSXH) {
+        this.TSXH = TSXH;
+    }
+
+    public String getHT() {
+        return HT;
+    }
+
+    public void setHT(String HT) {
+        this.HT = HT;
+    }
+    // </editor-fold>///////////////////////////////
 
 }

@@ -99,12 +99,12 @@ public class frm_SeleccionSalario extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 0, 204));
         jLabel6.setText("Horas Trabajadas");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 370, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 0, 204));
         jLabel7.setText("Salario Por hora");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 410, -1, -1));
 
         txtCedula.setEditable(false);
         txtCedula.setBackground(new java.awt.Color(255, 204, 204));
@@ -113,12 +113,12 @@ public class frm_SeleccionSalario extends javax.swing.JFrame {
         txtHorasTrabajadas.setEditable(false);
         txtHorasTrabajadas.setBackground(new java.awt.Color(255, 204, 204));
         txtHorasTrabajadas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jPanel1.add(txtHorasTrabajadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, 314, -1));
+        jPanel1.add(txtHorasTrabajadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 230, -1));
 
         txtSalario.setEditable(false);
         txtSalario.setBackground(new java.awt.Color(255, 204, 204));
         txtSalario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jPanel1.add(txtSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 410, 314, -1));
+        jPanel1.add(txtSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 410, 230, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 0, 204));
@@ -253,7 +253,9 @@ public class frm_SeleccionSalario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
-        
+    frm_Principal obj_Principal = new frm_Principal();
+    obj_Principal.setVisible(true);
+    this.dispose();
     }//GEN-LAST:event_btnAtrasActionPerformed
 
     /**
