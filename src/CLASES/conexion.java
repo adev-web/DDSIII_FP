@@ -1,18 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package CLASES;
 
 import java.sql.*;
+import static jdk.internal.org.jline.utils.Colors.s;
 
 public class Conexion {
 
     private static Connection con;
-    private static final String driver = "com.mysql.jdbc.Driver";
-    private static final String user = "root";
-    private static final String password = "";
-    private static final String url = "jdbc:mysql://localhost:3306/planilla";
+    private static final String driver = "com.mysql.cj.jdbc.Driver";
+    private static final String user = "4jcaqulow1qf";
+    private static final String password = "pscale_pw_vSCbCykf5aYu6iGoMrZeeRZYyROlmIt9MFFAm3Z70Vo";
+    private static final String url = "jdbc:mysql://ukkqgwu901a8.us-east-2.psdb.cloud/planilla?sslMode=VERIFY_IDENTITY";
 
     public static Connection getConnection() {
         con = null;
@@ -20,32 +18,23 @@ public class Conexion {
             Class.forName(driver);
             con = DriverManager.getConnection(url, user, password);
             if (con != null) {
-                System.out.println("Connection succesfull");
+            //System.out.println("Connection Succesfull");
             }
         } catch (ClassNotFoundException | SQLException e) {
-            System.err.println("Failure Connection" + e);
+            //System.err.println("Failure Connection" + e);
+            e.printStackTrace();
         }
         return con;
     }
 
-    public static ResultSet getTable(String consulta) {
-        Connection con2 = getConnection();
-        Statement st;
-        ResultSet datos = null;
-        try {
-            st = con2.createStatement();
-            datos = st.executeQuery(consulta);
-        } catch (Exception e) {
-            System.out.print(e.toString());
-        }
-        return datos;
-    }
-
-    public void close_db() {
+    public static void close_db() {
         con = null;
         if (con == null) {
-            System.out.println("Connection ended");
-
+                        System.out.println("End Connection");
         }
+    }
+    public static void main(String[] args) {
+        //getConnection();
+        
     }
 }

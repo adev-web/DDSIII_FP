@@ -1,9 +1,4 @@
 package CLASES;
-
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
-
 public class Planilla extends Empleado {
 
     // <editor-fold defaultstate="collapsed" desc="SAVED">

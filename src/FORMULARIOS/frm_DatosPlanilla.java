@@ -42,6 +42,7 @@ public class frm_DatosPlanilla extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnVerPlanilla = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         cmbAño = new javax.swing.JComboBox<>();
@@ -49,6 +50,14 @@ public class frm_DatosPlanilla extends javax.swing.JFrame {
         cmbDia = new javax.swing.JComboBox<>();
         btnCrearPlanilla = new javax.swing.JButton();
         btnAdicionarEmpleado = new javax.swing.JButton();
+
+        btnVerPlanilla.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnVerPlanilla.setText("Ver Planilla");
+        btnVerPlanilla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerPlanillaActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,6 +71,7 @@ public class frm_DatosPlanilla extends javax.swing.JFrame {
 
         cmbDia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dia", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
+        btnCrearPlanilla.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnCrearPlanilla.setText("Crear Planilla");
         btnCrearPlanilla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,6 +79,7 @@ public class frm_DatosPlanilla extends javax.swing.JFrame {
             }
         });
 
+        btnAdicionarEmpleado.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnAdicionarEmpleado.setText("Adicionar Empleado");
         btnAdicionarEmpleado.setEnabled(false);
         btnAdicionarEmpleado.addActionListener(new java.awt.event.ActionListener() {
@@ -89,15 +100,15 @@ public class frm_DatosPlanilla extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(55, 55, 55)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnCrearPlanilla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(cmbAño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(cmbMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(cmbDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnCrearPlanilla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnAdicionarEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,9 +122,9 @@ public class frm_DatosPlanilla extends javax.swing.JFrame {
                     .addComponent(cmbDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCrearPlanilla, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btnAdicionarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -129,8 +140,7 @@ public class frm_DatosPlanilla extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -145,7 +155,6 @@ public class frm_DatosPlanilla extends javax.swing.JFrame {
             obj_emp.setMes(this.cmbMes.getSelectedIndex() + "");
             obj_emp.setDia(this.cmbDia.getSelectedIndex() + "");
             int dia, mes;
-
             dia = Integer.parseInt(obj_emp.getDia());
             mes = Integer.parseInt(obj_emp.getMes());
             int intPlanilla = 0;
@@ -158,20 +167,26 @@ public class frm_DatosPlanilla extends javax.swing.JFrame {
             } else {
                 intPlanilla = Integer.parseInt(obj_emp.getAño() + "" + obj_emp.getMes() + "" + obj_emp.getDia());
             }
-            System.out.println(intPlanilla + "   " + obj_emp.db_intLastPlanilla());
             if (intPlanilla > obj_emp.db_intLastPlanilla()) {
                 obj_emp.db_Insert_Planilla();
                 JOptionPane.showMessageDialog(null, "Planilla insertada correctamente");
-
                 btnAdicionarEmpleado.setEnabled(true);
             } else {
                 JOptionPane.showMessageDialog(null, "No puede ingresar planillas anteriores a la planilla actual");
-                btnAdicionarEmpleado.setEnabled(true);
+                btnAdicionarEmpleado.setEnabled(false);
             }
         }
     }//GEN-LAST:event_btnCrearPlanillaActionPerformed
 
+    private void btnVerPlanillaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerPlanillaActionPerformed
+        frm_Planilla next_frm = new frm_Planilla();
+        next_frm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnVerPlanillaActionPerformed
+
     private void btnAdicionarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarEmpleadoActionPerformed
+        // TODO add your handling code here:
+
         frm_SeleccionSalario frm = new frm_SeleccionSalario();
         frm.setVisible(true);
         this.dispose();
@@ -216,6 +231,7 @@ public class frm_DatosPlanilla extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdicionarEmpleado;
     private javax.swing.JButton btnCrearPlanilla;
+    private javax.swing.JButton btnVerPlanilla;
     private javax.swing.JComboBox<String> cmbAño;
     private javax.swing.JComboBox<String> cmbDia;
     private javax.swing.JComboBox<String> cmbMes;

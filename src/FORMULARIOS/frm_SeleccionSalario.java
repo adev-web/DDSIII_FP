@@ -224,7 +224,7 @@ public class frm_SeleccionSalario extends javax.swing.JFrame {
                 obj_Empleado.setCedula(txtCedula.getText());
                 obj_Empleado.setHorasTrabajadas(Double.parseDouble(txtHorasTrabajadas.getText()));
                 obj_Empleado.setSalarioHoras(Double.parseDouble(txtSalario.getText()));
-                obj_Empleado.db_insert_DetallePlanilla();
+                obj_Empleado.db_insert_detallePlanilla();
                 txtSalario.setText("");
                 txtHorasTrabajadas.setText("");
                 JOptionPane.showMessageDialog(this, "Ingresado con Exito!!");
@@ -236,10 +236,7 @@ public class frm_SeleccionSalario extends javax.swing.JFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
 
-        Usuario obj_Usuario = new Usuario();
         boolean checkUsuario = obj_Empleado.db_SearchEmpleado(txtSearchCedula.getText());
-
-        //////////////////////////////
         if (txtSearchCedula.getText().length() == 0) {
             JOptionPane.showMessageDialog(this, ""
                 + "Ingrese el ID del Empleado para buscarlo.");
@@ -247,7 +244,6 @@ public class frm_SeleccionSalario extends javax.swing.JFrame {
             if (checkUsuario) {
                 obj_Empleado.db_select_idPlanilla();
                 JOptionPane.showMessageDialog(null, "El empleado fue encontrado\n Digite el salario por hora y horas trabajadas");
-                //txtId_planilla.setText(obj_Empleado.getId_planilla());
                 txtCedula.setText(obj_Empleado.getCedula());
                 txtNombre.setText(obj_Empleado.getNombre1());
                 txtNombre2.setText(obj_Empleado.getNombre2());
@@ -257,7 +253,7 @@ public class frm_SeleccionSalario extends javax.swing.JFrame {
                 txtSalario.setEditable(true);
                 btnAgregar.setEnabled(true);
             } else {
-                JOptionPane.showMessageDialog(null, "El empleado No existe en la Base de datos");
+                JOptionPane.showMessageDialog(null, "El empleado no existe en la base de datos");
             }
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
