@@ -318,8 +318,6 @@ public class frm_GestionarEmpleado extends javax.swing.JFrame {
     private void btn_GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_GuardarActionPerformed
         Empleado obj_Empleado = new Empleado();
         boolean checkEmpleado = obj_Empleado.db_SearchEmpleado(txtCurrentCedula.getText());
-        System.out.println("Usuario encontrado: " + checkEmpleado);
-
         if (txtCurrentCedula.getText().length() == 0 || txtNombre.getText().length() == 0 || txtNombre2.getText().length() == 0 || txtApellido.getText().length() == 0 || txtApellido2.getText().length() == 0 || txtDireccion.getText().length() == 0 || txtTelefono.getText().length() == 0 || cmbAño.getSelectedIndex() == 0 || cmbMes.getSelectedIndex() == 0 || cmbDia.getSelectedIndex() == 0) {
             JOptionPane.showMessageDialog(this, "RELLENE TODOS LOS ESPACIOS!!");
         } else {
@@ -342,6 +340,7 @@ public class frm_GestionarEmpleado extends javax.swing.JFrame {
                     btn_Guardar.setEnabled(false);
                     btn_Editar.setEnabled(false);
                     btn_Nuevo.setEnabled(true);
+
                     disableFields();
                     emptyFields();
                 } else {
@@ -371,11 +370,11 @@ public class frm_GestionarEmpleado extends javax.swing.JFrame {
                     obj_Empleado.setDireccion(this.txtDireccion.getText());
                     obj_Empleado.setTelefono(this.txtTelefono.getText());
                     JOptionPane.showMessageDialog(this, "El empleado fue creado con éxito!");
-                    this.txtCurrentCedula.setEditable(false);
-                    this.btn_Buscar.setEnabled(false);
-                    this.btn_Guardar.setEnabled(false);
-                    this.btn_Editar.setEnabled(false);
-                    this.btn_Nuevo.setEnabled(true);
+                    txtCurrentCedula.setEditable(false);
+                    btn_Buscar.setEnabled(false);
+                    btn_Guardar.setEnabled(false);
+                    btn_Editar.setEnabled(false);
+                    btn_Nuevo.setEnabled(true);
                     disableFields();
                     obj_Empleado.db_InsertEmpleado();
                 } else {

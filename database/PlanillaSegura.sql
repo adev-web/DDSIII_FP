@@ -167,95 +167,54 @@ DELIMITER ;
 -- Estructura de tabla para la tabla `tbl_detalle_planilla`
 --
 
-CREATE TABLE `tbl_detalle_planilla` (
-  `id_planilla` bigint(20) DEFAULT NULL,
-  `cedula_empleado` varchar(20) DEFAULT NULL,
-  `horas_trabajadas` float DEFAULT NULL,
-  `sph` float DEFAULT NULL,
-  `sb` float DEFAULT NULL,
-  `ss` float DEFAULT NULL,
-  `se` float DEFAULT NULL,
-  `sn` float DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE tbl_empleado_planilla (
+  id_planilla bigint(11) NOT NULL,
+  cedula_empleado varchar(20) NOT NULL,
+  horas_trabajadas float NOT NULL,
+  sph float NOT NULL,
+  sb float NOT NULL,
+  ss float NOT NULL,
+  se float NOT NULL,
+  sn float NOT NULL,
+)
 
---
--- Volcado de datos para la tabla `tbl_detalle_planilla`
---
-
-INSERT INTO `tbl_detalle_planilla` (`id_planilla`, `cedula_empleado`, `horas_trabajadas`, `sph`, `sb`, `ss`, `se`, `sn`) VALUES
-(11, '1111111', 20, 10, 200, 19.5, 2.5, 178),
-(11, '22222222', 30, 10, 300, 29.25, 3.75, 267),
-(11, '656878797', 38, 20, 760, 74.1, 9.5, 676.4);
-
--- --------------------------------------------------------
-
+-- ------------------------------------------------------
 --
 -- Estructura de tabla para la tabla `tbl_empleado`
 --
 
-CREATE TABLE `tbl_empleado` (
-  `cedula` varchar(20) NOT NULL,
-  `nombre1` varchar(100) DEFAULT NULL,
-  `nombre2` varchar(100) DEFAULT NULL,
-  `apellido1` varchar(100) DEFAULT NULL,
-  `apellido2` varchar(100) DEFAULT NULL,
-  `fechanacimeinto` date DEFAULT NULL,
-  `direccion` varchar(250) DEFAULT NULL,
-  `telefono` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `tbl_empleado`
---
-
-INSERT INTO `tbl_empleado` (`cedula`, `nombre1`, `nombre2`, `apellido1`, `apellido2`, `fechanacimeinto`, `direccion`, `telefono`) VALUES
-('1111111', 'fdhhdfhh', 'fdhfhdhfdhfdfhdfhd', 'fhdfdhfhdhfd', 'fdhhfdhfdhfd', '1995-02-02', 'dfhfdhfdfhdhfdhfd', 'fd6545465'),
-('22222222', 'SFASFASFSF', 'ASFASFASF', 'FSAFSASFSAFASF', 'SFAFASFSAFSAF', '1995-01-03', 'SAFSADFASfsfs', 'sfasafsfafsasfa'),
-('656878797', 'asfsafsafsafa', 'sfaafasrwrqwrrwwrq', 'wqrwrqwqrr', 'wqrqwrrwqrwq', '1996-03-07', 'qwrrqwwqrwrq', 'qwrrwqwrqwrqwrq');
-
--- --------------------------------------------------------
+CREATE TABLE tbl_empleado (
+  cedula varchar(20) NOT NULL,
+  nombre1 varchar(20) NOT NULL,
+  nombre2 varchar(20) NOT NULL,
+  apellido1 varchar(20) NOT NULL,
+  apellido2 varchar(20) NOT NULL,
+  fecha_nacimiento date DEFAULT NULL,
+  direccion varchar(100) NOT NULL,
+  telefono varchar(20) NOT NULL,
+  PRIMARY KEY (cedula)
+)
 
 --
 -- Estructura de tabla para la tabla `tbl_planilla`
 --
 
-CREATE TABLE `tbl_planilla` (
-  `id_planilla` bigint(20) NOT NULL,
-  `fecha` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE tbl_planilla (
+  id_planilla bigint(11) NOT NULL AUTO_INCREMENT,
+  fecha date NOT NULL,
+  PRIMARY KEY (id_planilla)
+);
 
---
--- Volcado de datos para la tabla `tbl_planilla`
---
 
-INSERT INTO `tbl_planilla` (`id_planilla`, `fecha`) VALUES
-(1, '2022-01-27'),
-(2, '2022-02-26'),
-(3, '2022-03-24'),
-(4, '2022-04-26'),
-(5, '2022-05-27'),
-(6, '2022-06-28'),
-(7, '2022-07-29'),
-(8, '2022-08-30'),
-(9, '2024-03-03'),
-(10, '2022-09-27'),
-(11, '2022-09-29');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `tbl_usuarios`
---
-
-CREATE TABLE `tbl_usuarios` (
-  `cedula` varchar(20) NOT NULL,
-  `userid` varchar(20) DEFAULT NULL,
-  `contrasenna` varchar(20) DEFAULT NULL,
-  `nombre` varchar(100) DEFAULT NULL,
-  `apellido` varchar(100) DEFAULT NULL,
-  `direccion` varchar(250) DEFAULT NULL,
-  `fechaingreso` datetime DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE tbl_usuarios (
+  cedula varchar(20) NOT NULL,
+  userid varchar(20) NOT NULL,
+  contrasenna varchar(20) NOT NULL,
+  nombre varchar(20) NOT NULL,
+  apellido varchar(20) NOT NULL,
+  direccion varchar(100) NOT NULL,
+  fecha_ingreso datetime
+) 
 
 --
 -- Índices para tablas volcadas

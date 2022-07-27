@@ -11,8 +11,6 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.Window;
 import java.util.ArrayList;
-import java.util.Scanner;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 //import jdk.nashorn.internal.parser.Lexer;
 
@@ -27,6 +25,8 @@ public class frm_CalculoPlanilla extends javax.swing.JFrame {
      */
     public frm_CalculoPlanilla() {
         initComponents();
+        txt_SBT.setEditable(false);
+        txt_SNT.setEditable(false);
         centreWindow(this);
 
     }
@@ -49,6 +49,8 @@ public class frm_CalculoPlanilla extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        txt_SBT = new javax.swing.JTextField();
+        txt_SNT = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         btnMostrar = new javax.swing.JButton();
         btnRegresar = new javax.swing.JButton();
@@ -65,10 +67,12 @@ public class frm_CalculoPlanilla extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.add(txt_SBT, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 460, 180, 50));
+        jPanel2.add(txt_SNT, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 460, 180, 50));
 
         jLabel1.setFont(new java.awt.Font("Perpetua", 0, 60)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 255, 204));
-        jLabel1.setText("CALCULO DE PLANILLA");
+        jLabel1.setText("CÁLCULO DE PLANILLA");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 29, -1, -1));
 
         btnMostrar.setBackground(new java.awt.Color(51, 255, 204));
@@ -103,7 +107,7 @@ public class frm_CalculoPlanilla extends javax.swing.JFrame {
 
             },
             new String [] {
-                "#Planilla", "Fecha", "Cedula", "Nombre", "Nombre 2", "Apellido", "Apellido 2", "HT", "SB", "SS", "SE", "Sal. Neto"
+                "#Planilla", "Fecha", "Cedula", "Nombre", "Nombre 2", "Apellido", "Apellido 2", "HT", "SxH", "Salario Bruto", "SS", "SE", "Salario Neto"
             }
         ));
         tblPlanilla.setColumnSelectionAllowed(true);
@@ -111,10 +115,10 @@ public class frm_CalculoPlanilla extends javax.swing.JFrame {
         jScrollPane2.setViewportView(tblPlanilla);
         tblPlanilla.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 1083, 271));
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 1083, 300));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/luz-de-neón-fondo-pared-ladrillo-habitación-abstracto-209837783.jpg"))); // NOI18N
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 450));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, 530));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, -1));
 
@@ -131,33 +135,37 @@ public class frm_CalculoPlanilla extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarEmpleadoActionPerformed
 
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
-       ArrayList<Planilla> lista = new ArrayList<>();
+        DefaultTableModel modelo = (DefaultTableModel) tblPlanilla.getModel();
+        ArrayList<Planilla> lista = new ArrayList<>();
         Planilla obj_Planilla = new Planilla();
         lista = obj_Planilla.calculoPlanilla();
-        DefaultTableModel modelo = (DefaultTableModel)tblPlanilla.getModel();
-        int cantidad = modelo.getRowCount();
-        for(int i=0 ; i<cantidad ; i++){
-        modelo.removeRow(0);
+        int cant = lista.size();
+        int cant2 = modelo.getRowCount();
+        for (int i = 0; i < cant2; i++) {
+            modelo.removeRow(0);
         }
-            
-        for (int i = 0; i < lista.size(); i++) {
-            String [] RowTable = {
-                obj_Planilla.calculoPlanilla().get(i).getId_planilla(),
-                obj_Planilla.calculoPlanilla().get(i).getFecha(),
-                obj_Planilla.calculoPlanilla().get(i).getCedula(),
-                obj_Planilla.calculoPlanilla().get(i).getNombre1(),
-                obj_Planilla.calculoPlanilla().get(i).getNombre2(),
-                obj_Planilla.calculoPlanilla().get(i).getApellido1(),
-                obj_Planilla.calculoPlanilla().get(i).getApellido2(),
-                obj_Planilla.calculoPlanilla().get(i).getHT(),
-                obj_Planilla.calculoPlanilla().get(i).getTSXH(),
-                obj_Planilla.calculoPlanilla().get(i).getTSB(),
-                obj_Planilla.calculoPlanilla().get(i).getTSS(),
-                obj_Planilla.calculoPlanilla().get(i).getTEE(),
-                obj_Planilla.calculoPlanilla().get(i).getTSN()};
+        for (int k = 0; k < cant; k++) {
 
+            Object[] RowTable = {
+                lista.get(k).getId_planilla(),
+                lista.get(k).getFecha(),
+                lista.get(k).getCedula(),
+                lista.get(k).getNombre1(),
+                lista.get(k).getNombre2(),
+                lista.get(k).getApellido1(),
+                lista.get(k).getApellido2(),
+                lista.get(k).getHT(),
+                lista.get(k).getTSXH(),
+                lista.get(k).getTSB(),
+                lista.get(k).getTSS(),
+                lista.get(k).getTEE(),
+                lista.get(k).getTSN()};
             modelo.addRow(RowTable);
         }
+        
+        txt_SBT.setText("Salario Bruto: B/." + obj_Planilla.db_planillaTotales("sb"));
+        txt_SNT.setText("Salario Neto: B/." + obj_Planilla.db_planillaTotales("sn"));
+
     }//GEN-LAST:event_btnMostrarActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
@@ -221,5 +229,7 @@ public class frm_CalculoPlanilla extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblPlanilla;
+    private javax.swing.JTextField txt_SBT;
+    private javax.swing.JTextField txt_SNT;
     // End of variables declaration//GEN-END:variables
 }

@@ -20,4 +20,7 @@ public class Util {
         byte[] decoded = decoder.decode(str.getBytes());
         return new String(decoded);
     }
+    public static void main(String[] args) {
+       //System.err.println(decode("QW5pbWFsZXMjMTQ="));
+    }
 }

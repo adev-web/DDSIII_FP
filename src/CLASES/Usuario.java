@@ -2,7 +2,6 @@ package CLASES;
 
 import java.sql.SQLException;
 import java.sql.*;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Usuario {
@@ -21,7 +20,6 @@ public class Usuario {
     private String mes;
     private String año;
     private String direccion;
-    DecimalFormat df = new DecimalFormat("#.00");
 
     // <editor-fold defaultstate="collapsed" desc="Set&Get">  
     public String getId_planilla() {
@@ -152,9 +150,8 @@ public class Usuario {
         boolean result = false;
         try {
             Statement consulta = Conn.getConnection().createStatement();
-            ResultSet registro = consulta.executeQuery("call sp_LoginCheck"
-                + "('" + checkUser + "',"
-                + "'" + checkPass + "');");
+            String query = "select '" + true + "' as result, nombre, apellido from tbl_usuario where user = '" + checkUser + "' and password = '" + checkPass + "';";
+            ResultSet registro = consulta.executeQuery(query);
 
             if (registro.next()) {
                 String prueba = new String(registro.getString("result"));
@@ -167,7 +164,7 @@ public class Usuario {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.print("Login: " + result);
+        //System.out.print("Login: " + result);
         return result;
     }
 
@@ -175,15 +172,16 @@ public class Usuario {
         boolean result = false;
         try {
             Statement consulta = Conn.getConnection().createStatement();
-            ResultSet registro = consulta.executeQuery("call sp_select_tbl_usuarios_by_id('" + searchUser + "');");
+            String query = "select *,'" + true + "' as result from tbl_usuario where cedula_usuario = '" + searchUser + "';";
+            ResultSet registro = consulta.executeQuery(query);
             if (registro.next()) {
-                cedula = registro.getString("cedula");
-                userId = registro.getString("userid");
-                password = registro.getString("contrasenna");
+                cedula = registro.getString("cedula_usuario");
+                userId = registro.getString("user");
+                password = registro.getString("password");
                 nombre1 = registro.getString("nombre");
                 apellido1 = registro.getString("apellido");
                 direccion = registro.getString("direccion");
-                result = Boolean.parseBoolean(registro.getString("result"));;
+                result = true;
             }
             Conn.close_db();
         } catch (SQLException e) {
@@ -196,20 +194,20 @@ public class Usuario {
         boolean result = false;
         try {
             Statement consulta = Conn.getConnection().createStatement();
-            String insertQuery = "INSERT INTO tbl_usuarios"
-                + "(cedula,"
-                + "userid,"
-                + "contrasenna"
-                + ",nombre,"
-                + "apellido,"
-                + "direccion,"
-                + "fechaingreso)"
-                + "VALUES('" + getCedula() + "',"
-                + "'" + getUserId() + "',"
-                + "'" + getPassword() + "',"
-                + "'" + getNombre1() + "',"
-                + "'" + getApellido1() + "',"
-                + "'" + getDireccion() + "',"
+            String insertQuery = "INSERT INTO tbl_usuario"
+                + "(cedula_usuario, "
+                + "user, "
+                + "password, "
+                + "nombre, "
+                + "apellido, "
+                + "direccion, "
+                + "fecha_ingreso)"
+                + "VALUES('" + getCedula() + "', "
+                + "'" + getUserId() + "', "
+                + "'" + getPassword() + "', "
+                + "'" + getNombre1() + "', "
+                + "'" + getApellido1() + "', "
+                + "'" + getDireccion() + "', "
                 + "now());";
             consulta.executeUpdate(insertQuery);
             Conn.close_db();
@@ -224,15 +222,17 @@ public class Usuario {
         boolean result = false;
         try {
             Statement consulta = Conn.getConnection().createStatement();
-            String insertQuery = ""
-                + "call sp_update_tbl_usuarios"
-                + "('" + this.getCedula() + "', "
-                + "'" + this.getUserId() + "', "
-                + "'" + this.getPassword() + "', "
-                + "'" + this.getNombre1() + "', "
-                + "'" + this.getApellido1() + "', "
-                + "'" + this.getDireccion() + "');";
-            consulta.executeUpdate(insertQuery);
+            String query = "UPDATE tbl_usuario "
+                + "SET "
+                + "user = '" + this.getUserId() + "', "
+                + "password = '" + this.getPassword() + "', "
+                + "nombre = '" + this.getNombre1() + "', "
+                + "apellido = '" + this.getApellido1() + "', "
+                + "direccion = '" + this.getDireccion() + "' "
+                + "WHERE "
+                + "cedula_usuario = '" + this.getCedula() + "';";
+
+            consulta.executeUpdate(query);
             Conn.close_db();
             result = true;
         } catch (SQLException e) {
@@ -245,7 +245,8 @@ public class Usuario {
         ArrayList<Planilla> Datos = new ArrayList<>();
         try {
             Statement st = Conn.getConnection().createStatement();
-            String query = "call sp_select_join_planilla_detallada();";
+            String query = ""
+                + "SELECT a.id_planilla,a.fecha,round(sum(b.sb),2) as TSB,round(sum(b.ss), 2) AS TSS, round(sum(b.se), 2) AS TEE, round(sum(b.sn), 2) AS TSN FROM tbl_empleado_planilla AS b INNER JOIN tbl_planilla AS a WHERE a.id_planilla = b.id_planilla GROUP BY a.id_planilla;";
             ResultSet rs = st.executeQuery(query);
             while (rs.next()) {
                 Planilla obj_Planilla = new Planilla();
@@ -269,17 +270,17 @@ public class Usuario {
         ArrayList<Planilla> Datos = new ArrayList<>();
         try {
             Statement st = Conn.getConnection().createStatement();
-            String query = "call sp_select_calculo_planilla();";
+            String query = "SELECT * FROM tbl_empleado AS a, tbl_empleado_planilla AS b, tbl_planilla as c where a.cedula_empleado = b.cedula_empleado AND b.id_planilla = c.id_planilla ORDER BY c.id_planilla;";
             ResultSet rs = st.executeQuery(query);
             while (rs.next()) {
                 Planilla obj_Planilla = new Planilla();
                 obj_Planilla.setId_planilla(rs.getString("id_planilla"));
                 obj_Planilla.setFecha(rs.getString("fecha"));
-                obj_Planilla.setCedula(rs.getString("cedula"));
-                obj_Planilla.setNombre1(rs.getString("nombre1"));
-                obj_Planilla.setNombre2(rs.getString("nombre2"));
-                obj_Planilla.setApellido1(rs.getString("apellido1"));
-                obj_Planilla.setApellido2(rs.getString("apellido2"));
+                obj_Planilla.setCedula(rs.getString("cedula_empleado"));
+                obj_Planilla.setNombre1(rs.getString("nombre_1"));
+                obj_Planilla.setNombre2(rs.getString("nombre_2"));
+                obj_Planilla.setApellido1(rs.getString("apellido_1"));
+                obj_Planilla.setApellido2(rs.getString("apellido_2"));
                 obj_Planilla.setHT(rs.getString("horas_trabajadas"));
                 obj_Planilla.setTSXH(rs.getString("sph"));
                 obj_Planilla.setTSB(rs.getString("sb"));
@@ -295,4 +296,19 @@ public class Usuario {
         return Datos;
     }
 
+    public String db_planillaTotales(String str) {
+        String result = "";
+        try {
+            Statement consulta = Conn.getConnection().createStatement();
+            String query = "Select round(sum(sb), 2) AS sb, round(sum(sn), 2) AS sn FROM tbl_empleado_planilla;";
+            ResultSet registro = consulta.executeQuery(query);
+            if (registro.next()) {
+                result = registro.getString(str);
+            }
+            Conn.close_db();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 }

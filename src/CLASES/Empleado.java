@@ -25,79 +25,35 @@ public class Empleado extends Usuario {
         this.horasTrabajadas = horasTrabajadas;
     }
 
-    public Empleado() {
-    }
-
-    //METODO DE CREAR/////
-    //***************************
-    //METODO BUSCAR//// 
-    //METODO DE MODIFICAR EL USUARIO
-    //MICROMETODOS
     public double SalarioBruto() {
-        double bruto = horasTrabajadas * salarioHoras;
-        return bruto;
+        return horasTrabajadas * salarioHoras;
     }
 
     public double SeguroSocial() {
-        double Seguros = SalarioBruto() * 0.0975;
-        return Seguros;
+        return SalarioBruto() * 0.0975;
     }
 
     public double SeguroEducativo() {
-        double SE = SalarioBruto() * 0.0125;
-        return SE;
+        return SalarioBruto() * 0.0125;
     }
 
     public double SalarioNeto() {
-        double neto = SalarioBruto() - SeguroEducativo() - SeguroSocial();
-        return neto;
+        return SalarioBruto() - SeguroEducativo() - SeguroSocial();
     }
 
-    //METODO DE MOSTRAR USUARIO EN TABLA
-    /* public ArrayList<Empleado> mostrarTodo() {
-       
-        }
-       
-        try {
-            Scanner read = new Scanner(fl);
-            while (read.hasNextLine()) {
-                //String linea = read.nextLine();
-                Statement consulta = Conn.getConnection().createStatement();
-                ResultSet registro = consulta.executeQuery("call sp_select_tbl_empleado_by_id('" + searchUser + "');"); 
-                String[] arr = ;
-                Empleado objEmpelado = new Empleado();
-                objEmpelado.setCedula(arr[0]);  
-                objEmpelado.setNombre1(arr[1]);
-                objEmpelado.setNombre2(arr[2]);
-                objEmpelado.setApellido1(arr[3]);
-                objEmpelado.setApellido2(arr[4]);
-                objEmpelado.setHorasTrabajadas(Double.parseDouble(arr[5]));
-                objEmpelado.setSalarioHoras(Double.parseDouble(arr[6]));
-                objEmpelado.SalarioBruto();
-                empleadoLista.add(objEmpelado);
-                objEmpelado.SeguroSocial();
-                objEmpelado.SeguroEducativo();
-                objEmpelado.SalarioNeto();
-            }
-            read.close();
-            return empleadoLista;
-        } catch (FileNotFoundException e) {
-            return null;
-        }
-    }
-     */
     public boolean db_SearchEmpleado(String searchUser) {
         boolean result = false;
         try {
             Statement consulta = Conn.getConnection().createStatement();
-            ResultSet registro = consulta.executeQuery("call sp_select_tbl_empleado_by_id('" + searchUser + "');");
+            String query = "SELECT * FROM tbl_empleado WHERE cedula_empleado = '" + searchUser + "'";
+            ResultSet registro = consulta.executeQuery(query);
             if (registro.next()) {
-                setCedula(registro.getString("cedula"));
-                setNombre1(registro.getString("nombre1"));
-                setNombre2(registro.getString("nombre2"));
-                setApellido1(registro.getString("apellido1"));
-                setApellido2(registro.getString("apellido2"));
-                String[] fechaNacimiento = registro.getString("fechanacimeinto").split("\\-");
+                setCedula(registro.getString("cedula_empleado"));
+                setNombre1(registro.getString("nombre_1"));
+                setNombre2(registro.getString("nombre_2"));
+                setApellido1(registro.getString("apellido_1"));
+                setApellido2(registro.getString("apellido_2"));
+                String[] fechaNacimiento = registro.getString("fecha_nacimiento").split("\\-");
                 this.setAño(fechaNacimiento[0]);
                 this.setMes(fechaNacimiento[1]);
                 this.setDia(fechaNacimiento[2]);
@@ -120,7 +76,14 @@ public class Empleado extends Usuario {
             Statement consulta = Conn.getConnection().createStatement();
             String insertQuery = ""
                 + "INSERT INTO tbl_empleado"
-                + "(cedula,nombre1,nombre2,apellido1,apellido2,fechanacimeinto,direccion,telefono) "
+                + "(cedula_empleado, "
+                + "nombre_1, "
+                + "nombre_2, "
+                + "apellido_1, "
+                + "apellido_2, "
+                + "fecha_nacimiento, "
+                + "direccion, "
+                + "telefono) "
                 + "VALUES('" + this.getCedula() + "', "
                 + "'" + this.getNombre1() + "', "
                 + "'" + this.getNombre2() + "', "
@@ -143,17 +106,20 @@ public class Empleado extends Usuario {
         String fechaNacimiento = getAño() + "-" + getMes() + "-" + getDia();
         try {
             Statement consulta = Conn.getConnection().createStatement();
-            String insertQuery = ""
-                + "call sp_update_tbl_empleado"
-                + "('" + this.getCedula() + "', "
-                + "'" + this.getNombre1() + "', "
-                + "'" + this.getNombre2() + "', "
-                + "'" + this.getApellido1() + "', "
-                + "'" + this.getApellido2() + "', "
-                + "'" + fechaNacimiento + "', "
-                + "'" + this.getDireccion() + "', "
-                + "'" + this.getTelefono() + "');";
-            consulta.executeUpdate(insertQuery);
+            String query = ""
+                + "UPDATE tbl_empleado "
+                + "SET "
+                + "    cedula_empleado = '" + getCedula() + "',"
+                + "    nombre_1 = '" + getNombre1() + "', "
+                + "    nombre_2 = '" + getNombre2() + "', "
+                + "    apellido_1 = '" + getApellido1() + "', "
+                + "    apellido_2 = '" + getApellido2() + "', "
+                + "    fecha_nacimiento = '" + fechaNacimiento + "', "
+                + "    direccion = '" + getDireccion() + "', "
+                + "    telefono = '" + getTelefono() + "' "
+                + "WHERE "
+                + "'" + getCedula() + "' = cedula_empleado;";
+            consulta.executeUpdate(query);
             Conn.close_db();
             result = true;
         } catch (SQLException e) {
@@ -163,23 +129,35 @@ public class Empleado extends Usuario {
     }
 
     public boolean db_Insert_Planilla() {
+        boolean result = false;
         try {
             Statement consulta = Conn.getConnection().createStatement();
-            String insertQuery
-                = "call sp_insert_planilla"
-                + "('" + this.getAño() + "-" + this.getMes() + "-" + this.getDia() + "');";
-            consulta.executeUpdate(insertQuery);
-            Conn.close_db();
+            String fechaPlanilla = getAño() + "-" + getMes() + "-" + getDia();
+            String query = "SELECT fecha FROM tbl_planilla WHERE fecha = '" + fechaPlanilla + "'";
+            ResultSet rs1 = consulta.executeQuery(query);
+            if (rs1.next()) {
+            } else {
+                Conn.close_db();
+                try {
+                    Statement consulta2 = Conn.getConnection().createStatement();
+                    String insertQuery = "INSERT INTO tbl_planilla (fecha) values('" + fechaPlanilla + "');";
+                    consulta2.executeUpdate(insertQuery);
+                    result = true;
+                    Conn.close_db();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return false;
+        return result;
     }
 
     public boolean db_select_idPlanilla() {
         try {
             Statement consulta = Conn.getConnection().createStatement();
-            ResultSet registro = consulta.executeQuery("call sp_select_tbl_planilla_id_planilla();");
+            ResultSet registro = consulta.executeQuery("SELECT MAX(id_planilla) AS id_planilla FROM tbl_planilla;");
             if (registro.next()) {
                 this.setId_planilla((registro.getString("id_planilla")));
             }
@@ -190,20 +168,13 @@ public class Empleado extends Usuario {
         return false;
     }
 
-    public boolean db_insert_DetallePlanilla() {
+    public boolean db_insert_detallePlanilla() {
         Usuario obj_Usuario = new Usuario();
         try {
             Statement consulta = Conn.getConnection().createStatement();
-            String insertQuery = ""
-                + "call sp_insert_detalle_planilla"
-                + "('" + this.getId_planilla() + "',"
-                + "'" + this.getCedula() + "',"
-                + "'" + this.getHorasTrabajadas() + "',"
-                + "'" + df.format(this.getSalarioHoras()) + "',"
-                + "'" + df.format(SalarioBruto()) + "',"
-                + "'" + df.format(SeguroSocial()) + "',"
-                + "'" + df.format(SeguroEducativo()) + "',"
-                + "'" + df.format(SalarioNeto()) + "');";
+            String insertQuery = "INSERT INTO tbl_empleado_planilla(id_planilla, cedula_empleado, horas_trabajadas, sph, sb, ss, se, sn) VALUES ("
+                + "'" + getId_planilla() + "','" + getCedula() + "','" + getHorasTrabajadas() + "', round( '" + getSalarioHoras() + "',2),round('" + SalarioBruto() + "' ,2),round('" + SeguroSocial() + "',2), round('" + SeguroEducativo() + "',2), round('" + SalarioNeto() + "',2)"
+                + ");";
             consulta.executeUpdate(insertQuery);
             Conn.close_db();
         } catch (SQLException e) {
@@ -213,10 +184,11 @@ public class Empleado extends Usuario {
     }
 
     public boolean db_select_CheckFecha() {
+        boolean result = false;
         try {
             Statement consulta = Conn.getConnection().createStatement();
-            ResultSet registro = consulta.executeQuery("call sp_insert_planilla_simple (" + this.getAño() + "-" + this.getMes() + "-" + this.getDia() + ");");
-            //etCedula(registro.getString("cedula"));
+            String fechaPlanilla = getAño() + "-" + getMes() + "-" + getDia();
+            ResultSet registro = consulta.executeQuery("SELECT fecha FROM tbl_planilla WHERE fecha = '" + fechaPlanilla + "');");
             if (registro.next()) {
                 String[] fechaNacimiento = registro.getString("fecha").split("\\-");
                 this.setAño(fechaNacimiento[0]);
@@ -226,20 +198,22 @@ public class Empleado extends Usuario {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return false;
+        return result;
     }
 
     public int db_intLastPlanilla() {
         int result = 0;
         try {
             Statement consulta = Conn.getConnection().createStatement();
-            String fechaPlanilla = getAño() + "-" + getMes() + "-" + getDia();
-            int intPlanilla = Integer.parseInt(getAño() + "" + getMes() + "" + getDia());
-            String query = "select max(id_planilla) as id_planilla, max(fecha) as last_fecha from tbl_planilla;";
+            String query = "SELECT MAX(id_planilla) AS id_planilla, max(fecha) AS last_fecha FROM tbl_planilla;";
             ResultSet rs = consulta.executeQuery(query);
             if (rs.next()) {
-                String[] fecha = rs.getString("last_fecha").split("\\-");
-                result = Integer.parseInt(fecha[0] + "" + fecha[1] + "" + fecha[2]);
+                if (rs.getString("last_fecha") != null) {
+                    String[] fecha = rs.getString("last_fecha").split("\\-");
+                    result = Integer.parseInt(fecha[0] + "" + fecha[1] + "" + fecha[2]);
+                } else {
+                    result = 00000000;
+                }
             }
             Conn.close_db();
         } catch (Exception e) {
@@ -252,7 +226,7 @@ public class Empleado extends Usuario {
         String id_planillaCurrent = null;
         try {
             Statement consulta = Conn.getConnection().createStatement();
-            String query = "select max(id_planilla) as id_planilla, max(fecha) as last_fecha from tbl_planilla;";
+            String query = "SELECT MAX(id_planilla) AS id_planilla, MAX(fecha) AS last_fecha FROM tbl_planilla;";
             ResultSet rs = consulta.executeQuery(query);
             if (rs.next()) {
                 id_planillaCurrent = rs.getString("id_planilla");
@@ -268,7 +242,7 @@ public class Empleado extends Usuario {
         boolean checker = false;
         try {
             Statement consulta = Conn.getConnection().createStatement();
-            String query = "select * from tbl_detalle_planilla where '" + str_id + "' = id_planilla and cedula_empleado = '" + str_cedula + "';";
+            String query = "SELECT * FROM tbl_empleado_planilla WHERE '" + str_id + "' = id_planilla AND cedula_empleado = '" + str_cedula + "';";
             ResultSet rs = consulta.executeQuery(query);
             if (rs.next()) {
                 String id = rs.getString("id_planilla");
